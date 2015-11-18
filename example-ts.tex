@@ -1,0 +1,160 @@
+% This is example for Doctoral Thesis Statement used by CTUStyle
+% CTUStyle is the plainTeX template for theses at CTU in Prague
+% ---------------------------------------------------------------------
+% Petr Olsak  May 2014
+
+% You can copy this file to your own file and do some changes.
+% Then you can run:  pdfcsplain your-file
+
+\input ctustyle-ts   % The template is included here.
+%\input pdfuni    % Uncomment this if you need accented PDFoutlines
+%\input opmac-bib % Uncomment this for direct reading of .bib database files 
+
+\worktype [O/EN] % Type: O = other
+                 % / the language: CZ = Czech, SK = Slovak, EN = English
+
+% Use main language of your document while filling in the items.
+% The mandatory items: \faculty, \depatment, \title, \author, \date, \address
+% \studyspec, \studyform, \studyinfo, \orohead, \candidate, \supervisor
+
+\faculty    {F3}  % Type your faculty F1, F2, F3, etc.
+\department {Department of Mathematics}
+\title      {CTUstyle -- The plain \TeX{} template}
+\author     {Petr Olšák}
+\date       {Prague, January 2013} 
+\address    {Technická~2, Prague~6}    % The address of Dean Office
+\studyspec  {Mathematical Engineering} % The branch of study
+\studyform  {full-time}  % full-time / combined / prezenční / kombinované
+
+\studyinfo {  % Programme + branch separeted by \nl
+   Ph.D. Programme: Electrical Engineering and Information Technology\nl
+   Branch of Study: \the\studyspec
+}
+\orohead {    % The chairman of the Board (see the bottom of the page 4)
+  Prof. RNDr. Jan Hamhalter, CSc.\nl
+  Chairman of the Board for the Defence of the Doctoral Thesis 
+  in the branch of study \the\studyspec\ 
+  Faculty of Electrical Engineering of the CTU in Prague\nl
+  \the\address
+}
+\candidate {  % Author including degrees, department and address separeted by \nl
+  RNDr. Petr Olšák\nl
+  \the\department\nl 
+  Zikova 4\nl
+  CZ-16636 Prague 6
+}
+\supervisor { % Supervisor including degrees, department and address
+  Doc. Ing. Josef Zlo, DrSc.\nl
+  Department of Measurement\nl
+  Faculty of Electrical Engineering of the CTU in Prague\nl
+  Technická 2\nl
+  CZ-16627 Prague 6
+}
+
+% Optional items: \supervisorspec, \opponents.
+% Fill in them in the same form as \supervisor if they are known.
+
+% \supervisorspec {} 
+% \opponents  {}    
+
+% You can re-declare the dafault texts.
+
+% \workname {Doctoral Thesis Statement by default}
+% \titleinfo {info about ``Doctor'' abbreviated to ``Ph.D.'' on the page 2}
+% \infoA {info on the top of the page 4}
+% \infoB {first info below Opponents about distributing}
+% \infoC {second info about meeting}
+% \infoD {third info about Dean Office}
+
+%%%%% <--   % The place for your own macros is here.
+
+%\draft     % Uncomment this if the version of your document is working only.
+%\linespacing=1.7  % uncomment this if you need more spaces between lines
+                   % Warning: this works only when \draft is activated!
+%\savetoner        % Turns off the lightBlue backround of tables and
+                   % verbatims, only for \draft version.
+%\blackwhite       % Use this if you need really Black+White thesis.
+%\onesideprinting  % Use this if you really don't use duplex printing. 
+
+\makefront  % Mandatory command. Makes title page and info page
+
+% Don't use \chap command here; only \sec, \secc are recommended.
+
+\nonum\notoc\sec Contents
+
+\maketoc \outlines0  % These commands generates TOC and PDF outlines
+
+\sec Current Situation of the Studied Problem
+%============================================
+
+Aha uff. \lorem.
+
+\sec Aims of the Doctoral Thesis
+%===============================
+
+Aha uff. \lorem.
+
+\sec Working Methods 
+%===================
+
+Aha uff. \lorem.
+
+\secc First Variant
+%------------------
+
+\lorem.
+
+\secc Second Variant
+%-------------------
+
+\lorem.
+
+\sec Results
+%===========
+
+Aha uff. See Table~\ref[curious_result]. \lorem.
+
+\midinsert \clabel[curious_result]{The Magic Numbers}
+  \ctable{lccc}{
+    Number    & First & Second & Third \crl \tskip4pt
+    ones      &   1   &    2   &    3 \cr
+    tens      &  10   &   20   &   30 \cr
+    hundreds  & 100   &  200   &  300 \cr
+}
+\caption/t The magic numbers. The core result of this work.
+\endinsert
+
+
+\sec Conclusion
+%==============
+
+Aha uff. \lorem.
+
+\nonum\sec References used in the thesis statement 
+%=================================================
+
+Aha uff.
+
+\nonum\sec List of candidate's works\nl relating to the doctoral thesis 
+%======================================================================
+
+Aha ufff.
+
+\nonum\sec Response / No response and reviews 
+%============================================
+
+Aha uff. \lorem.
+
+\nonum\sec Summary
+%=================
+
+Aha uff. \lorem.
+
+\nonum\sec Resumé
+%================
+
+\chyph 
+Resumé napíšu v češtině. Proto předchází příkaz "\chyph", který zapne české
+dělení slov. Uff.
+
+\bye

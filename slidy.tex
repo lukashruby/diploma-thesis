@@ -1,0 +1,308 @@
+\input ctuslides
+
+\worktype[O/CZ]
+\faculty{F3}
+\department{Katedra matematiky}
+
+\slideshow 
+
+\tit CTUslides ---\nl 
+     jednoduché slídy\nl ve stylu CTUstyle
+
+\subtit\bf Petr Olšák\nl petr@olsak.net
+
+\subtit\rm \url{http://petr.olsak.net/ctustyle.html}
+
+\pg; %------------------------------------------------------------------
+
+\sec Zahájení dokumentu
+
+* Dokument vložíme do souboru (například \code{soubor.tex})\nl
+  a zpracujeme příkazem \code{pdfcsplain soubor}.
+
+* Do záhlaví dokumentu je třeba napsat:
+
+\pg=\typosize[13/15]\begtt
+\input ctuslides % načtení maker pro slídy
+\worktype[B/CZ]  % nastavení typu práce (B,M,D,O) a jazyka (CZ,SK,EN)
+\faculty{F3}     % označení fakulty pro titulní stránku
+\department {Katedra matematiky} % označení katedry
+
+\slideshow       % zahájení dokumentu
+... dokument ...
+\pg.
+\endtt
+
+* Dokument se ukončí sekvencí \code{\\pg} následovanou tečkou.
+
+* Pro bezproblémové zpracování je nutné mít OPmac ve verzi aspoň May~2015.
+  Dostupné z \url{http://petr.olsak.net/opmac.html}.
+
+* Nastavení typu práce a jazyka probíhá stejně jako v {\bf\Blue CTUstyle}.
+
+* Na rozdíl od {\bf\Blue CTUstyle} je možné použít jen deklarační
+  příkazy \code{\\worktype}, \code{\\faculty} a \code{\\department}.
+
+\pg; %------------------------------------------------------------------
+
+\sec Základní struktura
+
+* V celém dokumentu je možné psát \code{\*} pro zahájení odrážky.
+* Vložené odrážky (druhé a další úrovně) vzniknou v prostředí 
+  \code{\\begitems}\dots\code{\\enditems}.
+* Nadpisy slíd řešíme pomocí sekvence \code{\\sec Nadpis}\nl
+  následované prázdným řádkem. Podobně lze použít \code{\\secc Nadpis}.
+* Pro titulní stranu (první slída) použijeme sekvenci \code{\\tit Nadpis}\nl
+  následovanou prázdným řádkem.
+* Po nadpisu pomocí \code{\\tit} může následovat sekvence\nl
+  \code{\\subtit Jméno autora apod.} rovněž následovaná prázdným řádkem.
+* Texty v odstavci jsou zarovnány jen vlevo (na prapor). 
+* Pokud chceme odřádkovat, je možné použít sekvenci \code{\\nl}.
+* Odstránkování a konec dokumentu provedeme pomocí sekvence \code{\\pg}\nl
+  následované znaky \code{+} nebo \code{,} nebo \code{.}
+* Pásek s naznačenými stránkami vpravo je klikací a upraví se správně po
+  druhém průchodu zpracování \TeX{}em.
+
+\pg; %------------------------------------------------------------------
+
+\sec Způsoby odstránkování
+
+* Na odstránkování se použije sekvence \code{\\pg} následovaná:
+
+\begitems
+* znakem \frame{\strut\code{+}}, pak po odstránkování stávající text zůstává
+  a přidává se k~němu nový (postupné odhalování myšlenek),\pg+
+* znakem \frame{\strut\code{;}}, pak se jedná o \uv{normální} odstránkování,\pg+
+* znakem \frame{\strut\code{.}} což se {\it musí} použít na konci dokumentu.
+\enditems
+\pg+
+
+* Shrnutí:
+\pg=\begtt
+\pg+    ... pokračuj od stejného místa
+\pg;    ... nová strana
+\pg.    ... konec dokumentu
+\endtt
+\pg+
+
+* Jakmile odstraníme nebo zakomentujeme \code{\\slideshow} ze záhlaví dokumentu,
+  příkazy \code{\\pg+} se deaktivují. 
+  To je vhodné pro verzi dokumentu pro tisk.\pg+
+
+* Další zde nezmíněnou variantou je sekvence \code{\\pg=}, která 
+  nezpůsobí odstránkování, ale používá se 
+  pro verbatim texty (viz dále).
+
+\pg; %------------------------------------------------------------------
+
+\sec Verbatim (tedy doslovné) texty
+
+\secc Verbatim texty v odstavci
+
+* V textu odstavce {\it nelze} používat \code{"..."} pro verbatim úseky textu.
+* Místo toho použijeme sekvenci \code{\\code{...}} popsanou v OPmac triku
+  0102 na \url{http://petr.olsak.net/opmac-tricks.html\#code}.
+* Argument příkazu \code{\\code{...}} se vypíše doslova, ale před problémové
+  znaky je třeba psát backslash. Takže znak backslash se vytiskne jen tehdy, 
+  pokud je zdvojený.\pg+
+
+\secc Víceřádkové verbatim texty 
+
+* Pro výpisy víceřádkových kódů je nutné před \code{\\begtt} použít \code{\\pg=}
+  takto:
+
+\pg=\adef|{\bslash}\begtt
+\pg=|begtt
+... livovolný verbatim text ...
+|endtt
+\endtt
+
+Následuje příklad\dots
+
+\pg; %------------------------------------------------------------------
+
+\sec Příklad výpisu víceřádkového kódu
+
+Do zdrojového dokumentu napíšeme:
+
+\pg=\adef|{\bslash}\begtt
+\pg=\typosize[13/15]\Red|begtt
+#include <stdio.h>
+int main();
+{
+  printf("Hello world!\n");
+}
+|endtt
+\endtt\pg+
+
+A na výstupu dostaneme:
+
+\pg=\typosize[13/15]\Red\begtt
+#include <stdio.h>
+int main();
+{
+  printf("Hello world!\n");
+}
+\endtt
+
+Vidíme, že mezi \code{\\pg=} a \code{\\begtt} je možné vložit lokální
+nastavení sazby.
+
+\pg; %------------------------------------------------------------------
+
+\sec Menší potíže se sekvencí \code{\\pg+} 
+
+* Sekvenci \code{\\pg+} nelze použít uvnitř skupiny.
+* Výjimkou je skupina vnořeného prostředí \code{\\begitems...\\enditems}.\pg+
+
+\secc Jak se s tím vyrovnat?
+
+* Přechod na jinou velikost fontu pomocí \code{\\typosize} nebo
+  \code{\\typoscale} provedeme
+  globálně, pak můžeme v této nové velikosti použít \code{\\pg+} a pak se
+  vrátíme k~původní velikosti pomocí sekvence \code{\\normalsize}.
+
+* Chceme-li postupně poodhalovat jednotlivé řádky kódu, je možné použít:
+
+\pg=\typosize[13/15]\adef|{\bslash}\begtt
+\pg=\begtt
+... první řádek kódu ...
+|endtt \pg+ \pg=\begtt
+... druhý řádek kódu ...
+|endtt \pg+
+\endtt
+
+* Pro odhalování \uv{na přeskáčku} a odhalování uvnitř skupin
+  je možné použít makra \code{\\use} a \code{\\pshow}\dots
+
+\pg; %------------------------------------------------------------------
+
+\sec Odhalování pomocí \code{\\use} a \code{\\pshow}
+
+* Makro \code{\\use{podmínka}\\povel} použije \code{\\povel}, jen pokud číslo
+  postupně odhalené slídy splňuje podmínku. 
+
+* Makro \code{\\pshow num} (partially show) zobrazí následující text 
+  až po konec skupiny
+\begitems
+* neviditelně, je-li číslo odhalené slídy menší než num,
+* červeně, je-li číslo odhalené slídy rovno num,
+* černě, je-li číslo odhalené slídy větší. 
+\enditems
+
+* Číslo odhalené slídy se po každém \code{\\pg;} resetuje na jedničku a po
+  každém \code{\\pg+} se zvětšuje o jedničku.
+
+* Makro \code{\\pshow} využívá \code{\\use} a je definováno takto
+
+\pg=\begtt
+\def\pshow#1{\use{=#1}\Red \use{<#1}\White \ignorespaces}
+\endtt
+
+
+\edef\restore{\leftskip=\the\leftskip \relax}
+
+\pg; %------------------------------------------------------------------
+
+\sec Příklad použití \code{\\pshow}
+
+\pg=\typosize[13/15]\begtt
+\secc Myšlenky na přeskáčku
+
+* {\pshow1 První myšlenka}
+* {\pshow3 Druhá myšlenka}
+* {\pshow2 Třetí myšlenka}
+
+\pg+\pg+\pg+
+
+\secc Vzorec
+
+Zabývejme se vzorcem
+$$ 
+  E = {\pshow5 m}{\pshow6 c^2}
+$$
+
+\pg+\pg+\pg+
+
+A to je vše.
+
+\pg;
+\endtt
+
+\vskip-12cm \null 
+
+\leftskip=10cm 
+\def\s{\hskip10cm}
+
+\secc \s Myšlenky na přeskáčku
+
+* {\pshow1 První myšlenka}
+* {\pshow3 Druhá myšlenka}
+* {\pshow2 Třetí myšlenka}
+
+\pg+\pg+\pg+
+
+\secc\s Vzorec
+
+Zabývejme se vzorcem
+$$
+  \s E = {\pshow5 m}{\pshow6 c^2} 
+$$
+
+\pg+\pg+\pg+
+
+A to je vše.
+
+\pg; %------------------------------------------------------------------
+
+\restore
+
+\sec Tabulky, obrázky
+
+* Tabulky lze udělat příkazem \code{\\table} nebo \code{\\ctable}.
+* Obrázky lze vložit příkazem \code{\\inspic}.
+* Podrobněji viz dokumentaci k OPmac.
+* Umístění na střed je možné zařídit pomocí \code{\\centerline{}}.
+* Příklad:\pg+
+
+\pg=\begtt
+\centerline{\picw=5cm \inspic cmelak1.jpg }
+\endtt
+
+\medskip
+\centerline{\picw=5cm \inspic cmelak1.jpg } 
+%\caption/f Čmelák
+
+\pg; %------------------------------------------------------------------
+
+\sec Srovnání CTUslides a Beameru\fnote{\url{http://www.ctan.org/pkg/beamer}}
+
+\LaTeX{}ový balíček Beamer umí mnohonásobně více věcí a nabízí množství
+předpřipravených typografických řešení, {\bf\Red ale}
+
+* Beamer nutí (stejně jako \LaTeX) dokument {\it programovat} za použití
+  velkého množství nejrůznějších \code{\\begin{něco}} a \code{\\end{něco}}
+  a dalších programátorských konstrukcí,
+* zatímco plain\TeX{} umožňuje autorovi dokument {\it psát} s minimálním
+  množstvím značek. Výsledný zdrojový kód je daleko přehlednější.
+\pg+
+* Beamer se naučíme používat po přečtení 250 stránkové dokumentace, 
+* zatímco v případě {\bf\Blue CTUslides} stačí pročíst deset 
+  slíd\fnote{tuto jedenáctou už nepočítáme}.
+\pg+
+* Vzkaz pro programátory: naprogramovat další typografické řešení pro 
+  \LaTeX{} je daleko komplikovanější, než implementovat typografický 
+  návrh v~plain\TeX{}u. A abychom se v \LaTeX{}u opravdu vyznali, stejně nejprve
+  musíme pořádně ovládat \TeX.
+
+\pg; %------------------------------------------------------------------
+
+\null
+\vskip2cm
+\centerline{\typosize[35/40]\bf Děkuji za pozornost}\pg+
+
+\vskip2cm
+\centerline{\Blue\typosize[60/70]\bf Dotazy?}
+
+\pg. %------------------------------KONEC-------------------------------
+

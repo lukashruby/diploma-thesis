@@ -1,0 +1,236 @@
+% ctustyle-ts.tex -- the extended macros for ctustyle.tex 
+% Thesis Statement
+% See the example-ts.tex for an example of usage
+% -------------------------------------------------------
+% Petr Olsak  May 2014
+
+\ifx\ctustyleversion\undefined \input ctustyle \fi
+
+\margins/2 a5 (17,17,11,20)mm
+\typosize[9.5/11]
+\def\makeheadline{}
+
+\def\titlepageA{
+   \insertoutline{\mtext{title0}}
+   \topskip=0pt\vglue5mm
+   \line{\locc \let\longlocalcolor=\localcolor
+      \Blue \vrule height 170mm width 4mm \Black \hss
+      \vbox to170mm{\advance\hsize by-8mm \parindent=0pt
+         \kern.3pt
+         \leavevmode \strut\bf \ifcase\worktypenum
+                \the\workname \or \mtext{B}\or \mtext{M}\or \mtext{D}\fi
+         \vskip5mm \picw=2.9cm \def\picdir{}%
+         \line{\inspic ctulogo.pdf \hss   
+            \vbox{\advance\hsize by-34mm   
+               \baselineskip=17pt\secfont%\bf\thefontsize[15]
+               \Blue \mtext{ctu}\par
+            \kern.5pt}}
+         \vskip8mm
+         \line{\hbox{\bf\thefontsize[32] \printfaculty}\hss}
+         \vskip55mm
+         \rightskip=0pt plus1fil
+         {\secfont\Black \the\author \par}
+         \vss
+         \the\date\par
+}}}
+\def\titlepageB{{\bf \baselineskip=15pt
+   \leftskip=0pt plus1fill \rightskip=0pt plus1fill \parindent=0pt
+   \insertoutline{\mtext{title0}-2}   
+   \vglue7mm
+   {\def\nl{ }\mtext{ctu}\par}
+   \mtext{\the\faculty}\par
+   \the\department\par
+   \vfill
+   \the\author\par
+   \vskip15mm
+   {\locc\nBlue {\secfont \the\title\nl \par}\medskip\the\subtitle\par}
+   \baselineskip=12pt
+   \vfill
+   \tenss \the\studyinfo \par
+   \vskip15mm
+   \the\titleinfo \par
+   \vskip15mm
+   \bf \the\date\par
+}}
+\def\infopage{{\hbadness=2000
+   \parindent=0pt
+   \the\infoA \par
+   \bigskip
+   \setright{\mtext{candidate}}{\the\candidate}
+   \bigskip
+   \setright{\mtext{supervisorD}}{\the\supervisor}
+   \if^\the\supervisorspec^\else
+      \bigskip
+      \setright{\mtext{supervisorS}}{\the\supervisorspec}\fi
+   \bigskip
+   \setright{\mtext{opponents}}{\the\opponents}
+   \vfill
+   \the\infoB \par
+   \bigskip
+   \the\infoC \par
+   \bigskip
+   \the\infoD \par
+   \vfill
+   \hfill\vbox{\advance\hsize by-3cm 
+      \leftskip=0pt plus1fill \rightskip=0pt plus1fill
+      \the\orohead \par}
+}}
+\def\setright#1#2{\setbox0=\hbox{\bf#1:\enspace}%
+   \ifdim\wd0<5.8em \wd0=5.8em \fi
+   {\hangindent=\wd0 \noindent\box0\ignorespaces#2\par}%
+}
+\def\makefront{%
+   \everypar={}
+   \mandatorydecl\faculty
+   \edef\tmpa{:F1:F2:F3:F4:F5:F6:F7:F8:MUVS:}
+   \edef\tmpb{\noexpand\isinlist\noexpand\tmpa{:\the\faculty:}}\tmpb
+   \iftrue \else
+      \ctustyleERR {The \noexpand\faculty {\the\faculty} 
+                    is not in the list F1, F2, ..., F8, MUVS}%
+   \fi
+   \mandatorydecl\department
+   \mandatorydecl\title
+   \mandatorydecl\author
+   \mandatorydecl\date
+   \mandatorydecl\address
+   \mandatorydecl\studyspec
+   \mandatorydecl\studyform
+   \mandatorydecl\studyinfo
+   \mandatorydecl\orohead
+   \mandatorydecl\candidate
+   \mandatorydecl\supervisor
+   \pdfinfodata
+   \footline={\hss\drafttext} 
+   \titlepageA \nextoddpage
+   \titlepageB \vfil\break
+   \infopage \vfil\break
+   \footline={\hss\tenss\thefontsize[9]\the\pageno\hss\drafttext}
+}
+\def\ddots{\leavevmode\hbox to2cm{\dotfill}}
+
+\def\thetnum{\the\tnum}
+\def\thefnum{\the\fnum}
+
+\def\printsec#1{\removelastskip 
+  \ifnum \lastpenalty<1000 \goodbreak \fi \bigskip\medskip\vskip.5\parskip
+  \line{\locc\Blue\vrule height 4.5mm width4mm depth.9mm
+  \hss\vtop{\locc\advance\hsize by-8mm
+     \secfont \noindent \Black\dotocnum{\thesecnum\quad}%
+     \nBlue#1\strut\nbpar}}%
+  \insertmark{#1}%
+  \nobreak\vskip-.5\parskip \medskip
+  \firstnoindent
+}
+\def\printsecc#1{\removelastskip 
+  \ifnum \lastpenalty<1000 \goodbreak \fi \smallskip\medskip\vskip.5\parskip
+  \line{\locc\Blue\vrule height 3.3mm width4mm depth.3mm\Black
+  \hss\vtop{\locc\advance\hsize by-8mm
+   \seccfont \noindent \dotocnum{\theseccnum\quad}%
+   \nBlue#1\strut\nbpar\kern-4.5pt}}%
+  \nobreak\vskip-.5\parskip\smallskip\kern2pt
+  \firstnoindent
+}
+\def\captionhook#1{%\typosize[10/12]%
+   \ifx\clabeltext\undefined \else
+      \ifx#1t\edef\tmp{\noexpand\wref\noexpand\Xtab
+                       {{\lastlabel}{\thetnum}{\clabeltext}}}\tmp
+      \else  \edef\tmp{\noexpand\wref\noexpand\Xfig
+                       {{\lastlabel}{\thefnum}{\clabeltext}}}\tmp
+   \fi\fi
+   \global\let\clabeltext=\undefined  
+   \vskip-\parskip
+}
+\def\secfont{\typobase\typoscale[\magstep1/\magstep1]\bfshape}
+\def\seccfont{\typobase\typoscale[1045/1045]\bfshape}
+
+\sdef{wl:CZ}{\def\mainlanguage{CZ}\chyph \textCZ}
+
+\def\facultygenitiv{\edef\tmpb{\mtext{\the\faculty} }%
+   \replacestrings{ulta }{ulty }%
+   \replacestrings{á }{é }%
+   \tmpb
+}
+\def\departmentlokal{\edef\tmpb{\the\department\space}%
+   \replacestrings{tedra }{tedře }%
+   \replacestrings{Ústav }{Ústavu }%
+   \tmpb
+}
+\mtdef {candidate}   {Candidate}   {Kandidát}  {}
+\mtdef {opponents}   {Opponents}   {Oponenti}  {}
+\mtdef {supervisorS} {Supervisor-Specialist}
+                     {Školitel-specialista}
+                     {Školiteľ-špecialista}
+
+\newtoks\studyform
+\newtoks\studyspec
+\newtoks\address
+\newtoks\candidate
+\newtoks\supervisorspec
+\newtoks\opponents
+\newtoks\orohead
+\newtoks\titleinfo
+\newtoks\infoA
+\newtoks\infoB
+\newtoks\infoC
+\newtoks\infoD
+
+\workname {Doctoral Thesis Statement}
+
+\titleinfo{%
+   Doctoral thesis statement for obtaining the academic title of ``Doctor'',
+   abbreviated to ``Ph.D.''
+}
+\infoA{%
+   The doctoral thesis was produced in \the\studyform\ manner of Ph.D. study at the
+   \the\department\ of the \mtext{\the\faculty} of the
+   CTU in Prague.
+}
+\infoB{%
+   The doctoral thesis statement was distributed on \ddots
+}
+\infoC{%
+   The defence of the doctoral thesis will be held on \ddots\ at \ddots\
+   a.m.\ / p.m.\ before the Board for the Defence of the Doctoral Thesis in the
+   branch of study \the\studyspec\ in the meeting room No. \ddots\ of
+   the \mtext{\the\faculty} of the CTU in Prague.
+}
+\infoD{%
+   Those interested may get acquainted with the doctoral thesis concerned at
+   the Dean Office of the \mtext{\the\faculty} of the CTU in Prague, at the
+   Department for Science and Research, \the\address.
+}
+\def\lorem{Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+   eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+   veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+   commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+   esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+   cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+   est laborum%
+}
+\def\textCZ {
+  \workname {Teze disertační práce}
+  \titleinfo {
+  Teze disertační práce k~získání akademického titulu \uv{doktor},\nl 
+  ve zkratce \uv{Ph.D.}.
+  }
+  \infoA {
+  Disertační práce byla vypracována v~\the\studyform\ formě 
+  doktorského studia na \departmentlokal \facultygenitiv ČVUT v Praze.
+  }
+  \infoB {
+  Teze byly rozeslány dne: \ddots
+  }
+  \infoC {
+  Obhajoba disertace se koná dne \ddots\ v~\ddots hod.
+  před komisí pro obhajobu disertační práce ve studijním oboru
+  \the\studyspec\ v~zasedací místnosti č~\ddots 
+  \facultygenitiv ČVUT v~Praze.
+  }
+  \infoD {
+  S disertací je možno se seznámit na děkanátu 
+  \facultygenitiv ČVUT v~Praze, na oddělení pro vědu, 
+  výzkum a zahraniční styky, Technická 2, Praha~6.
+  }
+}
+\endinput
+
