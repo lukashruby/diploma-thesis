@@ -8,6 +8,8 @@
 *.out
 *.toc
 
+*.lnk
+
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
@@ -15,6 +17,7 @@
 # *.ps
 # *.eps
 thesis.pdf
+thesis.lbr
 doc/*
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
