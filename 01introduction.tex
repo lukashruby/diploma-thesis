@@ -1,3 +1,7 @@
+\def\slet#1#2{\expandafter\let\csname#1\expandafter\endcsname\csname#2\endcsname}
+\addto\begitems{\slet{normalitem}{item:o}}
+
+
 \chap Introduction
 
 Text of introduction
@@ -8,5 +12,43 @@ Text of introduction
 
 \sec Concept
 
-\secc What is car user interface
+\secc What is car user interface?
+
+\secc Driving distraction factors
+
+The human's cognitive load capacity is constant. Drivers with long experience have learned to handle some of the tasks almost automatically, for example gear shifting or rear view checking is not impacting their attention to driving \cite[duncan1993control]. On the other hand, the growing number of cars on the roads, more miles driven, constantly increasing number of road signs and large number of buttons in the cockpit enlarge the number of events that drivers have to handle. Not paying full attention to driving increases the probability of getting into an accident. 
+
+Driving and paying attention to the road situation is the main driver’s task. All the other activities are the secondary tasks. The driving a car is a two dimensional task, where the first dimension includes the maintenance of the direction - staying in the lane. Maintaining the safe distance of the followed car is the second dimension. The danger of leaving the correct lane or to get too close the the ahead car can be quantified by time during which is the driver not making a correction. This may be the time the driver is pointing his eyes to some of the secondary activities. There are many studies discussing the save period of time to take the eyes from the road, but this is not the topic of this study. The simple conclusion for us is the shorter is the eyes off road period due to controlling the in-car applications the saver they are. After all the main goal is to make the driving safer, therefore generally speaking we will try to suggest solutions with less distraction to the driver. There are many other factors influencing the safety, such as the weather, light conditions etc. Our task is to make the UI of applications less distractive. We will respect these in the UI design when appropriate, for example changing the screen colour scheme for between day and night. \cite[wickens1998introduction]
+\rfc{citations - look to riener's slides}
+
+\secc Automotive human factors
+
+European Commision reported in the press release that number of traffic accidents is continously decreasing but still there are 1.3 million fatalities and 50 million injuries p.a. worldwide. 28 thousands people die in the EU, another 40 thousands die in the USA. World Health Organzation estimates that by 2020, traffic accidents will be the third highest cause of death. Traffic accidents causes also the high costs for economy. 
+
+We can consider driving as completing certain goals. The main goal is to reach the destination. As the other goals we can consider {\em Productivity} (i.e. drive as fast as possible) and {\em Safety} (i.e. reduce personal risks - no injuries, crashes, etc.)
+
+The important question we should analyze is {\em What are the tasks driver is doing when driving?} There are three general categories of activities: \cite[6725676]
+   \begitems
+	* Strategic
+	\begitems
+		* Purpose of a trip
+		* Driver's overall goals
+	\enditems
+	* Tactical 
+	\begitems
+		* Choice of maneuvers
+		* Immediate goals, e.g., in getting to a destination
+		* Speed and/or gear selection
+		* Decision to pass
+		* Choice of lanes
+	\enditems
+	* Control
+	\begitems
+		* Moment-to-moment operation of vehicle
+		* Maintaining desired speed
+		* Keeping the desired distance from the car ahead
+		* Keeping the car in the lane
+	\enditems
+   \enditems
+
 
