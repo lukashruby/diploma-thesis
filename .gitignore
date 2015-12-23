@@ -8,6 +8,9 @@
 *.out
 *.toc
 
+.dropbox
+desktop.ini
+
 *.lnk
 
 ## Intermediate documents:
