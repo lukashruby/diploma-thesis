@@ -571,6 +571,24 @@
 }
 \def\sechook#1\relax{\seccnum=0 \relax}
 
+\newcount\secccnum
+
+% \seccc
+\def\seccc#1\par{%
+   \ifx\prevseccnum\theseccnum \global\advance\secccnum by1
+   \else \global\let\prevseccnum=\theseccnum \global\secccnum=1
+   \fi
+   \edef\thesecccnum{\theseccnum.\the\secccnum}%
+   \printseccc{#1\unskip}%
+}
+\def\printseccc#1{\norempenalty-100 \medskip
+  \line{\locc\Blue\vrule height 3mm width4mm depth.1mm\Black
+  \hss\vtop{\locc\advance\hsize by-8mm
+   \bf \noindent \thesecccnum\quad \nBlue#1\strut\nbpar\kern-4.5pt}}%
+  \nobreak\vskip-.5\parskip\smallskip\kern2pt
+  \firstnoindent
+}
+
 \def\nextheadline{\global\headline={\printheadline}}
 
 \def\printheadline{\locc\tenssi\thefontsize[10]\ifodd\pageno
