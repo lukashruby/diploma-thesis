@@ -2,11 +2,50 @@
 
 \chap Analysis
 
-\rfc{basic info about current trends, who are the people using smartphone while driving}
+This chapter is dedicated to the analysis of various topics related to this thesis. In first part, current trends in shipments of devices will be introduced. This introduction will be followed by analysis of latest in-car infotainment solutions including their advantages and disadvantages. Then, the basic facts about various types of communication in automotive environment will be explained. The last section of this chapter is devoted to cloud computing topic and its externsion to in-vehicular use.
+
+\sec Usage of portable devices
+
+The shipments of portable devices are facing big changes recently. Sales of traditional PCs are decreasing every year. On the other side, the shipments of portable devices (mainly mobile phones and so-called ultramobile devices) are experiencing the opposite trend. As we can see in table \ref[devices_shipments], the numbers are increasing \fnote{The {\bf Ultramobile (Premium)} category includes devices such as Microsoft's Windows 8 Intel x86 products and Apple's MacBook Air.} \fnote{The {\bf Ultramobile (Tablets and Clamshells)} category includes devices such as, iPad, iPad mini, Samsung Galaxy Tab S 10.5, Nexus 7 and Acer Iconia Tab 8.}. According to Gartner \cite[atwal2013forecast] the mobile phone shipment are by far the largest. These numbers are hinting what kind of devices are customers using the most and consequently what devices will be most probably used while driving. 
+\midinsert \clabel[devices_shipments]{Worldwide Devices Shipments by Device Type, 2014-2017 (Millions of Units)}
+\ctable{lrrrr}{
+\hfil Device Type & 2014 & 2015 & 2016 & 2017 \crl \tskip4pt
+Traditional PCs (Desk-Based and Notebook) & 277 & 251 & 243 & 233 \cr
+Ultramobiles (Premium) & 37 & 49 & 68 & 89 \cr
+{\bf PC Market} & {\bf 314} & {\bf 300} & {\bf 311} & {\bf 322} \cr
+Ultramobiles (Tablets and Clamshells) & 226 & 214 & 228 & 244 \cr
+{\bf Computing Devices Market} & {\bf 540} & {\bf 514} & {\bf 539} & {\bf 566} \cr
+Mobile Phones & 1879 & 1940 & 2007 & 2062 \cr
+{\bf Total Devices Market }& {\bf 2419} & {\bf 2454} & {\bf 2546} & {\bf 2628} \cr
+}
+\caption/t Worldwide Devices Shipments by Device Type, 2014-2017 (Millions~of~Units)~\cite[atwal2013forecast]
+\endinsert
+
+\rfc{what about internet users?}
+
 
 \sec In-car devices and controls
 
-\rfc{small analysis on cars interiors then and now, increasing number of control}
+Driving a car is a stressful task. Distraction is the number one reason for traffic accidents. The reasons are obvious:
+
+\begitems
+* Technological developemt is faster that the capability to handle it. Product lifecycle (in automotive environment)  is getting shorter - from more than 4 years to less than 18 months.
+* Infotainment systems functionality is increasing, but the human processing capacity is the same.
+* Complexity of whole eco system of human mobility is continously increasing: \rfc{cite riener}
+	\begitems
+	* High volume of traffic
+	* More miles driven
+	* Complex road infrastructure
+	* Overusage of road signs
+	\enditems
+\enditems
+
+Hardware interfaces are a mixture of knobs, buttons, sliders, and switches in the car. These controls are called {\bf Tangible User Interfaces} \cite[ishii2008tangible]. They are the traditional car on touch and physical environment. They allow the driver to control the car. In the last decades the mechnical buttons have changed to electrical switches with microcontrollers. The measurement equipment was replaced with screens. The whole car infrastructure became digital. This change is following similar changes in the digital personal devices. 
+
+There are other devices in the car or devices the driver and passengers will bring to the car, which will require wired or wireless connection. First USB, for MP3 players, phone, or it can be used to charge some of the mobile devices while driving. Some cars may provide flash memory slot supporting different types and allowing music playback or allow replication to the in-car hard drive. 
+
+The car may also provide an WiFi connection in several different setups. Other mobile devices the driver and the passengers bring to the car must be consibered. The top level car may also provide HDMI for in-car screens located on the dashboard and back seats.
+
 
 \sec In-car mobile applications
  
@@ -19,6 +58,15 @@
 \secc Other vendors
 
 \sec Data \& comumunication
+
+\secc Controller Area Network Bus (CAN-BUS)
+
+\secc On-board Diagnostics (OBD)
+
+\secc FlexRay
+
+\secc Other types of communication
+
 
 \rfc{busses in car, OBD, CANBUS, FLEXRAY, BlueTooth, Internet connection}
 
