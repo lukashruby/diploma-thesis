@@ -4,12 +4,26 @@
 
 \sec Requirements
 
+\begitems
+	* Simplicity of usage
+	* Low cognitive load
+	* Extensibility of functions
+\enditems
+
 \sec Android Design Guidelines
 
 In section \ref[android5] was mentioned that with the realease of Android 5 Lollipop, Google provided guidelines for application developers to design user interface in proper way. These guidelines are called Google Design Guidelines~\urlnote{https://www.google.com/design/spec/material-design/introduction.html} and defines various design rules and parameters. The most important rule is that the display of the device shoud be taken as a real-world 3D environment. The whole concept is called Material Design~\urlnote{https://www.google.com/design/spec/what-is-material/environment.html}.
 
 
-\sec Infotainment architecture
+\sec Infotainment user interface architecture 
+
+\rfc{maybe different title}
+Based on the previous research (led by dr. Sedivy, supervisor of this thesis) the simple user interface structure was proposed. The concept of on-board computers, where is displayed limited amount of information at time, was adopted. The general overview of this concept is at figure~\ref[skoda_ui]. 
+
+\midinsert \clabel[skoda_ui]{Limited information shown at display}
+\picw=10cm \cinspic resources/images/skodaUI.pdf 
+\caption/f Limited information shown at display (credits: dr. Sedivy)
+\endinsert
 
 \secc Portrait vs. Landscape mode
 
@@ -21,19 +35,47 @@ It is not easy to lean on either side in selecting the screen positioning. Howev
 
 The portrait mode may be also easier to move in between the speedometer and tachometer. Even if the portrait mode is rare it may have some advantages in the amount of information on the screen. However the final selection of the screen positioning is a usability study problem. 
 
-\secc Usage modes 
+\secc Use cases
 
-\rfc{different name, maybe use cases}
+There are two most important use cases for which is this application designed. \rfc{extend}
 
 \seccc Using while driving
 
 \seccc Setting up
 
-\sec GUI
+
+\sec Graphical User Interface
+
+User interface is one of the most important part of this thesis. \rfc{dodelat}
+
+\cite[poi_design]
 
 \secc Low fidelity prototype
 
+\midinsert
+\line{\hsize=.5\hsize \vtop{%
+      \clabel[balsamiq_v1]{Low Fidelity mock up version 1}
+	\picw=5cm \cinspic resources/images/mockups/v1.png
+      \caption/f Low Fidelity mock up version~1
+   \par}\vtop{%
+      \clabel[balsamiq_v2]{Low Fidelity mock up version 2}
+      \picw=5cm \cinspic resources/images/mockups/v2.png
+      \caption/f Low Fidelity mock up version~2
+   \par}}
+\endinsert
+
+
+Low fidelity prototypes are generally limited functions, limited interaction prototypes. They are constructed to depict concepts, design alternatives, and screen layouts. They are constructed quickly and provide limited or no functionality. These prototype are created to demonstrate tge general look, they are not intended to show in detail how the application operates. They should comunnicate, educate, and inform, not to train, test, or serve as a basis from which to code~\cite[Rudd:1996:LVH:223500.223514].
+
+For the purpose of creating low fidelity prototype of the application, the tool Balsamiq Mockups\urlnote{https://balsamiq.com/} was used. It is a rapid wireframeing tool that reproduces the experience of sketching on a whiteboard, but using a computer.
+
+The two step approach was applied. In the first step the ideas from previous chapters were used and the first version of lo-fi prototype was sketched. The result is at \rfc{preposition?} figure~\ref[balsamiq_v1]. After discussion and basic testing the mockup was improved and the second version was designed (figure~\ref[balsamiq_v2]).
+
 \secc High fidelity prototype
+
+Unline low fidelity prototypes, high fidelity prototypes are fully functional and interactive. They adress the issues of navigation and flow and of matching the design and user models of a system. High fidelity prototypes are used for exploration and tests. Users can operate them the same way as the final product and they can make informed recommendations about how to improve the user interface~\cite[Rudd:1996:LVH:223500.223514].
+
+High fidelity prototype of the application developed in this thesis was made in the target application's platform and continously improved.
 
 \sec Comunnication 
 
