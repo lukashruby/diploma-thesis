@@ -8,11 +8,28 @@
 	* Simplicity of usage
 	* Low cognitive load
 	* Extensibility of functions
+	* Logging feature
 \enditems
 
 \sec Android Design Guidelines
 
 In section \ref[android5] was mentioned that with the realease of Android 5 Lollipop, Google provided guidelines for application developers to design user interface in proper way. These guidelines are called Google Design Guidelines~\urlnote{https://www.google.com/design/spec/material-design/introduction.html} and defines various design rules and parameters. The most important rule is that the display of the device shoud be taken as a real-world 3D environment. The whole concept is called Material Design~\urlnote{https://www.google.com/design/spec/what-is-material/environment.html}.
+
+\sec Comunnication 
+
+As the application supports to communication with a car's \glref{ECU}, connects to the internet and uploads data logs, various types of communication are taken in account.
+
+\secc Bluetooth
+
+Support of Bluetooth technology is crucial for the final application. Bluetooth is used for connection to ELM327 Bluetooth Dongle which provides communication with \glref{OBD} interface. Dongles based on ELM327 usually supports USB, RM-232, Wi-Fi or Bluetooth connections. In this case the Bluetooth connection was chosen because of simplicity of usage, commercial avaibility of the dongles and low power consumption\urlnote{http://science.opposingviews.com/bluetooth-vs-wifi-power-consumption-17630.html}.
+
+\secc Wi-fi
+
+\secc Mobile telecommunication
+
+Category of mobile telecomunnication in this case includes the possibilities of connection to the internet when wi-fi connection is not available. To this category belong wireless network technologies provided by mobile carriers (3G, 4G). This type of internet connectivity is not supposed to be used for uploading trip logs due to limited data plans issue. The typical use is to control other devices via HTTP request initiated from the smartphone (e.g., opening garage doors or entrance gates). The application is, hovever, usable without the data plan.
+
+\sec Modularity
 
 
 \sec Infotainment user interface architecture 
@@ -77,9 +94,7 @@ Unline low fidelity prototypes, high fidelity prototypes are fully functional an
 
 High fidelity prototype of the application developed in this thesis was made in the target application's platform and continously improved.
 
-\sec Comunnication 
 
-\sec Modularity
 
 \sec Logging server architecture
 
