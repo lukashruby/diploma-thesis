@@ -10,9 +10,18 @@ In this chapter the main information about development of the project will be in
 
 \secc{Android SDK}
 
+The Android SDK is a set of various tools that help developers to develop mobile applications for the Android platform. The tools are divided into two groups: SDK tools and platform tools. SDK tools are independent on target Android platform, platform tools are customizes to support concrete version of Android OS~\cite[androidsdkhelp].
+
+To SDK tools belongs Virtual device tools (such as Android Virtual Device Manager or Android Emulator), Development tools (such as SQLite DB Explorer, SDK Manager or Translation editors), Debugging tools (Android Monitor, Android Debug Bridge, etc.), Build and Image tools. \rfc{jak je to s tema platform tools, patri tam adb nebo ne?}
+
 \secc{Java Platform, Enterprise Edition}
 
+Java Platform, Enterprise edition (Java EE) is the standard in community-driven enterprise software. Java EE is developed using the Java Community Process\urlnote{http://www.jcp.org/} with contributions from industry experts, commercial and open source organizations and many individual developers. Nowadays there are more than 20 compliant Java EE implementation~\cite[javaee].
+
 \secc{Java Platform, Standard Edition}
+
+\rfc{co je to vlastne java? tady uz to nebude tak lehky - existuje i neco jako SE Advanced edition, ktera je placena} \cite[javase]
+
 
 \sec Development tools
 
@@ -26,7 +35,27 @@ by the company JetBrains s.r.o.. Beside the standard set of functions from Intel
 
 \secc Code version control system
 
-Git \& github
+Version control is a system that records changes to a file or set of files over time so that user can recall specific version later. Version control is mostly used in software development process to manage diffrent versions of source code. But \glref{VCS} is not limited only to plain text information. Graphics and other multimedia can be versioned as well~\cite[torvalds2010git].
+
+There are three main approaches in version controlling:
+
+\begitems
+	* {\bf Local Version Control Systems} - all changes are stored only on the single computer used by user (e.g., simple file copying to other folder),
+	* {\bf Centralized Version Control Systems} - versions are stored on the server and all clients access it from remote locations (e.g., Subversion, CVS),
+	* {\bf Distributed Version Control Systems} - versions are stored on the server, but all cliets have local copy of the repository and are able to make changes independently (e.g., Git or Mercurial).
+\enditems
+
+\seccc Git
+
+For the purpose of development the application, Git \glref{VCS} was chosen. Git was developed in 2005 by the Linux development comunnity (in particular Linus Torvalds, the creator of Linux) to be an alternative to the commercial product BitKeeper which was used as \glref{VCS} for development of the Linux kernel. The main objectives were~\cite[githistory]:
+
+\begitems
+	* Speed,
+	* Simple design,
+	* Strong support for non-linear develipment (thousants of parallel branches),
+	* Fully distributed,
+	* Ability to handle large projects like the Linux kernel.
+\enditems
 
 \secc Continuous integration service
 
