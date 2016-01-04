@@ -71,11 +71,11 @@ GitHub\urlnote{https://github.com/} is a web-based Git repository hosting servic
 
 \secc Continuous integration service
 
-Travis CI
+Travis CI \rfc{todo}
 
 \secc Build automation system
 
-Graddle
+Graddle \rfc{todo}
 
 \sec{Third party libraries}
 
@@ -95,11 +95,40 @@ During the development of the application and logging server were used also the 
 
 \secc Mobile application
 
+\rfc{todo}
+
 \secc Logging service
 
-\sec Project Structure
+\rfc{todo}
 
+\sec Mobile Application Implementation
 
+Mobile application is into two parts. The first part is platform dependent (smartphone in this case) and will be  described in detail in section~\ref[cdphone]. The second part, so-called {\bf Core}, is platform independent and can be ported to other devices which use Android OS (tablet, smart tv, etc.) In~\cite[blaha] is this part used in tablet version of this application. {\bf Core} was developed in cooperation with the author of \cite[blaha]. Details of the contribution is available in Core's Github repository\urlnote{https://github.com/eclubprague/CarDashboardCore}. From this part of project, only the important parts will be described in~\ref[core].
+
+\label[cdphone]
+\secc User interface for smartphones
+
+Design of the user interface was the most imporant part of chapter \ref[design] a it is key problem of whole project. As this application is aimed to be used in car while driving, bad implementation of the concept can cause many difficulties for drivers. Therefore was very important to be especially precious in the development and this phase took majority of time.
+
+Beside of the standard mode of application, when phone is placed firmly in holder and a driver uses single finger to change views, there is also the configuration mode. In the configuration mode are options to enable or disable {\em Bluetooth support} (for connection to OBD II Dongle) and to configure {\em Bluetooth devices}. Also the settings of {\em Logging features} is present in this mode. Last but not least function is {\em Module management}.
+Each part of the application will be described in dedicated subsections.
+
+\seccc ScreenSlideActivity \& ScreenSlidePageFragment
+
+\seccc DnDActivity \& DnDFragment
+
+\label[core]
+\secc Shared Core Library
+
+%\rfc{module adding - simplicity, updating, persistence, obdservice, logging}
+
+\secc Results 
+
+\rfc{maybe different name}
+
+pictures
+
+\sec Server implementation
 
 \sec Reference Hardware
 
