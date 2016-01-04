@@ -25,19 +25,19 @@ Participant 5 & Male & 22 \cr
 
 As mention at the beginning of this chapter, we used equipment provided by the Faculty of Transportation Sciences, namely the 3D car light simulator and Eye Tracker. Logged results were analysed using MATLAB.
 
-\midinsert
+\midinsert \clabel[simulator_control]{Car simulator control software}
 \picw=\hsize \cinspic resources/images/control.png
-\caption/f Ukázka vložení obrázku na stred, což je asi nejobvyklejší.
+\caption/f Car simulator control software
 \endinsert
 
-\midinsert
+\midinsert \clabel[eyetracker_sw]{Eye tracking software}
 \picw=\hsize \cinspic resources/images/phone.png
-\caption/f Ukázka vložení obrázku na stred, což je asi nejobvyklejší.
+\caption/f Eye tracking software
 \endinsert
 
-\midinsert
+\midinsert \clabel[octavia_photo]{Picture of simulator}
 \picw=\hsize \cinspic resources/images/simulator.jpg
-\caption/f Ukázka vložení obrázku na stred, což je asi nejobvyklejší.
+\caption/f Picture of simulator
 \endinsert
 
 \secc Simulator communication 
@@ -75,9 +75,55 @@ Participant 5 & Android & Yes & Often\cr
 \caption/t Results of pre-test quetionnaire (cont.)
 \endinsert
 
+\secc 
+
+\midinsert \clabel[user_testing_schedule]{User testing schedule}
+\ctable{ccrl}{
+  \bf Start & \bf End & \bf Duration [min] & \bf Content \crl \tskip4pt
+  00:00:00 & 00:05:00 & 5 & Introduction\cr
+  00:05:00 & 00:10:00 & 5 & Pre-test questionnairei \cr
+  00:10:00 & 00:25:00 & 15 & Instructions and EyeTracker setup \cr
+  00:25:00 & 00:40:00 & 15 & Warm-up driving \cr
+  00:40:00 & 00:55:00 & 15 & A/B testing \cr
+  00:55:00 & 01:05:00 & 10 & CLT testing \cr
+  01:05:00 & 01:10:00 & 5 & Post-test questionnaire \cr
+  01:10:00 & 01:15:00 & 5 & Debriefing \cr
+}\caption/t User testing schedule
+\endinsert
+
 \sec Lane change test
 
+\secc Results
+
+
 \sec A/B test
+
+\secc Results
+
+\def\rotsimple#1{\hbox\bgroup\def\tmpb{#1}\afterassignment\rotsimpleA \setbox0=}%
+\def\rotsimpleA{\aftergroup\rotsimpleB}
+\def\rotsimpleB{\setbox0=\hbox{\box0}%
+   \ifnum\tmpb>0 \kern\ht0 \tmpdim=\dp0 \else \kern\dp0 \tmpdim=\ht0 \fi
+   \vbox to\wd0{\ifnum\tmpb>0 \vfill\fi
+                \vfil \wd0=0pt \dp0=0pt \ht0=0pt
+                \pdfsave\pdfrotate{\tmpb}\box0 \pdfrestore
+                \vfil}%
+   \kern\tmpdim
+   \egroup}
+
+
+
+\midinsert \clabel[ab_results]{Results of A/B testing}
+\ctable{l|rr|rr|rr}{
+\hfil \rotsimple{90}\hbox{Participant's \#} & \rotsimple{90}\hbox{Application A Glance Ratio} & \rotsimple{90}\hbox{Application B Glance Ratio} & \rotsimple{90}\hbox{Application A Maximal Glance} & \rotsimple{90}\hbox{Application B Maximal Glance} & \rotsimple{90}\hbox{Application A Average Glance} & \rotsimple{90}\hbox{Application B Average Glance} \crl \tskip4pt
+Participant 1 & 18.63 \% &  11.2 \% & 1283 ms & 1150 ms & 182.47 ms & 138.89 ms \cr
+Participant 2 & 15.72 \% & 10.72 \% & 1602 ms & 1129 ms & 172.76 ms & 140.42 ms \cr
+Participant 3 &  8.90 \% & 	7.78 \% &  450 ms &  533 ms &   70.2 ms & 66.67 ms \cr
+Participant 4 & 13.94 \% &  5.4  \% & 1933 ms &  433 ms & 541.53 ms & 187 ms \cr
+Participant 5 &  9.94 \% & 10.32 \% &  950 ms & 1617 ms &  73.41 ms & 120.7 ms \cr
+}
+\caption/t {Results of A/B testing}
+\endinsert
 
 
 
