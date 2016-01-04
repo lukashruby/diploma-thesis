@@ -48,7 +48,61 @@ In [1-5] questions, 1 means the best rating, 5 means the worst.
 
 \nextoddpage
 
-\app Usability test results
+\app Usability test results analysis
+
+\sec{MATLAB scripts}
+
+\secc Statictics of A/B testing
+
+\begtt
+
+clear all;
+
+load('p4_ab_m_cd.mat');
+tablet = [116;97;98;108;101;116];
+phone = [112;104;111;110;101];
+objectname = phone;
+comparation = ismember(ClosestWorldIntersection_objName(
+						(1:length(objectname)),:),objectname);
+
+watchingPhone = comparation(2,:);
+totalPhone = sum(watchingPhone);
+
+glanceRatio = totalPhone / length(ClosestWorldIntersection_objName);
+
+glanceRatio
+
+totalPhone
+
+length(ClosestWorldIntersection_objName)
+
+inputvector = watchingPhone;
+
+glances = [];
+currentGlance = 0;
+for n = 2:numel(inputVector)
+    if(inputVector(n))
+        if(inputVector(n-1))
+            currentGlance = currentGlance +1;
+        end
+    else
+        if(inputVector(n-1))
+            glances = [glances, currentGlance];
+            currentGlance = 0;
+        end
+    end
+end
+
+
+if(currentGlance>0)
+    glances = [glances, currentGlance];
+    currentGlance = 0;
+end
+
+numOfGlances = length(glances)
+maxGlance = max(glances)*1000/60
+averageGlance = sum(glances)/length(glances)*1000/60
+\endtt
 
 \nextoddpage
 
