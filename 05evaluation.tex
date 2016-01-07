@@ -1,53 +1,64 @@
 % !TeX root = thesis.tex
 \chap Evaluation
 
+Mobile application developed in this thesis is supposed to be used while driving and drivers must interact with it to obtain the desired information. \rfc{todo}
+
 The primary goal of the evaluation part was to collect data from real human drivers in the tasks and environment as close as possible to real-world situations. To reach this goal we established cooperation with the Driving Simulation Research Group based at the Faculty of Transportation Sciences of Czech Technical University in Prague. We were able to use their car simulator and other equipment.
+
 
 \sec Usability tests
 
-\secc Participants
 
-The usability tests are based on the results from 5 participants from age 24 to 45 (mean age was 28). One participant was female, other four were males. The number of participant was based on recommendation of Jakob Nielsen \cite[nielson5enough].
-
-\midinsert \clabel[participants_basic]{Participants of usability testing}
-\ctable{lrr}{
-\hfil Participant's \# & Sex & Age \crl \tskip4pt
-Participant 1 & Male & 24 \cr
-Participant 2 & Male & 26 \cr
-Participant 3 & Female & 45 \cr
-Participant 4 & Male & 23 \cr
-Participant 5 & Male & 22 \cr
-}
-\caption/t Basic information about participants in usability testing.
-\endinsert
-
+\label[test_equipment]
 \secc Used equipment
 
 As mention at the beginning of this chapter, we used equipment provided by the Faculty of Transportation Sciences, namely the 3D car light simulator and Eye Tracker. Logged results were analysed using MATLAB.
 
-\midinsert \clabel[simulator_control]{Car simulator control software}
-\picw=\hsize \cinspic resources/images/control.png
-\caption/f Car simulator control software
-\endinsert
-
-\midinsert \clabel[eyetracker_sw]{Eye tracking software}
-\picw=\hsize \cinspic resources/images/phone.png
-\caption/f Eye tracking software
-\endinsert
 
 \midinsert \clabel[octavia_photo]{Picture of simulator}
 \picw=\hsize \cinspic resources/images/simulator.jpg
 \caption/f Picture of simulator
 \endinsert
 
-\secc Simulator communication 
+\seccc 3D light simulator Skoda Octavia II
+
+Simulator was build by DSRG. It is based on cockpit of Skoda Octavia II with cave-like projection system. Inner cockpit parts are cut jut behind the drivers seat. The cockpit is fully equipped like the normal car (including roof, co-driver seat, etc.). Picture of the simulator is at figure~\ref[octavia_photo].
+
+\seccc Software tools
+
+The developed mobile application requires the bluetooth connection to obtain driving data from OBD dongle. As the simulator was not equiped with standard CAN-BUS communications (and therefore neither the OBD protocol was supported), using the common way of accessing driving data was not possible. To by-pass this problem, a support software tool in Java was developed. This program reads a subset of driving data (provided by the simulation software) from network and simulates an OBD dongle. The mobile application is then connected to the target computer and is able to read data the same way as it was connected to the OBD dongle.
+
+\seccc Eye Tracking Cameras \& Software
+
+Eye tracking solution was used for measurement the time that was spent looking at the mobile phone while driving. Car Simulator were equipped with the product of the company Smart Eye AB\urlnote{http://smarteye.se/}. It was composed of two eye tracking cameras Smart Eye Pro\urlnote{http://smarteye.se/products/smart-eye-pro/}. These camerad are designed to be used in Car Simulators, Flight Deck Simulators and other vehicle studies. The cameras are operating under Infra-Red, so they are insensitive to ambient light.
+
+Another part of the eye tracking solution was Smart Eye Pro software. This program was used to configurate the whole process. Every participant went through the calibration procedure. Screenshot from the program is in figure~\ref[eyetracker_sw].
+
+\midinsert \clabel[eyetracker_sw]{Eye tracking software}
+\picw=\hsize \cinspic resources/images/phone.png
+\caption/f Eye tracking software
+\endinsert
+
+\secc Participants
+
+The usability tests are based on the results from 5 participants from age 24 to 45 (mean age was 28). One participant was female, other four were males. The number of participant was based on recommendation of Jakob Nielsen \cite[nielson5enough].
+
+%\midinsert \clabel[participants_basic]{Participants of usability testing}
+%\ctable{lrr}{
+%\hfil Participant's \# & Sex & Age \crl \tskip4pt
+%Participant 1 & Male & 24 \cr
+%Participant 2 & Male & 26 \cr
+%Participant 3 & Female & 45 \cr
+%Participant 4 & Male & 23 \cr
+%Participant 5 & Male & 22 \cr
+%}
+%\caption/t Basic information about participants in usability testing.
+%\endinsert
 
 
-Eye tracking camera Eye Tracker TODO
+\seccc Screener
 
-\secc Screener
-
-\secc Pre-test questionnaire results
+\seccc Pre-test questionnaire results
 
 Before execution of the usability test, participants were asked to answer some questions about their behaviour while driving. The questionnaire is available in table \ref[pretest], results are in the tables \ref[participants_pretest] and \ref[participants_pretest_cont].
 
@@ -75,12 +86,13 @@ Participant 5 & Android & Yes & Often\cr
 \caption/t Results of pre-test quetionnaire (cont.)
 \endinsert
 
+\seccc Post-test questionnaire results
 
 \midinsert \clabel[user_testing_schedule]{User testing schedule}
 \ctable{ccrl}{
   \bf Start & \bf End & \bf Duration [min] & \bf Content \crl \tskip4pt
   00:00:00 & 00:05:00 & 5 & Introduction\cr
-  00:05:00 & 00:10:00 & 5 & Pre-test questionnairei \cr
+  00:05:00 & 00:10:00 & 5 & Pre-test questionnaire \cr
   00:10:00 & 00:25:00 & 15 & Instructions and EyeTracker setup \cr
   00:25:00 & 00:40:00 & 15 & Warm-up driving \cr
   00:40:00 & 00:55:00 & 15 & A/B testing \cr
@@ -90,9 +102,13 @@ Participant 5 & Android & Yes & Often\cr
 }\caption/t User testing schedule
 \endinsert
 
-\sec Lane change test
+\sec Lane Change Test
 
-some text
+This test was used to evaluate influence of a secondary task while performing a primary task. For these purposes the Lance Change Test (LCT) has received considerable attention. It appears to be a practical and effective measure of the costs associated with operating in-vehicle devices while performing a driving task. The procedure of the Lane Change Test was stardardized as ISO 3888.
+
+For the execution of the LCT was used the car simulator introduces in section \ref[test_equipment]. The test track was a 4 km straight line road with a single lane change manoeuvre. Participants were required to keep a constant speed of 60 km per hour and they were asked to tell the current value of driving-relevant information displayed on the smartphone using the developed application. The interval between each request was 10 seconds. The manouvre was initiated by placing an unexpected object in the driving path. Size of the object was 2.20 x 2.20 x 2.20 m and it was placed 35 m in front of vehicle. 
+
+
 
 %info from http://drivingassessment.uiowa.edu/DA2007/PDF/004_Harbluk.pdf
 
