@@ -110,35 +110,121 @@ Mobile application is into two parts. The first part is platform dependent (smar
 
 Design of the user interface was the most imporant part of chapter \ref[design] a it is key problem of whole project. As this application is aimed to be used in car while driving, bad implementation of the concept can cause many difficulties for drivers. Therefore was very important to be especially precious in the development and this phase took majority of time.
 
+Standard mode of application consists of various {\bf Modules}. Mobile phone version displays only one module at time (tablet version \cite[blaha] contains more modules at the screen). These modules are ordered in three structure - single module is displaying some information or contains more modules. 
+
 Beside of the standard mode of application, when phone is placed firmly in holder and a driver uses single finger to change views, there is also the configuration mode. In the configuration mode are options to enable or disable {\em Bluetooth support} (for connection to OBD II Dongle) and to configure {\em Bluetooth devices}. Also the settings of {\em Logging features} is present in this mode. Last but not least function is {\em Module management}.
 Each part of the application will be described in dedicated subsections.
 
 \seccc ScreenSlideActivity \& ScreenSlidePageFragment
 
+Prevailing part of user interface is the implementation of vertical scrolling list of modules in {\tt ScreenSlideActivity}. This list is presented as infinite menu (after last item in list comes the first one in loop). Android provides support only for horizontal scrolling list, so this implementation was done from scratch. {\tt ScreenSlidePageFragment} is then the content of single Module. It is consisted od Module name, Module icon, Module value and Module units.
+
+
 \seccc DnDActivity \& DnDFragment
+
+DnD means in this case abbreviation for Drag and Drop. This feature is used in configuration part, where user can change order of modules, add new modules and delete modules with simple swiping gestures. This approach makes the configuration process easy and straightforward.
 
 \label[core]
 \secc Shared Core Library
 
 %\rfc{module adding - simplicity, updating, persistence, obdservice, logging}
 
-\secc Results 
+\secc Final application
 
-\rfc{maybe different name}
+\midinsert
+\line{\hsize=.5\hsize \vtop{%
+      \clabel[module.speed]{Module displays single information.}
+      \picw=5cm \cinspic resources/images/screenshots/speed.png
+      \caption/f Module displaying single information.
+   \par}\vtop{%
+      \clabel[module.folder]{Module contains another set of child modules - folder.}
+      \picw=5cm \cinspic resources/images/screenshots/folder.png
+      \caption/f Module contains another set of child modules - folder.
+   \par}}
+\endinsert
 
-pictures
+\midinsert
+\line{\hsize=.5\hsize \vtop{%
+      \clabel[module.swipe]{Swiping between different modules.}
+      \picw=5cm \cinspic resources/images/screenshots/swipe.png
+      \caption/f Swiping between different modules.
+   \par}\vtop{%
+      \clabel[module.btdev]{Selection of Bluetooth device to connect to OBD dongle.}
+      \picw=5cm \cinspic resources/images/screenshots/btdev_selection.png
+      \caption/f Selection of Bluetooth device to connect to OBD dongle.
+   \par}}
+\endinsert
+
+\midinsert
+\line{\hsize=.5\hsize \vtop{%
+      \clabel[module.change]{Changing position of module using Drag and drop.}
+      \picw=5cm \cinspic resources/images/screenshots/dnd_change_position.png
+      \caption/f Changing position of module using Drag and drop.
+   \par}\vtop{%
+      \clabel[module.remove]{Removing module using simple swipe gesture.}
+      \picw=5cm \cinspic resources/images/screenshots/dnd_remove.png
+      \caption/f Removing module using simple swipe gesture.
+   \par}}
+\endinsert
+
 
 \sec Server implementation
 
+An important part of the assignment of this thesis is implementation of a logging server. Purpose of the server is to gather data from devices with installed mobile application and provide these data to further exploration. 
+Server was implemented as HTTP service in Java EE using Servlet API. It can be deployed to various application servers such as Apache Tomcat or Oracle Glassfish. Oracle Glassfish was used for deployment in this thesis. 
+
+\secc Communication with server
+
+Mobile application is logging all OBD data to the file stored in local storage. As these logs may be very data intensive, it is not reasonable to upload them live. Therefore when a wi-fi connection is availabe, user can initiate the upload of all files.  
+
 \sec Reference Hardware
 
-\secc Mobile devices
+\secc Mobile device
+
+Mobile application is supposed to run on wide range of devices available in current market. It does not required any hardware or software customization of target device. It requires Android 5.0 and higher. This version of Android OS is available for majority of current shipped devices.
 
 \seccc LG Nexus 5
 
+LG Nexus 5 was used for the purposes of development and testing. The main reason for selection was the fact, that whole lifcycle (design, development, marketing and support) is managed direcly by Google, Inc, the vendor of Android OS. Even though the development was aimed to reach the full functionality of as wide range of devices as possible, there can still be minor issues on other devices. 
+
+The technical specification of the device are following~\cite[wiki:nexus5]:
+
+\begitems
+
+*{\bf Codename}: Hammerhead
+*{\bf Developer}: Google, LG Electronics
+*{\bf Manufacturer}: LG Electronics
+*{\bf Compatible networks}: 2G/3G/4G LTE
+*{\bf Dimensions}: 137.84 mm H; 69.17 mm W; 8.59 mm D
+*{\bf Weight}: 130 g
+*{\bf Operating system}: Android 'Marshmallow' 6.0.1
+*{\bf System on chip}: Qualcomm Snapdragon 800
+*{\bf CPU}: 2.26 GHz quad-core Krait 400
+*{\bf GPU}: Adreno 330, 450 MHz
+*{\bf Memory}: 2 GB of LPDDR3-1600 RAM
+*{\bf Storage}: 16 GB (12.55 GB available)
+*{\bf Display}: 4.95 in (126 mm) Full HD 1920x1080 px (445 ppi) IPS LCD, with Corning Gorilla Glass 3
+*{\bf Connectivity}: Micro USB, SlimPort, NFC, Bluetooth 4.0, 2x2 MIMO Wi-Fi 802.11 a/b/g/n/ac (single stream)
+
+\enditems
+
+\midinsert \clabel[nexus5_photo]{LG Nexus 5}
+\picw=10cm \cinspic resources/images/Nexus5.jpg
+\caption/f LG Nexus 5
+\endinsert
+
 \secc OBD II devices
 
+One of the features of mobile application is the ability to gather driving data from ECU of the car. For this purpose the application uses standardized solution with OBD dongle equipped with ELM327 chip which is connected to car's diagnostic outlet /rfc{jiny slovo?}. 
+
 \seccc MINI ELM327 bluetooth OBD2 V1.5 Bluetooth dongle
+
+This dongle (in figure \ref[dongle_photo]) is widely available and very cheap (\$10 in December 2015) device that can be used with the mobile application. It was used while testing the functionality in real vehicle (Ford Focus, manufactured in 2008). It can be purchased in global online stores such as Amazon\urlnote{https://amazon.com} or Ebay\urlnote{https://ebay.com} as well as in local online stores. Beside the reading features it allows to diagnose trouble codes and display their meaning. It can clear these codes and turn of the `Check Engine` light. These features are not implemented in current version of the mobile application. However, this device suffers from a big problem - it does not disconnect when engine is not running and therefore it may drain the vehicle's battery.
+
+\midinsert \clabel[dongle_photo]{MINI ELM327 bluetooth OBD2 V1.5 Bluetooth dongle}
+\picw=10cm \cinspic resources/images/elm327.jpg
+\caption/f MINI ELM327 bluetooth OBD2 V1.5 Bluetooth dongle
+\endinsert
 
 \seccc OBD PC Emulator
  
