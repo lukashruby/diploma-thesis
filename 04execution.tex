@@ -35,24 +35,24 @@ by the company JetBrains s.r.o.. Beside the standard set of functions from Intel
 
 \secc Code version control system
 
-Version control is a system that records changes to a file or set of files over time so that user can recall specific version later. Version control is mostly used in software development process to manage diffrent versions of source code. But \glref{VCS} is not limited only to plain text information. Graphics and other multimedia can be versioned as well~\cite[torvalds2010git].
+Version control is a system that records changes to a file or set of files over time so that user can recall specific version later. Version control is mostly used in software development process to manage different versions of source code. But \glref{VCS} is not limited only to plain text information. Graphics and other multimedia can be versioned as well~\cite[torvalds2010git].
 
 There are three main approaches in version controlling:
 
 \begitems
 	* {\bf Local Version Control Systems} - all changes are stored only on the single computer used by user (e.g., simple file copying to other folder),
 	* {\bf Centralized Version Control Systems} - versions are stored on the server and all clients access it from remote locations (e.g., Subversion, CVS),
-	* {\bf Distributed Version Control Systems} - versions are stored on the server, but all cliets have local copy of the repository and are able to make changes independently (e.g., Git or Mercurial).
+	* {\bf Distributed Version Control Systems} - versions are stored on the server, but all clients have local copy of the repository and are able to make changes independently (e.g., Git or Mercurial).
 \enditems
 
 \seccc Git
 
-For the purpose of development the application, Git \glref{VCS} was chosen. Git was founded in 2005 by the Linux development comunnity (in particular Linus Torvalds, the creator of Linux) to be an alternative to the commercial product BitKeeper which was used as \glref{VCS} for development of the Linux kernel. The main objectives were~\cite[githistory]:
+For the purpose of development the application, Git \glref{VCS} was chosen. Git was founded in 2005 by the Linux development community (in particular Linus Torvalds, the creator of Linux) to be an alternative to the commercial product BitKeeper which was used as \glref{VCS} for development of the Linux kernel. The main objectives were~\cite[githistory]:
 
 \begitems
 	* Speed,
 	* Simple design,
-	* Strong support for non-linear development (thousants of parallel branches),
+	* Strong support for non-linear development (thousands of parallel branches),
 	* Fully distributed,
 	* Ability to handle large projects like the Linux kernel.
 \enditems
@@ -108,7 +108,7 @@ Mobile application is into two parts. The first part is platform dependent (smar
 \label[cdphone]
 \secc User interface for smartphones
 
-Design of the user interface was the most imporant part of chapter \ref[design] a it is key problem of whole project. As this application is aimed to be used in car while driving, bad implementation of the concept can cause many difficulties for drivers. Therefore was very important to be especially precious in the development and this phase took majority of time.
+Design of the user interface was the most important part of chapter \ref[design] a it is key problem of whole project. As this application is aimed to be used in car while driving, bad implementation of the concept can cause many difficulties for drivers. Therefore was very important to be especially precious in the development and this phase took majority of time.
 
 Standard mode of application consists of various {\bf Modules}. Mobile phone version displays only one module at time (tablet version \cite[blaha] contains more modules at the screen). These modules are ordered in three structure - single module is displaying some information or contains more modules. 
 
@@ -175,7 +175,7 @@ Server was implemented as HTTP service in Java EE using Servlet API. It can be d
 
 \secc Communication with server
 
-Mobile application is logging all OBD data to the file stored in local storage. As these logs may be very data intensive, it is not reasonable to upload them live. Therefore when a wi-fi connection is availabe, user can initiate the upload of all files.  
+Mobile application is logging all OBD data to the file stored in local storage. As these logs may be very data intensive, it is not reasonable to upload them live. Therefore when a wi-fi connection is available, user can initiate the upload of all files.  
 
 \sec Reference Hardware
 
@@ -185,7 +185,7 @@ Mobile application is supposed to run on wide range of devices available in curr
 
 \seccc LG Nexus 5
 
-LG Nexus 5 was used for the purposes of development and testing. The main reason for selection was the fact, that whole lifcycle (design, development, marketing and support) is managed direcly by Google, Inc, the vendor of Android OS. Even though the development was aimed to reach the full functionality of as wide range of devices as possible, there can still be minor issues on other devices. 
+LG Nexus 5 was used for the purposes of development and testing. The main reason for selection was the fact, that whole life cycle (design, development, marketing and support) is managed directly by Google, Inc, the vendor of Android OS. Even though the development was aimed to reach the full functionality of as wide range of devices as possible, there can still be minor issues on other devices. 
 
 The technical specification of the device are following~\cite[wiki:nexus5]:
 
@@ -200,7 +200,7 @@ The technical specification of the device are following~\cite[wiki:nexus5]:
 *{\bf Operating system}: Android 'Marshmallow' 6.0.1
 *{\bf System on chip}: Qualcomm Snapdragon 800
 *{\bf CPU}: 2.26 GHz quad-core Krait 400
-*{\bf GPU}: Adreno 330, 450 MHz
+*{\bf GPU}: Ardeno 330, 450 MHz
 *{\bf Memory}: 2 GB of LPDDR3-1600 RAM
 *{\bf Storage}: 16 GB (12.55 GB available)
 *{\bf Display}: 4.95 in (126 mm) Full HD 1920x1080 px (445 ppi) IPS LCD, with Corning Gorilla Glass 3
@@ -215,7 +215,7 @@ The technical specification of the device are following~\cite[wiki:nexus5]:
 
 \secc OBD II devices
 
-One of the features of mobile application is the ability to gather driving data from ECU of the car. For this purpose the application uses standardized solution with OBD dongle equipped with ELM327 chip which is connected to car's diagnostic outlet /rfc{jiny slovo?}. 
+One of the features of mobile application is the ability to gather driving data from ECU of the car. For this purpose the application uses standardized solution with OBD dongle equipped with ELM327 chip which is connected to car's diagnostic outlet. /rfc{jiny slovo?}. 
 
 \seccc MINI ELM327 bluetooth OBD2 V1.5 Bluetooth dongle
 
