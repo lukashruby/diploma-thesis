@@ -1,4 +1,16 @@
 % !TeX root = thesis.tex
+
+\def\rotsimple#1{\hbox\bgroup\def\tmpb{#1}\afterassignment\rotsimpleA \setbox0=}%
+\def\rotsimpleA{\aftergroup\rotsimpleB}
+\def\rotsimpleB{\setbox0=\hbox{\box0}%
+   \ifnum\tmpb>0 \kern\ht0 \tmpdim=\dp0 \else \kern\dp0 \tmpdim=\ht0 \fi
+   \vbox to\wd0{\ifnum\tmpb>0 \vfill\fi
+                \vfil \wd0=0pt \dp0=0pt \ht0=0pt
+                \pdfsave\pdfrotate{\tmpb}\box0 \pdfrestore
+                \vfil}%
+   \kern\tmpdim
+   \egroup}
+
 \chap Evaluation
 
 Mobile application developed in this thesis is supposed to be used while driving and drivers must interact with it to obtain the desired information. \rfc{todo}
@@ -29,6 +41,7 @@ Simulator was build by DSRG. It is based on cockpit of Skoda Octavia II with cav
 
 The developed mobile application requires the bluetooth connection to obtain driving data from OBD dongle. As the simulator was not equiped with standard CAN-BUS communications (and therefore neither the OBD protocol was supported), using the common way of accessing driving data was not possible. To by-pass this problem, a support software tool in Java was developed. This program reads a subset of driving data (provided by the simulation software) from network and simulates an OBD dongle. The mobile application is then connected to the target computer and is able to read data the same way as it was connected to the OBD dongle.
 
+\label[eye-tracking-cameras]
 \seccc Eye Tracking Cameras \& Software
 
 Eye tracking solution was used for measurement the time that was spent looking at the mobile phone while driving. Car Simulator were equipped with the product of the company Smart Eye AB\urlnote{http://smarteye.se/}. It was composed of two eye tracking cameras Smart Eye Pro\urlnote{http://smarteye.se/products/smart-eye-pro/}. These camerad are designed to be used in Car Simulators, Flight Deck Simulators and other vehicle studies. The cameras are operating under Infra-Red, so they are insensitive to ambient light.
@@ -42,7 +55,9 @@ Another part of the eye tracking solution was Smart Eye Pro software. This progr
 
 \secc Participants
 
-The usability tests are based on the results from 5 participants from age 24 to 45 (mean age was 28). One participant was female, other four were males. The number of participant was based on recommendation of Jakob Nielsen \cite[nielson5enough]. None of participant had previous experience with the tested applications.
+The usability tests are based on the results from 5 participants from age 24 to 45 (mean age was 28, standard deviation 9.62). One participant was female, other four were males. Kilometers drove per year by the participants were in range from 4000 to 30000 (mean of 14800, standard deviation 10849). Operating system used on smartphone was three times Android OS, one time iOS and one time Windows Phone. Other information retained from partipants are in section \ref[pre-test].
+
+The number of participant was based on recommendation of Jakob Nielsen \cite[nielson5enough]. None of participant had previous experience with the tested applications. 
 
 %\midinsert \clabel[participants_basic]{Participants of usability testing}
 %\ctable{lrr}{
@@ -59,39 +74,44 @@ The usability tests are based on the results from 5 participants from age 24 to 
 
 \seccc Screener
 
-Purpose of the screener questionnaire was to filter out the participants that did not meet the requirements. The requirements were simple - a participant must be a smartphone user and active driver. All questions with required answers are available in section \ref[screener] of \ref[ap.questionnaires].
+Purpose of the screener questionnaire was to filter out the participants that did not meet the requirements. The requirements were simple - a participant must be a smartphone user and active driver. All questions with required answers are available in section~\ref[screener] of appendix~\ref[ap.questionnaires].
 
+\label[pre-test]
 \seccc Pre-test questionnaire results
 
-Before execution of the usability test, participants were asked to answer some questions about their behaviour while driving. The questionnaire is available in table \ref[pretest], results are in the tables \ref[participants_pretest] and \ref[participants_pretest_cont].
+Before execution of the usability test, participants were asked to answer some questions about their behaviour while driving. The questionnaire is available in table \ref[pretest], results are in the table \ref[participants_pretest].
 
 \midinsert \clabel[participants_pretest]{Results of pre-test quetionnaire}
-\ctable{lrrrr}{
-\hfil Participant's \# & Sex & Age & Times per week driving & Kms per year \crl \tskip4pt
-Participant 1 & Male & 24 & 1 & 4000 \cr
-Participant 2 & Male & 26 & 5 & 30000 \cr
-Participant 3 & Female & 45 & 7 & 20000 \cr
-Participant 4 & Male & 23 & 2 & 5000 \cr
-Participant 5 & Male & 22 & 6 & 15000\cr
+\ctable{lrrrrrrr}{
+\hfil \rotsimple{90}\hbox{Participant's \#} & \rotsimple{90}\hbox{Sex} & \rotsimple{90}\hbox{Age} & \rotsimple{90}\hbox{Times per week driving} & \rotsimple{90}\hbox{Kms per year} &  \rotsimple{90}\hbox{Smartphone OS} & \rotsimple{90}\hbox{Use phone while driving?} & \rotsimple{90}\hbox{How often?}\crl \tskip4pt
+Part. 1 & Male & 24 & 1 & 4000 & WP & Yes & Occasionaly\cr
+Part. 2 & Male & 26 & 5 & 30000 & Android & Yes & Often \cr
+Part. 3 & Female & 45 & 7 & 20000 & iOS & Yes & Often\cr
+Part. 4 & Male & 23 & 2 & 5000 & Android & Yes & Occasionaly\cr
+Part. 5 & Male & 22 & 6 & 15000 & Android & Yes & Often\cr
 }
 \caption/t Results of pre-test quetionnaire
 \endinsert
 
-\midinsert \clabel[participants_pretest_cont]{Results of pre-test quetionnaire (cont.)}
-\ctable{lrrr}{
-\hfil Participant's \# & Smartphone OS & Use phone while driving? & How often? \crl \tskip4pt
-Participant 1 & Windows Phone & Yes & Occasionaly\cr
-Participant 2 & Android & Yes & Often\cr
-Participant 3 & iOS & Yes & Often\cr
-Participant 4 & Android & Yes & Occasionaly\cr
-Participant 5 & Android & Yes & Often\cr
-}
-\caption/t Results of pre-test quetionnaire (cont.)
-\endinsert
-
 \seccc Post-test questionnaire results
 
+After the end of every single test, participants answered few questions about their impression about the process, their understanding and generally about their feeling about using both applications. Questionnaire is available in section~\ref[posttest] of appendix~\ref[ap.questionnaires], results are summarized in table~\ref[posttest-results].
+
+\midinsert \clabel[posttest-results]{Results of post-test questionnaire}
+\ctable{lrrrrr}{
+  \bf \rotsimple{90}\hbox{Participant's \#} & \bf \rotsimple{90}\hbox{Impression of using the device while driving [1-5]} & \bf \rotsimple{90}\hbox{Goals were clear [yes/no]} & \bf \rotsimple{90}\hbox{Way of solution was acceptable [1-5]} &  \bf \rotsimple{90}\hbox{Amount of diplayed information was appropriate [1-5]} & \bf \rotsimple{90}\hbox{Would use the application in everyday driving [yes/no] }\crl \tskip4pt
+Part. 1	&	1	& yes	& 1.5	& 1	& yes	\cr
+Part. 2	&	3	& yes	& 3	& 1	& no	\cr
+Part. 3	&	2	& yes	& 1	& 1	& yes	\cr
+Part. 4	&	1	& yes	& 2	& 1	& yes	\cr
+Part. 5	&	2	& yes	& 1.5	& 2	& yes	\cr
+}\caption/t Results of post-test questionnaire
+\endinsert
+
+
 \secc Tests schedule
+
+Each test had the fixed time limit. As was mentioned in previous section, participants had not had any experiences with in-car dashboard mobile application and they had not been participants of usability testing before. Therefore an introduction part was included where they were informed about structure and purpose of the test. This introduction was followed by necessary calibration of eye-tracking cameras (for each participant the calibartion was different). Then could be performed the usability tests. Exact plan of a test is shown in table~\ref[user_testing_schedule].
 
 \midinsert \clabel[user_testing_schedule]{User testing schedule}
 \ctable{ccrl}{
@@ -111,7 +131,7 @@ Participant 5 & Android & Yes & Often\cr
 
 This test was used to evaluate influence of a secondary task while performing a primary task. For these purposes the Lance Change Test (LCT) has received considerable attention. It appears to be a practical and effective measure of the costs associated with operating in-vehicle devices while performing a driving task. The procedure of the Lane Change Test was stardardized as ISO 3888.
 
-For the execution of the LCT was used the car simulator introduces in section \ref[test_equipment]. The test track was a 4 km straight line road with a single lane change manoeuvre. Participants were required to keep a constant speed of 60 km per hour and they were asked to tell the current value of driving-relevant information displayed on the smartphone using the developed application. The interval between each request was 10 seconds. The manouvre was initiated by placing an unexpected object in the driving path. Size of the object was 2.20 x 2.20 x 2.20 m and it was placed 35 m in front of vehicle. 
+For the execution of the LCT was used the car simulator introduces in section \ref[test_equipment]. The test track was a 4 km straight line road with a single lane change manoeuvre. Participants were required to keep a constant speed of 60 km per hour and they were asked to tell the current value of driving-relevant information displayed on the smartphone using the developed application. The interval between each request was 10 seconds. The manouvre was initiated by placing an unexpected object in the driving path. Size of the object was 2.20 x 2.20 x 2.20 m and it was placed 35 m in front of vehicle. There was a read arrow pointing to the left lane which suggested driver the direction to go around the object (change the driving lane).
 
 
 
@@ -119,11 +139,35 @@ For the execution of the LCT was used the car simulator introduces in section \r
 
 \secc Results
 
+Evaluation of Lane Change Test is based on two metrics. The first one is the object avoidance (if a participant did not hit the object) and the second one is the reaction time. This value is detemined from the the usage of steering wheel - when steering angle was bigger than certain value (calculated from previous drive). All data necessary for evaluating the tests were obtained from car simulator. Preview of typical behivour is plotted in figure~\ref[lct_route].
+
+\midinsert \clabel[lct_route]{Typical process of object avoidance during LCT}
+\picw=\hsize \cinspic resources/images/tests/lct1.pdf
+\caption/f Typical process of object avoidance during LCT
+\endinsert
+
+\midinsert \clabel[lct_results]{Results of LCT}
+\ctable{lrrr}{
+\hfil Participant \# & Object avoided & Reaction time [sec] & Reaction distance [m] \crl \tskip4pt
+Participant 1 & Yes  &  0 & 0 \cr
+Participant 2 & Yes	 & 	0 & 0 \cr
+Participant 3 & Yes  & 	0 & 0 \cr
+Participant 4 & Yes  &  0 & 0 \cr
+Participant 5 & Yes  & 	0 & 0 \cr
+}
+\caption/t {Results of LCT}
+\endinsert
+
+
 
 
 \sec A/B test
 
-\midinsert \clabel[ab_trace]{Route of A/B tests}
+A/B testing (also known as split testing or bucket testing) is a testing approach of comparing two version of tested subjects again each others to determine which one performs better. This approach is known mainly from webpage testing, where the criterion is conversion rate. Method of A/B testing was adopted also in testing of CarDashboard mobile application. Small changes were done: Instead of webpages were compared mobile applications and instead of conversion rate the criterion was glance time. Glance time was measured using eye tracking cameras mentioned in section~\ref[eye-tracking-cameras].
+
+A/B testing needs two versions. In this case, the first version was the developed mobile application CarDashboard and the second version was a mobile application called Torque\urlnote{http://torque-bhp.com/} which is the most downloaded application for OBD connection with more than 1 million free downloads\urlnote{https://play.google.com/store/apps/details?id=org.prowl.torquefree&hl=en} and more than 500 thousands paid downloads\urlnote{https://play.google.com/store/apps/details?id=org.prowl.torque&hl=en}. This application is available for Android-based tablets and mobile phones, thus was a perfect candidate as the usability tests were performed also for the tablet version of CarDashboard~\cite[blaha].
+
+\midinsert \clabel[ab_trace]{Route of track used in A/B testing}
 \picw=8cm \cinspic resources/images/tests/ab_route.pdf
 \caption/f Route of A/B tests
 \endinsert
@@ -135,16 +179,7 @@ For the execution of the LCT was used the car simulator introduces in section \r
 \caption/f Vizualization of typical speed and braking during A/B test
 \endinsert
 
-\def\rotsimple#1{\hbox\bgroup\def\tmpb{#1}\afterassignment\rotsimpleA \setbox0=}%
-\def\rotsimpleA{\aftergroup\rotsimpleB}
-\def\rotsimpleB{\setbox0=\hbox{\box0}%
-   \ifnum\tmpb>0 \kern\ht0 \tmpdim=\dp0 \else \kern\dp0 \tmpdim=\ht0 \fi
-   \vbox to\wd0{\ifnum\tmpb>0 \vfill\fi
-                \vfil \wd0=0pt \dp0=0pt \ht0=0pt
-                \pdfsave\pdfrotate{\tmpb}\box0 \pdfrestore
-                \vfil}%
-   \kern\tmpdim
-   \egroup}
+
 
 \midinsert \clabel[ab_results]{Results of A/B testing}
 \ctable{l|rr|rr|rr}{
