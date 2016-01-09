@@ -107,6 +107,27 @@ maxGlance = max(glances)*1000/60
 averageGlance = sum(glances)/length(glances)*1000/60
 \endtt
 
+\secc Visualisation of Lane change test
+
+\begtt
+steerDiff = find(diff(steer)<-6); \%steering more than treshold (id, where was the steering bigger)
+yL = get(gca,'YLim'); \% plotting stuff
+middle = plot(x,-z,'Color',[0 0 1]);
+hold on;
+lSide = plot(x,-z-1, 'Color', [0.8 0.8 1]);
+rSide = plot(x,-z+1, 'Color', [0.8 0.8 1]);
+yL = get(gca,'YLim'); \% plotting stuff
+set(gca,'xtick',[],'ytick',[])
+steeringStarted = line([x(steerDiff(1)) x(steerDiff(1))],yL,'Color',[0 1 0]); \% drive line, where the plotting started
+objectShown = line([-5399.6-35 -5399.6-35],yL,'Color',[1 0 0]); \% line where object appeard
+axis equal;
+axis ([-5460 -5360 2290 2310]);
+legend('Middle of the car', 'Border of the car', 'Border of the car', 'Start of steering','Object was shown'  );
+rectangle('Position',[-5399.6 2295.5 2.2 2.2]);\%5400.7, 1.1, 2296.6
+reactionTime = x(steerDiff(1))- (-5399.6-35);
+hold off;
+\endtt
+
 \nextoddpage
 
 \app Content of the CD
