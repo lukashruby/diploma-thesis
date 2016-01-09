@@ -13,7 +13,7 @@
 
 \sec Android Design Guidelines
 
-In section \ref[android5] was mentioned that with the realease of Android 5 Lollipop, Google provided guidelines for application developers to design user interface in proper way. These guidelines are called Google Design Guidelines~\urlnote{https://www.google.com/design/spec/material-design/introduction.html} and defines various design rules and parameters. The most important rule is that the display of the device shoud be taken as a real-world 3D environment. The whole concept is called Material Design~\urlnote{https://www.google.com/design/spec/what-is-material/environment.html}.
+In section \ref[android5] was mentioned that with the release of Android 5 Lollipop, Google provided guidelines for application developers to design user interface in proper way. These guidelines are called Google Design Guidelines~\urlnote{https://www.google.com/design/spec/material-design/introduction.html} and defines various design rules and parameters. The most important rule is that the display of the device should be taken as a real-world 3D environment. The whole concept is called Material Design~\urlnote{https://www.google.com/design/spec/what-is-material/environment.html}.
 
 \sec Comunnication 
 
@@ -21,13 +21,13 @@ As the application supports to communication with a car's \glref{ECU}, connects 
 
 \secc Bluetooth
 
-Support of Bluetooth technology is crucial for the final application. Bluetooth is used for connection to ELM327 Bluetooth Dongle which provides communication with \glref{OBD} interface. Dongles based on ELM327 usually supports USB, RM-232, Wi-Fi or Bluetooth connections. In this case the Bluetooth connection was chosen because of simplicity of usage, commercial avaibility of the dongles and low power consumption\urlnote{http://science.opposingviews.com/bluetooth-vs-wifi-power-consumption-17630.html}.
+Support of Bluetooth technology is crucial for the final application. Bluetooth is used for connection to ELM327 Bluetooth Dongle which provides communication with \glref{OBD} interface. Dongles based on ELM327 usually supports USB, RM-232, WiFi or Bluetooth connections. In this case the Bluetooth connection was chosen because of simplicity of usage, commercial availability of the dongles and low power consumption\urlnote{http://science.opposingviews.com/bluetooth-vs-wifi-power-consumption-17630.html}.
 
 \secc Wi-fi
 
 \secc Mobile telecommunication
 
-Category of mobile telecomunnication in this case includes the possibilities of connection to the internet when wi-fi connection is not available. To this category belong wireless network technologies provided by mobile carriers (3G, 4G). This type of internet connectivity is not supposed to be used for uploading trip logs due to limited data plans issue. The typical use is to control other devices via HTTP request initiated from the smartphone (e.g., opening garage doors or entrance gates). The application is, hovever, usable without the data plan.
+Category of mobile telecommunication in this case includes the possibilities of connection to the internet when wi-fi connection is not available. To this category belong wireless network technologies provided by mobile carriers (3G, 4G). This type of internet connectivity is not supposed to be used for uploading trip logs due to limited data plans issue. The typical use is to control other devices via HTTP request initiated from the smartphone (e.g., opening garage doors or entrance gates). The application is, however, usable without the data plan.
 
 \sec Modularity
 
@@ -44,9 +44,10 @@ Based on the previous research (led by dr. Sedivy, supervisor of this thesis) th
 
 \secc Portrait vs. Landscape mode
 
+\rfc{tohle je nejakej copy paste -> prepsat}
 The smartphone changes the user interface based on how the user holds it. The screen in the car can also be in the landscape or portrait mode. The landscape positioning is used by most of the cars on the market. The HP is showing the icons of the key applications and the user is choosing with the pointing device. The icons are fixed or move towards the central screen position. The horizontal pointing is used to move to both sides. The landscape position is on the other side not good for displaying list of names. It is easy to prove this statement. When we search a person in a contact application we can see many more lines in the portrait mode. 
 
-The HP can be designed for both directions the same way, simply moving the focus left to right or up and down. The radio application, where probably the number one action is changing the station, probably the better format is portrait, since larger number of stations can be displayed. The media application is not that clear the forward, fast forward or backward adn stop buttons are traditionally arranged horizontally. On the other hand the selection of an artist, song, album, genre etc. will be better in the portrait mode. The navigation map uses in most cases the landscape screen, but again to select the destination is again a selection from a list where the portrait positioning might give an advantage. As we have mentioned above for the phone is probably better the portrait mode. The last key application is the setting of the car parameters. In this case we deal with large number of params, where a portrait mode may have an advantage.
+The HP can be designed for both directions the same way, simply moving the focus left to right or up and down. The radio application, where probably the number one action is changing the station, probably the better format is portrait, since larger number of stations can be displayed. The media application is not that clear the forward, fast forward or backward and stop buttons are traditionally arranged horizontally. On the other hand the selection of an artist, song, album, genre etc. will be better in the portrait mode. The navigation map uses in most cases the landscape screen, but again to select the destination is again a selection from a list where the portrait positioning might give an advantage. As we have mentioned above for the phone is probably better the portrait mode. The last key application is the setting of the car parameters. In this case we deal with large number of parameters, where a portrait mode may have an advantage.
 
 It is not easy to lean on either side in selecting the screen positioning. However strictly stickin to one direction of moving between elements on the screen, it is going between icons and selecting from a list of text may have an advantage. If we would move only horizontally or vertically we will save on the pointing devices, the UI may be more intuitive easier to learn. Imagine an portrait arrangement, one can move around icons and change lines in lists of names only up and down. This can be easily controlled by two buttons up and down. 
 
@@ -82,17 +83,17 @@ User interface is one of the most important part of this thesis. \rfc{dodelat}
 \endinsert
 
 
-Low fidelity prototypes are generally limited functions, limited interaction prototypes. They are constructed to depict concepts, design alternatives, and screen layouts. They are constructed quickly and provide limited or no functionality. These prototype are created to demonstrate tge general look, they are not intended to show in detail how the application operates. They should comunnicate, educate, and inform, not to train, test, or serve as a basis from which to code~\cite[Rudd:1996:LVH:223500.223514].
+Low fidelity prototypes are generally limited functions, limited interaction prototypes. They are constructed to depict concepts, design alternatives, and screen layouts. They are constructed quickly and provide limited or no functionality. These prototype are created to demonstrate the general look, they are not intended to show in detail how the application operates. They should communicate, educate, and inform, not to train, test, or serve as a basis from which to code~\cite[Rudd:1996:LVH:223500.223514].
 
-For the purpose of creating low fidelity prototype of the application, the tool Balsamiq Mockups\urlnote{https://balsamiq.com/} was used. It is a rapid wireframeing tool that reproduces the experience of sketching on a whiteboard, but using a computer.
+For the purpose of creating low fidelity prototype of the application, the tool Balsamiq Mock-ups\urlnote{https://balsamiq.com/} was used. It is a rapid wireframing tool that reproduces the experience of sketching on a whiteboard, but using a computer.
 
-The two step approach was applied. In the first step the ideas from previous chapters were used and the first version of lo-fi prototype was sketched. The result is at \rfc{preposition?} figure~\ref[balsamiq_v1]. After discussion and basic testing the mockup was improved and the second version was designed (figure~\ref[balsamiq_v2]).
+The two step approach was applied. In the first step the ideas from previous chapters were used and the first version of lo-fi prototype was sketched. The result is at \rfc{preposition?} figure~\ref[balsamiq_v1]. After discussion and basic testing the mock-up was improved and the second version was designed (figure~\ref[balsamiq_v2]).
 
 \secc High fidelity prototype
 
-Unline low fidelity prototypes, high fidelity prototypes are fully functional and interactive. They adress the issues of navigation and flow and of matching the design and user models of a system. High fidelity prototypes are used for exploration and tests. Users can operate them the same way as the final product and they can make informed recommendations about how to improve the user interface~\cite[Rudd:1996:LVH:223500.223514].
+Unlike low fidelity prototypes, high fidelity prototypes are fully functional and interactive. They address the issues of navigation and flow and of matching the design and user models of a system. High fidelity prototypes are used for exploration and tests. Users can operate them the same way as the final product and they can make informed recommendations about how to improve the user interface~\cite[Rudd:1996:LVH:223500.223514].
 
-High fidelity prototype of the application developed in this thesis was made in the target application's platform and continously improved.
+High fidelity prototype of the application developed in this thesis was made in the target application's platform and continuously improved.
 
 
 
