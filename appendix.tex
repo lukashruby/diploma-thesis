@@ -110,6 +110,7 @@ averageGlance = sum(glances)/length(glances)*1000/60
 \secc Visualisation of Lane change test
 
 \begtt
+
 steerDiff = find(diff(steer)<-6); \%steering more than treshold (id, where was the steering bigger)
 yL = get(gca,'YLim'); \% plotting stuff
 middle = plot(x,-z,'Color',[0 0 1]);
@@ -126,7 +127,36 @@ legend('Middle of the car', 'Border of the car', 'Border of the car', 'Start of 
 rectangle('Position',[-5399.6 2295.5 2.2 2.2]);\%5400.7, 1.1, 2296.6
 reactionTime = x(steerDiff(1))- (-5399.6-35);
 hold off;
+
 \endtt
+
+\sec Results of Lane Change Test
+
+\midinsert \clabel[lct_res1]{Lane Change Test - Participant \#1}
+\picw=\hsize \cinspic resources/images/tests/lct1.pdf
+\caption/f Lane Change Test - Participant \#1
+\endinsert
+
+\midinsert \clabel[lct_res2]{Lane Change Test - Participant \#2}
+\picw=\hsize \cinspic resources/images/tests/lct2.pdf
+\caption/f Lane Change Test - Participant \#2
+\endinsert
+
+\midinsert \clabel[lct_res3]{Lane Change Test - Participant \#3}
+\picw=\hsize \cinspic resources/images/tests/lct3.pdf
+\caption/f Lane Change Test - Participant \#3
+\endinsert
+
+\midinsert \clabel[lct_res4]{Lane Change Test - Participant \#4}
+\picw=\hsize \cinspic resources/images/tests/lct4.pdf
+\caption/f Lane Change Test - Participant \#4
+\endinsert
+
+\midinsert \clabel[lct_res5]{Lane Change Test - Participant \#5}
+\picw=\hsize \cinspic resources/images/tests/lct5.pdf
+\caption/f Lane Change Test - Participant \#5
+\endinsert
+
 
 \nextoddpage
 
