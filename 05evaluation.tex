@@ -25,7 +25,7 @@ Usability testing is a good way to understand how real users use an application.
 \label[test_equipment]
 \secc Used equipment
 
-As mention at the beginning of this chapter, we used equipment provided by the Faculty of Transportation Sciences, namely the 3D car light simulator and Eye Tracker. Logged results were analysed using MATLAB.
+As mention at the beginning of this chapter, we used equipment provided by the Faculty of Transportation Sciences, namely the 3D car light simulator and Eye Tracker. Logged results were analyzed using MATLAB.
 
 
 \midinsert \clabel[octavia_photo]{Picture of simulator}
@@ -39,14 +39,14 @@ Simulator was build by DSRG. It is based on cockpit of Skoda Octavia II with cav
 
 \seccc Software tools
 
-The developed mobile application requires the bluetooth connection to obtain driving data from OBD dongle. As the simulator was not equiped with standard CAN-BUS communications (and therefore neither the OBD protocol was supported), using the common way of accessing driving data was not possible. To by-pass this problem, a support software tool in Java was developed. This program reads a subset of driving data (provided by the simulation software) from network and simulates an OBD dongle. The mobile application is then connected to the target computer and is able to read data the same way as it was connected to the OBD dongle.
+The developed mobile application requires the Bluetooth connection to obtain driving data from OBD dongle. As the simulator was not equipped with standard CAN-BUS communications (and therefore neither the OBD protocol was supported), using the common way of accessing driving data was not possible. To by-pass this problem, a support software tool in Java was developed. This program reads a subset of driving data (provided by the simulation software) from network and simulates an OBD dongle. The mobile application is then connected to the target computer and is able to read data the same way as it was connected to the OBD dongle.
 
 \label[eye-tracking-cameras]
 \seccc Eye Tracking Cameras \& Software
 
 Eye tracking solution was used for measurement the time that was spent looking at the mobile phone while driving. Car Simulator were equipped with the product of the company Smart Eye AB\urlnote{http://smarteye.se/}. It was composed of two eye tracking cameras Smart Eye Pro\urlnote{http://smarteye.se/products/smart-eye-pro/}. These camerad are designed to be used in Car Simulators, Flight Deck Simulators and other vehicle studies. The cameras are operating under Infra-Red, so they are insensitive to ambient light.
 
-Another part of the eye tracking solution was Smart Eye Pro software. This program was used to configurate the whole process. Every participant went through the calibration procedure. Screenshot from the program is in figure~\ref[eyetracker_sw].
+Another part of the eye tracking solution was Smart Eye Pro software. This program was used to configure the whole process. Every participant went through the calibration procedure. Screenshot from the program is in figure~\ref[eyetracker_sw].
 
 \midinsert \clabel[eyetracker_sw]{Eye tracking software}
 \picw=\hsize \cinspic resources/images/phone.png
@@ -55,7 +55,7 @@ Another part of the eye tracking solution was Smart Eye Pro software. This progr
 
 \secc Participants
 
-The usability tests are based on the results from 5 participants from age 24 to 45 (mean age was 28, standard deviation 9.62). One participant was female, other four were males. Kilometers drove per year by the participants were in range from 4000 to 30000 (mean of 14800, standard deviation 10849). Operating system used on smartphone was three times Android OS, one time iOS and one time Windows Phone. Other information retained from partipants are in section \ref[pre-test].
+The usability tests are based on the results from 5 participants from age 24 to 45 (mean age was 28, standard deviation 9.62). One participant was female, other four were males. Kilometers drove per year by the participants were in range from 4000 to 30000 (mean of 14800, standard deviation 10849). Operating system used on smartphone was three times Android OS, one time iOS and one time Windows Phone. Other information retained from participants are in section \ref[pre-test].
 
 The number of participant was based on recommendation of Jakob Nielsen \cite[nielson5enough]. None of participant had previous experience with the tested applications. 
 
@@ -79,9 +79,9 @@ Purpose of the screener questionnaire was to filter out the participants that di
 \label[pre-test]
 \seccc Pre-test questionnaire results
 
-Before execution of the usability test, participants were asked to answer some questions about their behaviour while driving. The questionnaire is available in table \ref[pretest], results are in the table \ref[participants_pretest].
+Before execution of the usability test, participants were asked to answer some questions about their behavior while driving. The questionnaire is available in table \ref[pretest], results are in the table \ref[participants_pretest].
 
-\midinsert \clabel[participants_pretest]{Results of pre-test quetionnaire}
+\midinsert \clabel[participants_pretest]{Results of pre-test questionnaire}
 \ctable{lrrrrrrr}{
 \hfil \rotsimple{90}\hbox{Participant's \#} & \rotsimple{90}\hbox{Sex} & \rotsimple{90}\hbox{Age} & \rotsimple{90}\hbox{Times per week driving} & \rotsimple{90}\hbox{Kms per year} &  \rotsimple{90}\hbox{Smartphone OS} & \rotsimple{90}\hbox{Use phone while driving?} & \rotsimple{90}\hbox{How often?}\crl \tskip4pt
 Part. 1 & Male & 24 & 1 & 4000 & WP & Yes & Occasionaly\cr
@@ -111,7 +111,7 @@ Part. 5	&	2	& yes	& 1.5	& 2	& yes	\cr
 
 \secc Tests schedule
 
-Each test had the fixed time limit. As was mentioned in previous section, participants had not had any experiences with in-car dashboard mobile application and they had not been participants of usability testing before. Therefore an introduction part was included where they were informed about structure and purpose of the test. This introduction was followed by necessary calibration of eye-tracking cameras (for each participant the calibartion was different). Then could be performed the usability tests. Exact plan of a test is shown in table~\ref[user_testing_schedule].
+Each test had the fixed time limit. As was mentioned in previous section, participants had not had any experiences with in-car dashboard mobile application and they had not been participants of usability testing before. Therefore an introduction part was included where they were informed about structure and purpose of the test. This introduction was followed by necessary calibration of eye-tracking cameras (for each participant the calibration was different). Then could be performed the usability tests. Exact plan of a test is shown in table~\ref[user_testing_schedule].
 
 \midinsert \clabel[user_testing_schedule]{User testing schedule}
 \ctable{ccrl}{
@@ -129,9 +129,9 @@ Each test had the fixed time limit. As was mentioned in previous section, partic
 
 \sec Lane Change Test
 
-This test was used to evaluate influence of a secondary task while performing a primary task. For these purposes the Lance Change Test (LCT) has received considerable attention. It appears to be a practical and effective measure of the costs associated with operating in-vehicle devices while performing a driving task. The procedure of the Lane Change Test was stardardized as ISO 3888.
+This test was used to evaluate influence of a secondary task while performing a primary task. For these purposes the Lance Change Test (LCT) has received considerable attention. It appears to be a practical and effective measure of the costs associated with operating in-vehicle devices while performing a driving task. The procedure of the Lane Change Test was standardized as ISO 3888.
 
-For the execution of the LCT was used the car simulator introduces in section \ref[test_equipment]. The test track was a 4 km straight line road with a single lane change manoeuvre. Participants were required to keep a constant speed of 60 km per hour and they were asked to tell the current value of driving-relevant information displayed on the smartphone using the developed application. The interval between each request was 10 seconds. The manouvre was initiated by placing an unexpected object in the driving path. Size of the object was 2.20 x 2.20 x 2.20 m and it was placed 35 m in front of vehicle. There was a read arrow pointing to the left lane which suggested driver the direction to go around the object (change the driving lane).
+For the execution of the LCT was used the car simulator introduces in section \ref[test_equipment]. The test track was a 4 km straight line road with a single lane change maneuver. Participants were required to keep a constant speed of 60 km per hour and they were asked to tell the current value of driving-relevant information displayed on the smartphone using the developed application. The interval between each request was 10 seconds. The maneuver was initiated by placing an unexpected object in the driving path. Size of the object was 2.20 x 2.20 x 2.20 m and it was placed 35 m in front of vehicle. There was a read arrow pointing to the left lane which suggested driver the direction to go around the object (change the driving lane).
 
 
 
@@ -139,7 +139,7 @@ For the execution of the LCT was used the car simulator introduces in section \r
 
 \secc Results
 
-Evaluation of Lane Change Test is based on two metrics. The first one is the object avoidance (if a participant did not hit the object) and the second one is the reaction time. This value is detemined from the the usage of steering wheel - when steering angle was bigger than certain value (calculated from previous drive). All data necessary for evaluating the tests were obtained from car simulator. Preview of typical behivour is plotted in figure~\ref[lct_route].
+Evaluation of Lane Change Test is based on two metrics. The first one is the object avoidance (if a participant did not hit the object) and the second one is the reaction time. This value is determined from the the usage of steering wheel - when steering angle was bigger than certain value (calculated from previous drive). All data necessary for evaluating the tests were obtained from car simulator. Preview of typical behavior is plotted in figure~\ref[lct_route].
 
 \midinsert \clabel[lct_route]{Typical process of object avoidance during LCT}
 \picw=\hsize \cinspic resources/images/tests/lct1.pdf
@@ -148,15 +148,19 @@ Evaluation of Lane Change Test is based on two metrics. The first one is the obj
 
 \midinsert \clabel[lct_results]{Results of LCT}
 \ctable{lrrr}{
-\hfil Participant \# & Object avoided & Reaction time [sec] & Reaction distance [m] \crl \tskip4pt
-Participant 1 & Yes  &  0 & 0 \cr
-Participant 2 & Yes	 & 	0 & 0 \cr
-Participant 3 & Yes  & 	0 & 0 \cr
-Participant 4 & Yes  &  0 & 0 \cr
-Participant 5 & Yes  & 	0 & 0 \cr
+\hfil Participant \# & Object avoided & Reaction time & Reaction distance\crl \tskip4pt
+Participant 1 & Yes  &  437.1 ms & 8.91 m \cr
+Participant 2 & Yes	 & 	491.0 ms & 9.39 m \cr
+Participant 3 & Yes  & 	455.5 ms&  9.10 m \cr
+Participant 4 & Yes  &  587.5 ms & 10.99 m\cr
+Participant 5 & Yes  & 	511.8 ms & 9.87 m \cr
 }
 \caption/t {Results of LCT}
 \endinsert
+
+Table~\ref[lct_results] shows that in the object avoidance the tests were 100\% successful. However, the result with bigger group of participant could be different - for example in picture~\ref[lct_res] in Appendix~\ref[tests_results] is obvious that object avoidance was very tight. 
+
+Measured and calculated results can be compared with \rfc{doplnit}.
 
 \sec A/B test
 
@@ -171,9 +175,9 @@ A/B testing needs two versions. In this case, the first version was the develope
 
 \secc Results
 
-\midinsert \clabel[ab_speedbraking]{Vizualization of typical speed and braking during A/B test}
+\midinsert \clabel[ab_speedbraking]{Visualization of typical speed and braking during A/B test}
 \picw=\hsize \cinspic resources/images/tests/brakingspeed.pdf
-\caption/f Vizualization of typical speed and braking during A/B test
+\caption/f Visualization of typical speed and braking during A/B test
 \endinsert
 
 
