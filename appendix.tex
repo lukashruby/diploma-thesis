@@ -111,20 +111,37 @@ averageGlance = sum(glances)/length(glances)*1000/60
 
 \begtt
 
-steerDiff = find(diff(steer)<-6); \%steering more than treshold (id, where was the steering bigger)
-yL = get(gca,'YLim'); \% plotting stuff
+steerDiff = find(diff(steer)<-2); 
+\%steering more than treshold (id, where was the steering bigger)
+
+yL = get(gca,'YLim'); \% length of Y
+
+\%objectX = -5400.7-1.1; objectY = 2296.6-1.1;
+objectX = -5239.3-1.1;  objectY = 2292-1.1;
+
 middle = plot(x,-z,'Color',[0 0 1]);
 hold on;
 lSide = plot(x,-z-1, 'Color', [0.8 0.8 1]);
 rSide = plot(x,-z+1, 'Color', [0.8 0.8 1]);
-yL = get(gca,'YLim'); \% plotting stuff
-set(gca,'xtick',[],'ytick',[])
-steeringStarted = line([x(steerDiff(1)) x(steerDiff(1))],yL,'Color',[0 1 0]); \% drive line, where the plotting started
-objectShown = line([-5399.6-35 -5399.6-35],yL,'Color',[1 0 0]); \% line where object appeard
 axis equal;
-axis ([-5460 -5360 2290 2310]);
-legend('Middle of the car', 'Border of the car', 'Border of the car', 'Start of steering','Object was shown'  );
-rectangle('Position',[-5399.6 2295.5 2.2 2.2]);\%5400.7, 1.1, 2296.6
+axis ([objectX-60 objectX+40 objectY-6 objectY+15]);
+yL = get(gca,'YLim'); \% length of Y
+set(gca,'xtick',[],'ytick',[])
+steeringStarted = line([x(steerDiff(1)) x(steerDiff(1))],yL,
+						'Color',[0 1 0]); 
+\% drive line, where the plotting started
+
+objectShown = line([objectX-35 objectX-35],yL,'Color',[1 0 0]); 
+\% line where object appeard
+
+
+legend('Middle of the car', 'Border of the car', 
+'Border of the car', 'Start of steering','Object was shown'  );
+
+
+
+rectangle('Position',[objectX objectY 2.2 2.2]); \%5400.7, 1.1, 2296.6
+\%rectangle('Position',[-5238.2 2290.9 2.2 2.2]); \%5239.3, 1.1, 2292
 reactionTime = x(steerDiff(1))- (-5399.6-35);
 hold off;
 
