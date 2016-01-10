@@ -13,7 +13,7 @@
 
 \chap Evaluation
 
-Mobile application developed in this thesis is supposed to be used while driving and drivers must interact with it to obtain the desired information. \rfc{todo}
+Mobile application developed in this thesis is supposed to be used while driving and drivers must interact with it to obtain the desired information. This interaction is critical, as it might cause serious problems while driving. The aim of this chapter is to show that the mobile application can be used without significant impact to driver's behaviour.
 
 The primary goal of the evaluation part was to collect data from real human drivers in the tasks and environment as close as possible to real-world situations. To reach this goal we established cooperation with the Driving Simulation Research Group based at the Faculty of Transportation Sciences of Czech Technical University in Prague. We were able to use their car simulator and other equipment.
 
@@ -160,13 +160,15 @@ Participant 5 & Yes  & 	511.8 ms & 9.87 m \cr
 
 Table~\ref[lct_results] shows that in the object avoidance the tests were 100\% successful. However, the result with bigger group of participant could be different - for example in picture~\ref[lct_res] in Appendix~\ref[tests_results] is obvious that object avoidance was very tight. 
 
-Measured and calculated results can be compared with \rfc{doplnit}.
+Measured and calculated results can be compared with results from \cite[d2014perception]. A similar test was performed with measured mean time 0.78 seconds. This reaction time is comparable with reaction times of participants.
 
 \sec A/B test
 
 A/B testing (also known as split testing or bucket testing) is a testing approach of comparing two version of tested subjects again each others to determine which one performs better. This approach is known mainly from webpage testing, where the criterion is conversion rate. Method of A/B testing was adopted also in testing of CarDashboard mobile application. Small changes were done: Instead of webpages were compared mobile applications and instead of conversion rate the criterion was glance time. Glance time was measured using eye tracking cameras mentioned in section~\ref[eye-tracking-cameras].
 
-A/B testing needs two versions. In this case, the first version was the developed mobile application CarDashboard and the second version was a mobile application called Torque\urlnote{http://torque-bhp.com/} which is the most downloaded application for OBD connection with more than 1 million free downloads\urlnote{https://play.google.com/store/apps/details?id=org.prowl.torquefree&hl=en} and more than 500 thousands paid downloads\urlnote{https://play.google.com/store/apps/details?id=org.prowl.torque&hl=en}. This application is available for Android-based tablets and mobile phones, thus was a perfect candidate as the usability tests were performed also for the tablet version of CarDashboard~\cite[blaha].
+A/B testing needs two subject. In this case, the first subject was the developed mobile application CarDashboard and the second subject was a mobile application called Torque\urlnote{http://torque-bhp.com/} which is the most downloaded application for OBD connection with more than 1 million free downloads\urlnote{https://play.google.com/store/apps/details?id=org.prowl.torquefree&hl=en} and more than 500 thousands paid downloads\urlnote{https://play.google.com/store/apps/details?id=org.prowl.torque&hl=en}. This application is available for Android-based tablets and mobile phones, thus was a perfect candidate as the usability tests were performed also for the tablet version of CarDashboard~\cite[blaha].
+
+For purposes of A/B testing, a complex world map was used. The whole route was 6.5 km long and led through countryside with two villages. Also the other traffic was present. The 2D map of the route is displayed in figure~\ref[ab_trace] and typical speed and usage of brakes is in figure~\ref[ab_speedbraking].
 
 \midinsert \clabel[ab_trace]{Route of track used in A/B testing}
 \picw=8cm \cinspic resources/images/tests/ab_route.pdf
@@ -175,12 +177,7 @@ A/B testing needs two versions. In this case, the first version was the develope
 
 \secc Results
 
-\midinsert \clabel[ab_speedbraking]{Visualization of typical speed and braking during A/B test}
-\picw=\hsize \cinspic resources/images/tests/brakingspeed.pdf
-\caption/f Visualization of typical speed and braking during A/B test
-\endinsert
-
-
+The hypothesis of the A/B testing was that the developed mobile application CarDashboard would perform better that the competitive application Torque. This hypothesis was confirmed. All participants also proclaimed that the CarDashboard application is simpler to use and they had better feeling of use.  All results from A/B testing are available in table~\ref[ab_results]. The results are considered as expectable. For some participants the difference between Torque and CarDashboard is not significantly different, however, the rating score of Torque on Google Play Store must be taken in account. Torque reached the score 4.0 from 5.0 (from over 21 thousands reviewers) and therefore it is a very good rated application. Torque Pro has even better score -- 4.6 from almost 40 thousands reviewers. 
 
 \midinsert \clabel[ab_results]{Results of A/B testing}
 \ctable{l|rr|rr|rr}{
@@ -192,6 +189,11 @@ Participant 4 & 13.94 \% &  5.4  \% & 1933 ms &  433 ms & 541.53 ms & 187 ms \cr
 Participant 5 &  9.94 \% & 10.32 \% &  950 ms & 1617 ms &  73.41 ms & 120.7 ms \cr
 }
 \caption/t {Results of A/B testing}
+\endinsert
+
+\midinsert \clabel[ab_speedbraking]{Visualization of typical speed and braking during A/B test}
+\picw=\hsize \cinspic resources/images/tests/brakingspeed.pdf
+\caption/f Visualization of typical speed and braking during A/B test
 \endinsert
 
 
