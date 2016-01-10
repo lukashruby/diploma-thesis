@@ -1,5 +1,6 @@
 % !TeX root = thesis.tex
 
+\label[analysis]
 \chap Analysis
 
 This chapter is dedicated to the analysis of various topics related to this thesis. In the first part, current trends in shipments of devices will be introduced. This introduction will be followed by analysis of the latest in-car infotainment solutions including their advantages and disadvantages. Then the basic facts about various types of communication in automotive environment will be explained. The last section of this chapter is devoted to cloud computing topic and its extension to in-vehicular use.
@@ -44,7 +45,7 @@ There are other devices in the car or devices the driver and passengers will bri
 
 The car may also provide a Wi-Fi connection in several different setups. Other mobile devices the driver and the passengers bring to the car must be considered. The top level car may also provide HDMI for in-car screens located on the dashboard and back seats.
 
-
+\label[2.incarapps]
 \sec In-car mobile applications
 
 In this section the important vendors of mobile applications aiming for in-car use will be introduces. The two most popular competitors - Android Auto and Apple CarPlay will be presented  in details. Other vendors of applications available on various mobile application stores will be featured.
@@ -65,7 +66,7 @@ Communication with the phone is ensured by USB cable which provides data transfe
 \caption/f Screenshot of Google Maps in Android Auto App
 \endinsert
 
-Android Auto concpet is heavily focused on minimizing the driver distraction. Therefore is present only three possibilities to interact with a driver:
+Android Auto concept is heavily focused on minimizing the driver distraction. Therefore only three possibilities to interact with a driver are present:
 
 \begitems
 	*System overview (weather, time, navigation, etc.),
@@ -93,9 +94,11 @@ Apple CarPlay is the main competitor of Android Auto. It offers a way to use App
 
 Android Auto and Apple CarPlay are not the only available solutions of infotainment systems. Almost every car manufacturer develops its own solution of IVIS, e.g. BMW ConnectedDrive\urlnote{www.bmw.es/connecteddrive}, Ford Sync\urlnote{www.ford.com/technology/sync} or General Motors' OnStar\urlnote{https://www.onstar.com/us/en/home.html}. Apple's and Google's solutions were chosen because they both offer an open platform for 3rd party developers to publish their applications to well-known application stores.
 
+\label[2.data]
 \sec Data \& comumunication
 
-\secc In-vehicle real-time busses
+\label[2.buses]
+\secc In-vehicle real-time buses
 
 {\bf Controller Area Network Bus (CAN-BUS)} - Bosch originally developed the Controller Area Network (CAN) in 1985 for in-vehicle networks. In the past, automotive manufacturers connected electronic devices in vehicles using point-to-point wiring systems. As more and more electronics started to be used in vehicles, the situation led to very complex and confusional systems that were heavy and expensive. They then replaced dedicated wiring with in-vehicle networks, which reduced wiring cost, complexity, and weight. CAN is a high-integrity serial bus system for networking intelligent devices, developed as the standard in-vehicle network. Whole automotive industry quickly adopted CAN and it became the international standard in 1993 known as ISO 11898.  \cite[etschberger2001controller]
 
@@ -105,7 +108,7 @@ Android Auto and Apple CarPlay are not the only available solutions of infotainm
 
 The first generation of On-Board Diagnostic requirements, called OBD I, was developed by the California Air Resources Board (ARB) and implemented in 1988. As technology and the desire to expand On-Board Diagnostic capability increased, a second-generation of On-Board Diagnostics requirements was developed. This second version of On-Board Diagnostic capabilities is called \glref{OBDII}. The Clean Air Act Amendments of 1990 mandated that, beginning with the 1996 model year, all light-duty vehicle and trucks made available for sale outside of the state of California must also be equipped with OBDII. In addition, EPA also requires that medium duty vehicles up to 14,000 pounds must also be equipped with OBD II systems beginning in the 2004 model year. In the future, EPA expects that all heavy-duty vehicles over 14,000 pounds will eventually be equipped with OBDII systems.
 
-http://www3.epa.gov/obd/basic.htm
+http://www3.epa.gov/obd/basic.htm \rfc{review}
 
 On-Board Diagnostics, or "OBD," is a computer-based system built into all 1996 and later light-duty vehicles and trucks, as required by the Clean Air Act Amendments of 1990. OBD systems are designed to monitor the performance of some of an engine's major components including those responsible for controlling emissions. 
 OBD is a valuable tool that assists in the service and repair of vehicles by providing a simple, quick, and effective way to pinpoint problems by retrieving vital automobile diagnostics from the OBD systems.
@@ -113,8 +116,9 @@ OBD plays an important role where vehicle inspection and maintenance programs ar
 OBD serves as an early warning system that alerts you to the potential need for vehicle repair through the "Check Engine" light on the dashboard of your vehicle.
 OBD systems are required by EPA to be installed on light-duty vehicles and trucks, as well as heavy-duty engines.
 
-(http://www3.epa.gov/obd/)
+(http://www3.epa.gov/obd/) \rfc{review}
 
+\label[2.othercomm]
 \secc Other types of communication
 
 As the application supports to communication with a car's \glref{ECU}, it connects to the internet and uploads data logs, various types of communication are taken in account.
@@ -129,7 +133,7 @@ Support of Bluetooth technology is crucial for the final application. Bluetooth 
 
 Category of mobile telecommunication in this case includes the possibilities of connection to the internet when wi-fi connection is not available. To this category belong wireless network technologies provided by mobile carriers (3G, 4G). This type of internet connectivity is not supposed to be used for uploading trip logs due to limited data plans issue. The typical use is to control other devices via HTTP request initiated from the smartphone (e.g., opening garage doors or entrance gates). The application is, however, usable without the data plan.
 
-\secc Wi-fi
+\seccc Wi-fi
 
 Although the Bluetooth connection seems to be an ideal way how to connect to a car's \glref{ECU}, there are devices on the market that support also Wi-Fi connection. The advantage is a bigger bandwidth provided by Wi-Fi (proposed versions Wi-Fi Direct promises 250 Mbps while Bluetooth 4.0 promises 25 Mbps\urlnote{http://www.pcworld.com/article/208778/Wi_Fi_Direct_vs_Bluetooth_4_0_A_Battle_for_Supremacy.html}). This bandwidth can be used to transfer more data from the ECU. However, for the purposes of the final application this difference is not significant, therefore only Bluetooth support is proposed. 
 
@@ -185,9 +189,9 @@ Ubuntu Phone is open source OS from Canonical Ltd.~\cite[ubuntuphone] It is a mo
 
 Android is a software stack for mobile devices that includes an operating system, middle ware and key applications. The various components of Android are designed as a stack, with the ‘Applications’ forming the top layer of the stack, while the Linux kernel forms the lowest layer. Android ships with a set of core applications including an e-mail client, SMS program, calendar, maps, browser, contacts, and other features. All applications are written using the Java programming language.
 
-Developers have full access to the same framework APIs used by the core applications. The application architecture is designed to simplify the reuse of components; the capabilities of any application can be published and then be made use of by any other application (subject to security constraints enforced by the framework). The same mechanism allows components to be replaced by the user.
+Developers have full access to the same framework \glref{API}s used by the core applications. The application architecture is designed to simplify the reuse of components; the capabilities of any application can be published and then be made use of by any other application (subject to security constraints enforced by the framework). The same mechanism allows components to be replaced by the user.
 
-Android includes a set of core libraries that provides most of the functionality available in the core libraries of the Java programming language. Every Android  application runs in its own process, with its own instance of the Dalvik virtual machine. Dalvik has been written so that a device can run multiple VMs efficiently. The Dalvik VM executes files in the Dalvik Executable (.dex) format, which is optimized for minimal memory footprint. The VM is register-based, and runs classes compiled by a Java language compiler that has been transformed into the .dex format by the included dx tool. The Dalvik VM relies on the Linux kernel for underlying functionality such as threading and low-level memory management~\cite[developers2011android]. 
+Android includes a set of core libraries that provides most of the functionality available in the core libraries of the Java programming language. Every Android  application runs in its own process, with its own instance of the Dalvik virtual machine. Dalvik has been written so that a device can run multiple \glref{VM}s efficiently. The Dalvik VM executes files in the Dalvik Executable (.dex) format, which is optimized for minimal memory footprint. The VM is register-based, and runs classes compiled by a Java language compiler that has been transformed into the .dex format by the included dx tool. The Dalvik VM relies on the Linux kernel for underlying functionality such as threading and low-level memory management~\cite[developers2011android]. 
 
 \secc Brief history of Android operating system 
 
@@ -246,7 +250,7 @@ Fistly named just Android L, this version came with so called Material Design. G
 
 In the time of publishing this work. Android 6 is the latest version. It concerns about energy consumption and security of users. Marshmallow allows applications to ask for permission to some resource while using the application. Before that permissions were asked only during installation process.
 
-
+\label[2.cloud]
 \sec Cloud computing
 
 The smartphones connected to the internet is the key in the car ecosystem. All smartphone allow access to traditional desktop applications such as \glref{PIM} managers. Most of the downloadable applications are using large databases to store the user’s data and profiles. 

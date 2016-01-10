@@ -1,6 +1,6 @@
 % !TeX root = thesis.tex
 
-
+\label[implementation]
 \chap Implementation
 
 In this chapter the main information about development of the project will be introduced. Firstly, used developer tools will be presented. The Android application and logging server structures will follow. At the end of the chapter will be a section about difficulties and problems and their solutions. 
@@ -173,12 +173,13 @@ DnD means in this case abbreviation for Drag and Drop. This feature is used in c
    \par}}
 \endinsert
 
-
+\label[4.server]
 \sec Server implementation
 
 An important part of the assignment of this thesis is implementation of a logging server. Purpose of the server is to gather data from devices with installed mobile application and provide these data to further exploration. 
 Server was implemented as HTTP service in Java EE using Servlet API. It can be deployed to various application servers such as Apache Tomcat or Oracle Glassfish. Oracle Glassfish\urlnote{http://www.oracle.com/us/products/middleware/cloud-app-foundation/glassfish-server/overview/index.html} was used for deployment in this thesis. 
 
+\label[4.comm]
 \secc Communication with server
 
 Mobile application is logging all OBD data to the file stored in local storage. As these logs may be very data intensive, it is not reasonable to upload them live. Therefore when a wi-fi connection is available, user can initiate the upload of all files.  
