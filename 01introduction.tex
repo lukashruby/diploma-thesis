@@ -13,11 +13,11 @@ Text of introduction
 
 \sec Motivation
 
-With the huge progress of mobile development in last few years come many interesting challenges. Internet connection is available all around the World and the internet population is more than 3.2 billion by the end of 2015. Price of hardware is continuously decreasing which leads to massive growth of the trend called Internet of Things. Gartner, Inc estimates that 1.6 billion connected things will be used by smart cities in 2016 (an increase of 39\% from 2015) \urlnote{http://www.gartner.com/newsroom/id/3175418}. This trend naturally comes also to the automotive environment. Modern cars in European Union are required to be connected to the mobile network due to presence of eCall system\fnote{eCall is an initiative with the purpose to bring rapid assistance to motorists involved in a collision anywhere in the European Union.\cite[ecall]}. From this point it is only small step to have fully connected vehicles with the possibility of data sharing.
+With a huge progress of mobile development in the last few years many interesting challenges emerged. Internet connection is available all around the World and the internet population was more than 3.2 billion by the end of 2015. Price of hardware is continuously decreasing, which leads to massive growth of the trend called Internet of Things. Gartner, Inc estimates that 1.6 billion connected things will be used by smart cities in 2016 (an increase of 39\% from 2015) \urlnote{http://www.gartner.com/newsroom/id/3175418}. This trend naturally comes also to the automotive environment. Modern cars in European Union are required to be connected to the mobile network due to the presence of eCall system\fnote{eCall is an initiative with the purpose to bring rapid assistance to motorists involved in a collision anywhere in the European Union.\cite[ecall]}. From this point it is only a small step to have fully connected vehicles with the possibility of data sharing.
 
-Each vehicle produces many information about itself. These data are in most cases not utilized although they bring big opportunity in various use-cases. OEMs could avoid costly product recalls and use them in vehicle development. Dealerships could recognize and respond to customer needs. Information about current condition of vehicles enables repair shops to order the necessary spare parts in advance to eliminate delays. And drivers could utilize these data to arrange service interval according the real use of car and therefore save money.~\cite[t-systems:connectedcar]
+Each vehicle produces many information about itself. These data are in most cases not utilized although they bring big opportunity in various use-cases. \glref{OEM}s could avoid costly product recalls and use them in vehicle development. Dealerships could recognize and respond to customer needs. Information about current condition of vehicles enables repair shops to order the necessary spare parts in advance to eliminate delays. And drivers could utilize these data to arrange service interval according to the real use of car and therefore save money.~\cite[t-systems:connectedcar]
 
-The only problem is with the penetration of new technologies in current cars. Improvements in vehicle quality have made cars more reliable and customers are not made to change the vehicles so often. In 2015 the average age of vehicles on the road in U.S. was 11.5 years which is a record-high value.~\cite[usvehiclesage] On the other 
+The only problem is with the penetration of new technologies into current cars. Improvements in vehicle quality have made cars more reliable and customers are not forced to change the vehicles so often. In 2015 the average age of vehicles on the road in the U.S. was 11.5 years which is a record-high value.~\cite[usvehiclesage] On the other 
 
 
 \rfc{why, how? people are using smartphone while driving - problem!}
@@ -25,39 +25,59 @@ The only problem is with the penetration of new technologies in current cars. Im
 
 \sec Assignment analysis
 
+In this section the assignment will be analyzed. That will lead to precise definition what shoud be included in this thesis and what should not be included. The assignment contains the whole process of software development from analysis to design, development and testing, which makes it a perfect topic for a diploma thesis in Software Engineering field.
+
 \secc Assignment tasks
+
+The assignment of this thesis is divided into different tasks. From these tasks the structure of the thesis was designed. Each chapter refers to one important part of software development process.
 
 \seccc Study the current trends in controlling car infotainment systems
 
+This introductiory part is about common usage of a infotainment systems in past, present and future. It is important to show the progress that have been made in last few years. 
+
 \seccc Explore existing mobile applications for in-car use
 
-\seccc Study communication with car ECU (CAN, OBD, etc.)
+Cars are becomming more and more connected with smartphones. People tend to use their smartphone while driving. Software producers are aware of this fact. This task should contain the most important competitors in this discipline. As smartphones are running various operating system, it is handy to involve the basic overview of currently used mobile operating systems.
+
+\seccc Study communication with car \glref{ECU} (\glref{CAN}, \glref{OBD}, etc.)
+
+There are many types of communication in a car. One type of these communication ways is the communication with a car \glref{ECU}. Since it is important to know how utilize this commucation, other communication types should be mentioned.
 
 \seccc Design and implement mobile application for in-car user
 
+From the knowledge gained in previous tasks, a logical next step is to design and implement a solution to discovered problems. This thesis focuses on development a mobile application that is aimed to be used while driving. Certain constrains specific for in-car usage must be taken in account.
+
 \seccc Implement logging server
+
+Big data and analytics technology formed whole new science discipline called Data Science. Modern cars are producing much data about their usage and drivers' behaviour. This information can be utilized and used to help people to drive better. In this task, logging server for gathering and storing driving data is developed.
 
 \seccc Integrate mobile application with logging server
 
+As the amount of data logged during drives can be really big, there is a need to find a way how to transfer them from the mobile application to the logging server. This way should not affect common use of a smartphone and must take in account various limits in smartphones.
+
 \seccc Compare your solution with existing solutions
 
+The final application must be competitive in its field of use. Therefore it should be better in some ways. In this task, the application is compared with the one or more competitors that are already on the market.
+
 \seccc Evaluate the application using usability testing
+
+Driving a car is a high cognitive load demanding task. Additional cognitive imposed to a drive could lead to dangerous situations on the road. The final application must be evaluate to prove its safe use while driving.
 
 \sec Concept
 
 \secc Types of User Interface
 
-User interfaces can be divided into different categories according various classifications. These classifications change with time and used technologies. For the purpose of this work, a short overview of UI types with relationship to in-vehicular use will be discussed \cite[hci2015kurosu].
+User interfaces can be divided into different categories according to various classifications. These classifications change with time and used technologies. For the purpose of this work, a short overview of \glref{UI} types with relationship to in-vehicular use will be discussed \cite[hci2015kurosu].
 
 \seccc Hardware UI / Haptic UI
 
-Hardware user interfaces are tangible and user is able to touch them and feel the feedback. Standard elements are e.g. switches, wheels and LEDs. In vehicles this approach of UI is used since beginning. In last decades the controls are adopting multiple purposes - for instance combined controls like push/turn control knobs. Newer versions include a touch pad to recognize gestures and letters. In mobile devices this approach was applied in previous generation of mobile devices equipped with hardware keyboard. 
+Hardware user interfaces are tangible and user is able to touch them and feel the feedback. Standard elements are e.g. switches, wheels and LEDs. In vehicles this approach of UI is used since the beginning. In last decades the controls are adopting multiple purposes - for instance combined controls like push/turn control knobs. Newer versions include a touch pad to recognize gestures and letters. In mobile devices this approach was applied in previous generation of mobile devices equipped with hardware keyboard. 
 
 \seccc Display-based UI
 
-User interfaces enriched with LED or LCD devices can be seen from two different points of view. In the first one, the display is just an addition to previously mentioned Hardware User Interface. User interfaces of this type - graphical user interfaces (GUI) has been introduces in 1981 as part of the Xerox Star workstation, which used the WIMP (windows, icons, menus and a pointing device) for the first time \cite[smithdesigning].
+User interfaces enriched with LED or LCD devices can be seen from two different points of view. In the first one, the display is just an addition to previously mentioned Hardware User Interface. User interfaces of this type - graphical user interfaces (GUI) have been introduces in 1981 as part of the Xerox Star workstation, which used the WIMP (windows, icons, menus and a pointing device) for the first time \cite[smithdesigning].
 
-The second point of view is more important from the current perspective. Display is the only hardware part of UI and allows an interaction directly on the screen using a touch-screen layer. These systems are nowadays commonly used in mobile phones, tablets, laptops and also in IVIS (in-vehicular interactive systems). The advantages are obvious - UI is more flexible and can be changed with different needs of concrete application. Even though touch-screen devices are used in recent models of cars, the last research shows, that the distraction of drivers while using a touch-screen devices is seen to be too high. \cite[Rumelin:2013:MLT:2516540.2516557]
+The second point of view is more important from the current perspective. Display is the only hardware part of UI and allows an interaction directly on the screen using a touch-screen layer. These systems are nowadays commonly used in mobile phones, tablets, laptops and also in IVIS (in-vehicular interactive systems). The advantages are obvious - UI is more flexible and can be changed with different needs of a particular application. Even though touch-screen devices are used in recent models of cars, the last research shows that the distraction of drivers while using a touch-screen devices appears to be too high. \cite[Rumelin:2013:MLT:2516540.2516557]
 
 \seccc Mobile Device UI
 
@@ -65,54 +85,56 @@ Modern mobile devices, so-called smartphones are equipped (beside large touch-sc
 
 \secc What is Car User Interface?
 
-In the last few years can be observed the trend of pervasive computing (or so called ubiquitous computing) is impacting everyone's life more than before. Microprocessors are being embedded in various type of devices and other everyday object. These devices and objects can therefore communicate information about their status or environment. The automotive industry is naturally part of this growing trend and recent cars contains hundreds of microprocessors. But with the all convenience that comes with the modern technology, there is also need of the way how to control these devices.
+In the last few years it can be observed the trend of pervasive computing (or so called ubiquitous computing) is impacting everyone's life more than before. Microprocessors are being embedded in various type of devices and other everyday objects. These devices and objects can therefore exchange information about their status or environment. The automotive industry is naturally part of this growing trend and recent cars contain hundreds of microprocessors. But with all the convenience that comes with the modern technology, there is also need for the way of controlling these devices.
 
-The main difference between the conventional user interface (e.g. used in PCs) and pervasive user interfaces is the demand for users' limited attention (as they navigate the external world). Whereas interfaces on PCs are typically the primary focus of a person's attention (primary task), pervasive user interfaces are one of potentially many other tasks that a person must perform. This problem becomes critical when the usage of user interface is secondary task to some performance-critical primary task. In this case, the controlling the car (speed, direction, etc.) is definitely primary task and controlling in-car devices such as infotainment system is secondary task. The design and evaluation of this kind of interfaces must take into account the impact of using it on the primary task (in this case - driving).
+The main difference between the conventional user interface (e.g. used in PCs) and pervasive user interfaces is the demand for users' limited attention (as they navigate the external world). Whereas interfaces on PCs are typically the primary focus of a person's attention (primary task), pervasive user interfaces are one of potentially many other tasks that a person must perform. This problem becomes critical when the usage of user interface is secondary task to some performance-critical primary task. In this case, the car controlling (speed, direction, etc.) is definitely the primary task and controlling in-car devices such as infotainment system is a secondary task. The design and evaluation of this kind of interfaces must take into account the impact of using it on the primary task (in this case -- driving).
 
 \secc Driving Distraction Factors
 
 The human's cognitive load capacity is constant. Drivers with long experience have learned to handle some of the tasks almost automatically, for example gear shifting or rear view checking is not impacting their attention to driving \cite[duncan1993control]. On the other hand, the growing number of cars on the roads, more miles driven, constantly increasing number of road signs and large number of buttons in the cockpit enlarge the number of events that drivers have to handle. Not paying full attention to driving increases the probability of getting into an accident. 
 
-Driving and paying attention to the road situation is the main driver’s task. All the other activities are the secondary tasks. The driving a car is a two dimensional task, where the first dimension includes the maintenance of the direction - staying in the lane. Maintaining the safe distance of the followed car is the second dimension. The danger of leaving the correct lane or to get too close the the ahead car can be quantified by time during which is the driver not making a correction. This may be the time the driver is pointing his eyes to some of the secondary activities. There are many studies discussing the save period of time to take the eyes from the road, but this is not the topic of this study. The simple conclusion for us is the shorter is the eyes off road period due to controlling the in-car applications the saver they are. After all the main goal is to make the driving safer, therefore generally speaking we will try to suggest solutions with less distraction to the driver. There are many other factors influencing the safety, such as the weather, light conditions etc. The task is to make the UI of applications less distractive. These facts will be respected in the UI design when appropriate, for example changing the screen color scheme for between day and night. \cite[wickens1998introduction]
+Driving and paying attention to the road situation is the main driver’s task. All the other activities are the secondary tasks. The driving a car is a two-dimensional task, where the first dimension includes the maintenance of the direction -- staying in the lane. Maintaining the safe distance of the followed car is the second dimension. The danger of leaving the correct lane or getting too close to the car ahead can be quantified by the time interval, in which the driver does not make a correction. This may be the time the driver is pointing his eyes to some of the secondary activities. There are many studies discussing the safe period of time to take the eyes from the road, but this is not the topic of this study. The simple conclusion for us is that the shorter is the eyes off road period due to controlling the in-car applications the saver they are. After all, the main goal is to make the driving safer, therefore generally speaking we will try to suggest solutions with lower distraction to the driver. There are many other factors influencing the safety, such as weather, light conditions etc. The task is to make the UI of applications less distractive. These facts will be respected in the UI design when appropriate, for example changing the screen color scheme between day and night. \cite[wickens1998introduction]
 
 
 \secc Automotive Human Factors
 
-European Commission reported in the press release that number of traffic accidents is continuously decreasing but still there are 1.3 million fatalities and 50 million injuries p.a. worldwide. 28 thousands people die in the EU, another 40 thousands die in the USA. World Health Organization estimates that by 2020, traffic accidents will be the third highest cause of death. Traffic accidents causes also the high costs for economy. 
+European Commission reported in the press release\urlnote{http://europa.eu/rapid/press-release_IP-13-236_en.htm} that number of traffic accidents is continuously decreasing but still there are 1.3 million fatalities and 50 million injuries p.a. worldwide. 28 thousands people die in the EU, another 40 thousands die in the USA. World Health Organization estimates that by 2020, traffic accidents will be the third highest cause of death\urlnote{http://www.who.int/mediacentre/factsheets/fs358/en/}. Road traffic accidents and injuries cause also considerable economic losses to victims, their families and to the nations as a whole.
 
 Driving can be considered as completing certain goals. The main goal is to reach the destination. As the other goals can be considered {\em Productivity} (i.e. drive as fast as possible) and {\em Safety} (i.e. reduce personal risks - no injuries, crashes, etc.)
 
+\par\maybebreak 3.5cm
+
 The important question for analysis is {\em What are the tasks driver is doing when driving?} There are three general categories of activities: \cite[6725676]
    \begitems
-	* Strategic
+	* Strategic:
 	\begitems
-		* Purpose of a trip
-		* Driver's overall goals
+		* Purpose of a trip,
+		* driver's general goals.
 	\enditems
-	* Tactical 
+	* Tactical: 
 	\begitems
-		* Choice of maneuvers
-		* Immediate goals, e.g., in getting to a destination
-		* Speed and/or gear selection
-		* Decision to pass
-		* Choice of lanes
+		* Choice of maneuvers,
+		* immediate goals, e.g., in getting to a destination,
+		* speed and/or gear selection,
+		* decision to pass,
+		* choice of lanes.
 	\enditems
-	* Control
+	* Control:
 	\begitems
-		* Moment-to-moment operation of vehicle
-		* Maintaining desired speed
-		* Keeping the desired distance from the car ahead
-		* Keeping the car in the lane
+		* Moment-to-moment operation of vehicle,
+		* maintaining desired speed,
+		* keeping the desired distance from the car ahead,
+		* keeping the car in the lane.
 	\enditems
    \enditems
    
 \sec Examples of Car User Interface
 
-In this section a few examples of user interfaces used in historical and modern cars will be introduces. As the examples the pictures of dashboard of Ford Model T \urlnote{https://www.flickr.com/photos/15378728@N00/5021836954/in/photostream/}, Tatra T87 \urlnote{https://en.wikipedia.org/wiki/Tatra_87}, BMW 3200CS \urlnote{http://www.carsbase.com/photo/photo_full.php?id=39388}, Skoda Favorit \urlnote{https://upload.wikimedia.org/wikipedia/commons/0/09/Skodafavoritinside.JPG}, BMW X5 \urlnote{http://www.seriouswheels.com/2011/klm/2011-Mansory-BMW-X5-Dashboard-1280x960.htm} and Tesla Model S \urlnote{https://www.flickr.com/photos/gbpublic/10994279865} were used. Table \ref[controls_car] shows a simple comparison of number of controls in historical and modern cars.
+In this section a few examples of user interfaces used in historical and modern cars will be introduced. As examples the pictures of dashboard of Ford Model T \urlnote{https://www.flickr.com/photos/15378728@N00/5021836954/in/photostream/}, Tatra T87 \urlnote{https://en.wikipedia.org/wiki/Tatra_87}, BMW 3200CS \urlnote{http://www.carsbase.com/photo/photo_full.php?id=39388}, Skoda Favorit \urlnote{https://upload.wikimedia.org/wikipedia/commons/0/09/Skodafavoritinside.JPG}, BMW X5 \urlnote{http://www.seriouswheels.com/2011/klm/2011-Mansory-BMW-X5-Dashboard-1280x960.htm} and Tesla Model S \urlnote{https://www.flickr.com/photos/gbpublic/10994279865} were used. Table \ref[controls_car] shows a simple comparison of number of controls in historical and modern cars.
 
 \midinsert \clabel[controls_car]{Number of controls in cars}
 \ctable{lrr}{
-\hfil Car type & Years of production & Number of dashboard controls \crl \tskip4pt
+\hfil Car type & Years of production & Amount of dashboard controls \crl \tskip4pt
 Ford Model T & 1908-1927 & 2 \cr
 Tatra T87 & 1936-1950 & c. 10 \cr
 BMW 3200CS & 1962-1965 & c. 20 \cr

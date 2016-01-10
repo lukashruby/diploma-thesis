@@ -20,7 +20,7 @@ The primary goal of the evaluation part was to collect data from real human driv
 
 \sec Usability tests
 
-Usability testing is a good way to understand how real users use an application. Unlike the other methods (interviews, focus groups, etc.) usability testing measures actual performance on given tasks. In case of infotainment mobile application it is crucial for users to drive safely. All usability tests were primarily design to evaluate the cognitive load of driver (as the application was designed to minimize it).
+Usability testing is a good way to understand how real users use an application. Unlike the other methods (interviews, focus groups, etc.) usability testing measures actual performance on given tasks. In case of infotainment mobile application it is crucial for users to drive safely. All usability tests were primarily designed to evaluate the cognitive load of driver (as the application was designed to minimize it).
 
 \label[test_equipment]
 \secc Used equipment
@@ -39,12 +39,12 @@ Simulator was build by DSRG. It is based on cockpit of Skoda Octavia II with cav
 
 \seccc Software tools
 
-The developed mobile application requires the Bluetooth connection to obtain driving data from OBD dongle. As the simulator was not equipped with standard CAN-BUS communications (and therefore neither the OBD protocol was supported), using the common way of accessing driving data was not possible. To by-pass this problem, a support software tool in Java was developed. This program reads a subset of driving data (provided by the simulation software) from network and simulates an OBD dongle. The mobile application is then connected to the target computer and is able to read data the same way as it was connected to the OBD dongle.
+The developed mobile application requires the Bluetooth connection to obtain driving data from OBD dongle. As the simulator was not equipped with standard CAN-BUS communications (and therefore neither the OBD protocol was supported), using the common way of accessing driving data was not possible. To by-pass this problem, a support software tool in Java was developed. This program reads a subset of driving data (provided by the simulation software) from network and simulates an OBD dongle. The mobile application is then connected to the target computer and is able to read data the same way as if it was connected to the OBD dongle.
 
 \label[eye-tracking-cameras]
 \seccc Eye Tracking Cameras \& Software
 
-Eye tracking solution was used for measurement the time that was spent looking at the mobile phone while driving. Car Simulator were equipped with the product of the company Smart Eye AB\urlnote{http://smarteye.se/}. It was composed of two eye tracking cameras Smart Eye Pro\urlnote{http://smarteye.se/products/smart-eye-pro/}. These camerad are designed to be used in Car Simulators, Flight Deck Simulators and other vehicle studies. The cameras are operating under Infra-Red, so they are insensitive to ambient light.
+Eye tracking solution was used for measuring the time that was spent looking at the mobile phone while driving. Car Simulator were equipped with the product of the company Smart Eye AB\urlnote{http://smarteye.se/}. It was composed of two eye tracking cameras Smart Eye Pro\urlnote{http://smarteye.se/products/smart-eye-pro/}. These camerad are designed to be used in Car Simulators, Flight Deck Simulators and other vehicle studies. The cameras are operating under Infra-Red, so they are insensitive to ambient light.
 
 Another part of the eye tracking solution was Smart Eye Pro software. This program was used to configure the whole process. Every participant went through the calibration procedure. Screenshot from the program is in figure~\ref[eyetracker_sw].
 
@@ -111,7 +111,7 @@ Part. 5	&	2	& yes	& 1.5	& 2	& yes	\cr
 
 \secc Tests schedule
 
-Each test had the fixed time limit. As was mentioned in previous section, participants had not had any experiences with in-car dashboard mobile application and they had not been participants of usability testing before. Therefore an introduction part was included where they were informed about structure and purpose of the test. This introduction was followed by necessary calibration of eye-tracking cameras (for each participant the calibration was different). Then could be performed the usability tests. Exact plan of a test is shown in table~\ref[user_testing_schedule].
+Each test had a fixed time limit. As was mentioned in the previous section, participants had not had any experiences with in-car dashboard mobile application and they had not been participants of usability testing before. Therefore an introduction part was included where they were informed about structure and purpose of the test. This introduction was followed by necessary calibration of eye-tracking cameras (for each participant the calibration was different). Then the usability tests could be performed. Exact plan of a test is shown in table~\ref[user_testing_schedule].
 
 \midinsert \clabel[user_testing_schedule]{User testing schedule}
 \ctable{ccrl}{
@@ -131,7 +131,7 @@ Each test had the fixed time limit. As was mentioned in previous section, partic
 
 This test was used to evaluate influence of a secondary task while performing a primary task. For these purposes the Lance Change Test (LCT) has received considerable attention. It appears to be a practical and effective measure of the costs associated with operating in-vehicle devices while performing a driving task. The procedure of the Lane Change Test was standardized as ISO 3888.
 
-For the execution of the LCT was used the car simulator introduces in section \ref[test_equipment]. The test track was a 4 km straight line road with a single lane change maneuver. Participants were required to keep a constant speed of 60 km per hour and they were asked to tell the current value of driving-relevant information displayed on the smartphone using the developed application. The interval between each request was 10 seconds. The maneuver was initiated by placing an unexpected object in the driving path. Size of the object was 2.20 x 2.20 x 2.20 m and it was placed 35 m in front of vehicle. There was a read arrow pointing to the left lane which suggested driver the direction to go around the object (change the driving lane).
+For the execution of the LCT the car simulator introduced in section \ref[test_equipment] was used. The test track was a 4 km straight line road with a single lane change maneuver. Participants were required to keep a constant speed of 60 km per hour and they were asked to tell the current value of driving-relevant information displayed on the smartphone using the developed application. The interval between each request was 10 seconds. The maneuver was initiated by placing an unexpected object in the driving path. Size of the object was 2.20 x 2.20 x 2.20 m and it was placed 35 m in front of vehicle. There was a red arrow pointing to the left lane which suggested driver the direction to go around the object (change the driving lane).
 
 
 

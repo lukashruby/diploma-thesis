@@ -12,7 +12,7 @@ In this chapter the main information about development of the project will be in
 
 The Android SDK is a set of various tools that help developers to develop mobile applications for the Android platform. The tools are divided into two groups: SDK tools and platform tools. SDK tools are independent on target Android platform, platform tools are customizes to support concrete version of Android OS~\cite[androidsdkhelp].
 
-To SDK tools belongs Virtual device tools (such as Android Virtual Device Manager or Android Emulator), Development tools (such as SQLite DB Explorer, SDK Manager or Translation editors), Debugging tools (Android Monitor, Android Debug Bridge, etc.), Build and Image tools. \rfc{jak je to s tema platform tools, patri tam adb nebo ne?}
+The SDK tools consist of  Virtual device tools (such as Android Virtual Device Manager or Android Emulator), Development tools (such as SQLite DB Explorer, SDK Manager or Translation editors), Debugging tools (Android Monitor, Android Debug Bridge, etc.), Build and Image tools. \rfc{jak je to s tema platform tools, patri tam adb nebo ne?}
 
 \secc{Java Platform, Enterprise Edition}
 
@@ -30,8 +30,8 @@ Java Platform, Enterprise edition (Java EE) is the standard in community-driven 
 
 \secc Integrated development environment
 
-For the purpose of this thesis was used the offical IDE for Android application development provided by Google - Android Studio. Android studio is based on IntelliJ IDEA, a commercial product
-by the company JetBrains s.r.o.. Beside the standard set of functions from IntelliJ IDEA, Android Studio offers tailored-made extensions for Android application developers, therefore is the recommended option to start the development with. \rfc{cite source}
+For the purpose of this thesis the official IDE for Android application development provided by Google was used. Android studio is based on IntelliJ IDEA, a commercial product
+by the company JetBrains s.r.o.. Beside the standard set of functions from IntelliJ IDEA, Android Studio offers tailored-made extensions for Android application developers, therefore it is the recommended option to start the development with. \rfc{cite source}
 
 \secc Code version control system
 
@@ -59,7 +59,7 @@ For the purpose of development the application, Git \glref{VCS} was chosen. Git 
 
 \seccc GitHub
 
-GitHub\urlnote{https://github.com/} is a web-based Git repository hosting service. It was used for all developed software applications and tools in this thesis:
+GitHub\urlnote{https://github.com/} is a web-based Git repository hosting service. It was used for all the developed software applications and tools in this thesis:
 
 \begitems
 	* Android application for smartphone\urlnote{https://github.com/eclubprague/CarDashboardPhone}
@@ -79,7 +79,7 @@ Graddle \rfc{todo}
 
 \sec{Third party libraries}
 
-During the development of the application and logging server were used also the third party libraries. The following list contains name of each library (or dependency) and reason why it was used in the project:
+During the development of the application and logging server the third party libraries were used. The following list contains name of each library (or dependency) and reason why it was used in the project:
 
 \begitems
 	*https://github.com/bauerca/drag-sort-listview
@@ -103,21 +103,21 @@ During the development of the application and logging server were used also the 
 
 \sec Mobile Application Implementation
 
-Mobile application is into two parts. The first part is platform dependent (smartphone in this case) and will be  described in detail in section~\ref[cdphone]. The second part, so-called {\bf Core}, is platform independent and can be ported to other devices which use Android OS (tablet, smart tv, etc.) In~\cite[blaha] is this part used in tablet version of this application. {\bf Core} was developed in cooperation with the author of \cite[blaha]. Details of the contribution is available in Core's Github repository\urlnote{https://github.com/eclubprague/CarDashboardCore}. From this part of project, only the important parts will be described in~\ref[core].
+Mobile application is divided into two parts. The first part is platform dependent (smartphone in this case) and will be  described in detail in section~\ref[cdphone]. The second part, so-called {\bf Core}, is platform independent and can be ported to other devices which use Android OS (tablet, smart tv, etc.) In~\cite[blaha] is this part used in tablet version of this application. {\bf Core} was developed in cooperation with the author of \cite[blaha]. Details of the contribution is available in Core's Github repository\urlnote{https://github.com/eclubprague/CarDashboardCore}. From this part of project, only the important parts will be described in~\ref[core].
 
 \label[cdphone]
 \secc User interface for smartphones
 
-Design of the user interface was the most important part of chapter \ref[design] a it is key problem of whole project. As this application is aimed to be used in car while driving, bad implementation of the concept can cause many difficulties for drivers. Therefore was very important to be especially precious in the development and this phase took majority of time.
+Design of the user interface was the most important part of chapter \ref[design] \rfc{add chapter} and it is a key problem of the whole project. As this application is aimed to be used in a car while driving, bad implementation of the concept can cause many difficulties for drivers. Therefore it was very important to be especially precious in the development and this phase took the majority of time.
 
-Standard mode of application consists of various {\bf Modules}. Mobile phone version displays only one module at time (tablet version \cite[blaha] contains more modules at the screen). These modules are ordered in three structure - single module is displaying some information or contains more modules. 
+Standard mode of application consists of various {\bf Modules}. Mobile phone version displays only one module at a time (tablet version \cite[blaha] contains more modules at the screen). These modules are ordered in a tree structure -- a single module is displaying some information or contains more modules. 
 
-Beside of the standard mode of application, when phone is placed firmly in holder and a driver uses single finger to change views, there is also the configuration mode. In the configuration mode are options to enable or disable {\em Bluetooth support} (for connection to OBD II Dongle) and to configure {\em Bluetooth devices}. Also the settings of {\em Logging features} is present in this mode. Last but not least function is {\em Module management}.
+Beside of the standard mode of application, when phone is placed firmly in holder and a driver uses single finger to change views, there is also the configuration mode. In the configuration mode there are options to enable or disable {\em Bluetooth support} (for connection to OBD II Dongle) and to configure {\em Bluetooth devices}. Also the settings of {\em Logging features} is present in this mode. Last but not least function is {\em Module management}.
 Each part of the application will be described in dedicated subsections.
 
 \seccc ScreenSlideActivity \& ScreenSlidePageFragment
 
-Prevailing part of user interface is the implementation of vertical scrolling list of modules in {\tt ScreenSlideActivity}. This list is presented as infinite menu (after last item in list comes the first one in loop). Android provides support only for horizontal scrolling list, so this implementation was done from scratch. {\tt ScreenSlidePageFragment} is then the content of single Module. It is consisted od Module name, Module icon, Module value and Module units.
+Prevailing part of user interface is the implementation of vertical scrolling list of modules in {\tt ScreenSlideActivity}. This list is presented as infinite menu (after last item in list comes the first one in loop). Android provides support only for horizontal scrolling list, so this implementation was done from scratch. {\tt ScreenSlidePageFragment} is then the content of single Module. It consists of a Module name, a Module icon, a Module value and a Module units.
 
 
 \seccc DnDActivity \& DnDFragment
@@ -179,9 +179,11 @@ Mobile application is logging all OBD data to the file stored in local storage. 
 
 \sec Reference Hardware
 
+\rfc{do analyzy}
+
 \secc Mobile device
 
-Mobile application is supposed to run on wide range of devices available in current market. It does not required any hardware or software customization of target device. It requires Android 5.0 and higher. This version of Android OS is available for majority of current shipped devices.
+Mobile application is supposed to run on wide range of devices available in current market. It does not require any hardware or software customization of target device. It requires Android 5.0 and higher. This version of Android OS is available for majority of current shipped devices.
 
 \seccc LG Nexus 5
 
