@@ -12,26 +12,32 @@ In this chapter the main information about development of the project will be in
 
 The Android SDK is a set of various tools that help developers to develop mobile applications for the Android platform. The tools are divided into two groups: SDK tools and platform tools. SDK tools are independent on target Android platform, platform tools are customizes to support concrete version of Android OS~\cite[androidsdkhelp].
 
-The SDK tools consist of  Virtual device tools (such as Android Virtual Device Manager or Android Emulator), Development tools (such as SQLite DB Explorer, SDK Manager or Translation editors), Debugging tools (Android Monitor, Android Debug Bridge, etc.), Build and Image tools. \rfc{jak je to s tema platform tools, patri tam adb nebo ne?}
-
-\secc{Java Platform, Enterprise Edition}
-
-Java Platform, Enterprise edition (Java EE) is the standard in community-driven enterprise software. Java EE is developed using the Java Community Process\urlnote{http://www.jcp.org/} with contributions from industry experts, commercial and open source organizations and many individual developers. Nowadays there are more than 20 compliant Java EE implementation~\cite[javaee].
+The SDK tools consist of  Virtual device tools (such as Android Virtual Device Manager or Android Emulator), Development tools (such as SQLite DB Explorer, SDK Manager or Translation editors), Debugging tools (Android Monitor, Android Debug Bridge, etc.), Build and Image tools. 
 
 \secc{Java Platform, Standard Edition}
 
-\rfc{co je to vlastne java? tady uz to nebude tak lehky - existuje i neco jako SE Advanced edition, ktera je placena} \cite[javase]
+Java SE is widely used platform for development and deployment of portable code for desktop and server environments. It uses the object-oriented programming language called Java. Java SE defines general purpose APIs, such as Java APIs for Java Class Library. It also includes the Java Language Specification and Java Virtual Machine Specification~\cite[javase]. There are many implementation of Java SE, most known are Oracles's Java Development Kit (JDK) and OpenJDK. 
+
+\seccc{Oracle v. Google}
+
+Android architecture has been using a Java Class Library derived from the Apache Harmony\urlnote{http://harmony.apache.org/} project supported by IBM. After Sun Microsystems was bought by Oracles in 2011, support of Apache Harmony ended (IBM joined OpenJDK) and Oracle sued Google for breaching the copyright law (by using Java APIs in Android)\urlnote{https://www.eff.org/cases/oracle-v-google}. 
+
+With the new version of Android OS -- Android L -- Google is switching to OpenJDK to bring support of new features implemented in last versions of Java (e.g., Lambda operators)\urlnote{http://www.theregister.co.uk/2015/12/30/android_openjdk/}.
+
+
+\secc{Java Platform, Enterprise Edition}
+
+Java Platform, Enterprise edition (Java EE) is the standardized platform in community-driven enterprise software which extends Java Standard Edition. Java EE is developed using the Java Community Process\urlnote{http://www.jcp.org/} with contributions from industry experts, commercial and open source organizations and many individual developers. Nowadays there are more than 20 compliant Java EE implementation~\cite[javaee].
+
 
 
 \sec Development tools
 
-\rfc{sth common about dev tools}
-
+Development tools allow developers to implement, test and debug their code. The whole development process is possible even without these tools, but it would take more time to gain the same results. During the development of the mobile application and other software tools, different development tools were used.
 
 \secc Integrated development environment
 
-For the purpose of this thesis the official IDE for Android application development provided by Google was used. Android studio is based on IntelliJ IDEA, a commercial product
-by the company JetBrains s.r.o.. Beside the standard set of functions from IntelliJ IDEA, Android Studio offers tailored-made extensions for Android application developers, therefore it is the recommended option to start the development with. \rfc{cite source}
+For the purpose of this thesis the official IDE for Android application development provided by Google was used. Android studio is based on IntelliJ IDEA, a commercial product by the company JetBrains s.r.o. Beside the standard set of functions from IntelliJ IDEA, Android Studio offers tailored-made extensions for Android application developers, therefore it is the recommended option to start the development with~\cite[androidstudio].
 
 \secc Code version control system
 
@@ -69,41 +75,41 @@ GitHub\urlnote{https://github.com/} is a web-based Git repository hosting servic
 	* Thesis \TeX~source\urlnote{https://github.com/lukashruby/diploma-thesis}
 \enditems
 
-\secc Continuous integration service
+\secc Continuous Integration Service
 
-Travis CI \rfc{todo}
+Continous Integration (CI) is a software development practice where developers are integrating their work frequently. It is used in development teams of all sizes. Usually the code is automatically verified, tested, and built to prove that changes do not have any hidden side effects. It is very important to set up whole build process properly. \glref{CI} is often connected to \glref{VCS}. For the purpose of development the mobile application, Travis CI\urlnote{https://travis-ci.org/} was used.
 
-\secc Build automation system
+\secc Build Automation System
 
-Graddle \rfc{todo}
+As mentioned in previous section, automated builds are important in \glref{CI} process. But well-prepared Build automation system can save a considerable amount of time. Automated builds are compiling source code, resolving dependencies,  packaging binary code, and running automated tests. All these task are executed directly from developer's computer or remotely. Most known Build automation systems are: GNU Make\urlnote{https://www.gnu.org/software/make/}, Apache Ant\urlnote{http://ant.apache.org/}, Apache Maven\urlnote{https://maven.apache.org/} and Graddle\urlnote{http://gradle.org/}.
 
 \sec{Third party libraries}
 
-During the development of the application and logging server the third party libraries were used. The following list contains name of each library (or dependency) and reason why it was used in the project:
-
-\begitems
-	*https://github.com/bauerca/drag-sort-listview
-	
-	*com.github.pires:obd-java-api:1.0-RC6
-	*com.squareup.okhttp:okhttp:2.5.0
-	
-	*commons-fileupload
-	*org.mongodb.mongodb-driver
-	
-\enditems
-
+During the development of the application and logging server the third party libraries were used. The following sections contain names of the libraries (or dependencies) and reason why they were used in the project.
 
 \secc Mobile application
 
-\rfc{todo}
+In mobile application third party libraries were used mainly for the purposes of communication (with a car \glref{ECU} or with server). One library also implements drag and drop feature, which is described in \ref[cdphone].
+
+\begitems
+	
+	*OBD-II Java API\urlnote{https://github.com/pires/obd-java-api} - support for OBDII PIDs in serial communication,
+	*OkHttp\urlnote{https://github.com/square/okhttp} - an HTTP client for Android applications, used for communication with server,
+	*DragSortListView\urlnote{https://github.com/bauerca/drag-sort-listview} - implementation of drag and drop used for module management.
+\enditems
 
 \secc Logging service
 
-\rfc{todo}
+As logging server receives files from mobile clients and saves the content to the database, third party libraries were used to simplify development of these features.
+
+\begitems
+	*Commons FileUpload\urlnote{https://commons.apache.org/proper/commons-fileupload/} - robust, high-performance, file upload capability for servlets and web applications,
+	*MongoDB Java Driver\urlnote{https://mongodb.github.io/mongo-java-driver/} - provides synchronous and asynchronous interaction with Mongo databases.
+\enditems
 
 \sec Mobile Application Implementation
 
-Mobile application is divided into two parts. The first part is platform dependent (smartphone in this case) and will be  described in detail in section~\ref[cdphone]. The second part, so-called {\bf Core}, is platform independent and can be ported to other devices which use Android OS (tablet, smart tv, etc.) In~\cite[blaha] is this part used in tablet version of this application. {\bf Core} was developed in cooperation with the author of \cite[blaha]. Details of the contribution is available in Core's Github repository\urlnote{https://github.com/eclubprague/CarDashboardCore}. From this part of project, only the important parts will be described in~\ref[core].
+Mobile application is divided into two parts. The first part is platform dependent (smartphone in this case) and will be  described in detail in section~\ref[cdphone]. The second part, so-called {\bf Core}, is platform independent and can be ported to other devices which use Android OS (tablet, smart tv, etc.) In~\cite[blaha] this part is used in tablet version of this application. {\bf Core} was developed in cooperation with the author of \cite[blaha]. Details of the contribution is available in Core's Github repository\urlnote{https://github.com/eclubprague/CarDashboardCore}. From this part of project, only the important parts will be described in~\ref[core].
 
 \label[cdphone]
 \secc User interface for smartphones
@@ -120,14 +126,14 @@ Each part of the application will be described in dedicated subsections.
 Prevailing part of user interface is the implementation of vertical scrolling list of modules in {\tt ScreenSlideActivity}. This list is presented as infinite menu (after last item in list comes the first one in loop). Android provides support only for horizontal scrolling list, so this implementation was done from scratch. {\tt ScreenSlidePageFragment} is then the content of single Module. It consists of a Module name, a Module icon, a Module value and a Module units.
 
 
-\seccc DnDActivity \& DnDFragment
+\seccc DnDActivity \& DnDFragment 
 
-DnD means in this case abbreviation for Drag and Drop. This feature is used in configuration part, where user can change order of modules, add new modules and delete modules with simple swiping gestures. This approach makes the configuration process easy and straightforward.
+DnD means in this case abbreviation for Drag and Drop. This feature is used in configuration part, where user can change order of modules, add new modules and delete modules with simple swiping gestures. This approach makes the configuration process easy and straightforward. 
 
 \label[core]
 \secc Shared Core Library
 
-%\rfc{module adding - simplicity, updating, persistence, obdservice, logging}
+\rfc{module adding - simplicity, updating, persistence, obdservice, logging}
 
 \secc Final application
 
@@ -176,60 +182,6 @@ Server was implemented as HTTP service in Java EE using Servlet API. It can be d
 \secc Communication with server
 
 Mobile application is logging all OBD data to the file stored in local storage. As these logs may be very data intensive, it is not reasonable to upload them live. Therefore when a wi-fi connection is available, user can initiate the upload of all files.  
-
-\sec Reference Hardware
-
-\rfc{do analyzy}
-
-\secc Mobile device
-
-Mobile application is supposed to run on wide range of devices available in current market. It does not require any hardware or software customization of target device. It requires Android 5.0 and higher. This version of Android OS is available for majority of current shipped devices.
-
-\seccc LG Nexus 5
-
-LG Nexus 5 was used for the purposes of development and testing. The main reason for selection was the fact, that whole life cycle (design, development, marketing and support) is managed directly by Google, Inc, the vendor of Android OS. Even though the development was aimed to reach the full functionality of as wide range of devices as possible, there can still be minor issues on other devices. 
-
-The technical specification of the device are following~\cite[wiki:nexus5]:
-
-\begitems
-
-*{\bf Codename}: Hammerhead
-*{\bf Developer}: Google, LG Electronics
-*{\bf Manufacturer}: LG Electronics
-*{\bf Compatible networks}: 2G/3G/4G LTE
-*{\bf Dimensions}: 137.84 mm H; 69.17 mm W; 8.59 mm D
-*{\bf Weight}: 130 g
-*{\bf Operating system}: Android 'Marshmallow' 6.0.1
-*{\bf System on chip}: Qualcomm Snapdragon 800
-*{\bf CPU}: 2.26 GHz quad-core Krait 400
-*{\bf GPU}: Ardeno 330, 450 MHz
-*{\bf Memory}: 2 GB of LPDDR3-1600 RAM
-*{\bf Storage}: 16 GB (12.55 GB available)
-*{\bf Display}: 4.95 in (126 mm) Full HD 1920x1080 px (445 ppi) IPS LCD, with Corning Gorilla Glass 3
-*{\bf Connectivity}: Micro USB, SlimPort, NFC, Bluetooth 4.0, 2x2 MIMO Wi-Fi 802.11 a/b/g/n/ac (single stream)
-
-\enditems
-
-\midinsert \clabel[nexus5_photo]{LG Nexus 5}
-\picw=10cm \cinspic resources/images/Nexus5.jpg
-\caption/f LG Nexus 5
-\endinsert
-
-\secc OBD II devices
-
-One of the features of mobile application is the ability to gather driving data from ECU of the car. For this purpose the application uses standardized solution with OBD dongle equipped with ELM327 chip which is connected to car's diagnostic outlet. /rfc{jiny slovo?}. 
-
-\seccc MINI ELM327 bluetooth OBD2 V1.5 Bluetooth dongle
-
-This dongle (in figure \ref[dongle_photo]) is widely available and very cheap (\$10 in December 2015) device that can be used with the mobile application. It was used while testing the functionality in real vehicle (Ford Focus, manufactured in 2008). It can be purchased in global online stores such as Amazon\urlnote{https://amazon.com} or Ebay\urlnote{https://ebay.com} as well as in local online stores. Beside the reading features it allows to diagnose trouble codes and display their meaning. It can clear these codes and turn of the `Check Engine` light. These features are not implemented in current version of the mobile application. However, this device suffers from a big problem - it does not disconnect when engine is not running and therefore it may drain the vehicle's battery.
-
-\midinsert \clabel[dongle_photo]{MINI ELM327 bluetooth OBD2 V1.5 Bluetooth dongle}
-\picw=10cm \cinspic resources/images/elm327.jpg
-\caption/f MINI ELM327 bluetooth OBD2 V1.5 Bluetooth dongle
-\endinsert
-
-\seccc OBD PC Emulator
- 
 
 
 

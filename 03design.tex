@@ -4,6 +4,8 @@
 
 \sec Requirements
 
+\rfc{extend}
+
 \begitems
 	* Simplicity of usage
 	* Low cognitive load
@@ -15,26 +17,11 @@
 
 In section \ref[android5] was mentioned that with the release of Android 5 Lollipop, Google provided guidelines for application developers to design user interface in proper way. These guidelines are called Google Design Guidelines~\urlnote{https://www.google.com/design/spec/material-design/introduction.html} and defines various design rules and parameters. The most important rule is that the display of the device should be taken as a real-world 3D environment. The whole concept is called Material Design~\urlnote{https://www.google.com/design/spec/what-is-material/environment.html}.
 
-\sec Comunnication 
 
-As the application supports to communication with a car's \glref{ECU}, connects to the internet and uploads data logs, various types of communication are taken in account.
+\rfc{Modulatiry - if there is a time}
 
-\secc Bluetooth
+\sec Infotainment user interface architecture proposal
 
-Support of Bluetooth technology is crucial for the final application. Bluetooth is used for connection to ELM327 Bluetooth Dongle which provides communication with \glref{OBD} interface. Dongles based on ELM327 usually supports USB, RM-232, WiFi or Bluetooth connections. In this case the Bluetooth connection was chosen because of simplicity of usage, commercial availability of the dongles and low power consumption\urlnote{http://science.opposingviews.com/bluetooth-vs-wifi-power-consumption-17630.html}.
-
-\secc Wi-fi
-
-\secc Mobile telecommunication
-
-Category of mobile telecommunication in this case includes the possibilities of connection to the internet when wi-fi connection is not available. To this category belong wireless network technologies provided by mobile carriers (3G, 4G). This type of internet connectivity is not supposed to be used for uploading trip logs due to limited data plans issue. The typical use is to control other devices via HTTP request initiated from the smartphone (e.g., opening garage doors or entrance gates). The application is, however, usable without the data plan.
-
-\sec Modularity
-
-
-\sec Infotainment user interface architecture 
-
-\rfc{maybe different title}
 Based on the previous research (led by dr. Sedivy, supervisor of this thesis) the simple user interface structure was proposed. The concept of on-board computers, where the amount of information displayed at a time is limited, was adopted. The general overview of this concept is at figure~\ref[skoda_ui]. 
 
 \midinsert \clabel[skoda_ui]{Limited information shown at display}
@@ -55,18 +42,31 @@ The portrait mode may be also easier to move in between the speedometer and tach
 
 \secc Use cases
 
-There are two most important use cases for which is this application designed. \rfc{extend}
+This section is dedicated to observation of use cases in which the application will be used. The primary goal of the application is to be used while driving. However, some initial configuration must be done as well. As it would be very hard, time demanding and even dangerous to set the configurations while driving, better approach is to introduce the second goal. There are two most important use cases for which will be this application designed.
 
 \seccc Using while driving
 
+This use case is supposed to radically predominate. A smartphone is places in a holder, firmly attached to a car's dashboard. Vehicle is moving and user is interacting with the smartphone using one hand and simple gestures while he is still managing the primary task -- driving. 
+
 \seccc Setting up
+
+Second use case aims to the setup part. This use case is applied when the vehicle is not moving and the user does not have to pay attention to external environment. In this use case, initial setup (Bluetooth connection to a OBD II Dongle\rfc{ref dongle}) is done. 
 
 
 \sec Graphical User Interface
 
-User interface is one of the most important part of this thesis. \rfc{dodelat}
+User interface is one of the most important part of this thesis. User interface is one of the main tools of communication between an application and the user. User is the key factor in designing a user interface - if a user interface design is bad, nobody will use the application.
 
-\cite[poi_design]
+There are four basic principles of user interface design known since 1971~\cite[Hansen:1972:UEP:1479064.1479159]:
+
+\begitems
+* Know the user,
+* minimize memorization,
+* optimize operations,
+* engineer for erros.
+\enditems
+
+For the design of a user interface, there have been adopted well-known software engineering processes. For the purpose of this thesis, the simplified iterative model was used. The design of user interface went from the simples sketches to slightly more complex low fidelity prototype to high fidelity prototype which led to the final application. Every phase was evaluated and possibly improved. Throughout the whole process, the notes and advices from \cite[poi_design] were used. 
 
 \secc Low fidelity prototype
 
@@ -87,7 +87,7 @@ Low fidelity prototypes are generally prototypes of limited functionality and in
 
 For the purpose of creating low fidelity prototype of the application, the tool Balsamiq Mock-ups\urlnote{https://balsamiq.com/} was used. It is a rapid wireframing tool that reproduces the experience of sketching on a whiteboard, but using a computer.
 
-The two step approach was applied. In the first step the ideas from previous chapters were used and the first version of lo-fi prototype was sketched. The result is at \rfc{preposition?} figure~\ref[balsamiq_v1]. After discussion and basic testing the mock-up was improved and the second version was designed (figure~\ref[balsamiq_v2]).
+The two step approach was applied. In the first step the ideas from previous chapters were used and the first version of lo-fi prototype was sketched. The result is in figure~\ref[balsamiq_v1]. After discussion and basic testing the mock-up was improved and the second version was designed (figure~\ref[balsamiq_v2]).
 
 \secc High fidelity prototype
 
@@ -99,8 +99,12 @@ High fidelity prototype of the application developed in this thesis was made in 
 
 \sec Logging server architecture
 
+\rfc{todo}
+
 \sec Other tools
+
+\rfc{todo}
 
 \secc OBD II Emulator
 
-
+\rfc{todo}

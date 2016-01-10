@@ -101,7 +101,7 @@ Android Auto and Apple CarPlay are not the only available solutions of infotainm
 
 {\bf FlexRay} - The FlexRay communication bus is a deterministic, fault-tolerant and high-speed bus system developed in conjunction with automobile manufacturers and leading suppliers. FlexRay delivers the error tolerance and time-determinism performance requirements for x-by-wire applications (i.e. drive-by-wire, steer-by-wire, brake-by-wire, etc.). This bus was developed to provide features that CAN cannot offer (e.g. synchronization or high performance)~\cite[ni2009flexray].
 
-\secc On-board Diagnostics (\glref{OBD})
+\secc On-board Diagnostics (OBD)
 
 The first generation of On-Board Diagnostic requirements, called OBD I, was developed by the California Air Resources Board (ARB) and implemented in 1988. As technology and the desire to expand On-Board Diagnostic capability increased, a second-generation of On-Board Diagnostics requirements was developed. This second version of On-Board Diagnostic capabilities is called \glref{OBDII}. The Clean Air Act Amendments of 1990 mandated that, beginning with the 1996 model year, all light-duty vehicle and trucks made available for sale outside of the state of California must also be equipped with OBDII. In addition, EPA also requires that medium duty vehicles up to 14,000 pounds must also be equipped with OBD II systems beginning in the 2004 model year. In the future, EPA expects that all heavy-duty vehicles over 14,000 pounds will eventually be equipped with OBDII systems.
 
@@ -117,13 +117,22 @@ OBD systems are required by EPA to be installed on light-duty vehicles and truck
 
 \secc Other types of communication
 
+As the application supports to communication with a car's \glref{ECU}, it connects to the internet and uploads data logs, various types of communication are taken in account.
+
 \seccc Bluetooth
 
 Bluetooth is wireless technology standard for communication over short distances. It has been used mainly to connect headsets to phones. Nowadays it is gaining more popularity in the Internet of Things.
 
+Support of Bluetooth technology is crucial for the final application. Bluetooth is used for connection to ELM327 Bluetooth Dongle which provides communication with \glref{OBD} interface. Dongles based on ELM327 usually supports USB, RM-232, WiFi or Bluetooth connections. In this case the Bluetooth connection was chosen because of simplicity of usage, commercial availability of the dongles and low power consumption\urlnote{http://science.opposingviews.com/bluetooth-vs-wifi-power-consumption-17630.html}.
+
 \seccc Mobile data communication (3G, 4G)
 
-\rfc{consistency in titles! esp. mobile data comm}
+Category of mobile telecommunication in this case includes the possibilities of connection to the internet when wi-fi connection is not available. To this category belong wireless network technologies provided by mobile carriers (3G, 4G). This type of internet connectivity is not supposed to be used for uploading trip logs due to limited data plans issue. The typical use is to control other devices via HTTP request initiated from the smartphone (e.g., opening garage doors or entrance gates). The application is, however, usable without the data plan.
+
+\secc Wi-fi
+
+Although the Bluetooth connection seems to be an ideal way how to connect to a car's \glref{ECU}, there are devices on the market that support also Wi-Fi connection. The advantage is a bigger bandwidth provided by Wi-Fi (proposed versions Wi-Fi Direct promises 250 Mbps while Bluetooth 4.0 promises 25 Mbps\urlnote{http://www.pcworld.com/article/208778/Wi_Fi_Direct_vs_Bluetooth_4_0_A_Battle_for_Supremacy.html}). This bandwidth can be used to transfer more data from the ECU. However, for the purposes of the final application this difference is not significant, therefore only Bluetooth support is proposed. 
+
 
 \sec Mobile platforms
 
@@ -264,4 +273,56 @@ National Institute of Standards and Technology (\glref{NIST}) defined the cloud 
 	*{\bf hybrid cloud} - The cloud infrastructure is a composition of two or more previously mentioned models that are bound together by standardized or proprietary technology to enable data and application portability.
 	
 \enditems
+
+\sec Reference Hardware
+
+\secc Mobile device
+
+Mobile application is supposed to run on wide range of devices available in current market. It does not require any hardware or software customization of target device. It requires Android 5.0 and higher. This version of Android OS is available for majority of current shipped devices.
+
+\seccc LG Nexus 5
+
+LG Nexus 5 was used for the purposes of development and testing. The main reason for selection was the fact, that whole life cycle (design, development, marketing and support) is managed directly by Google, Inc, the vendor of Android OS. Even though the development was aimed to reach the full functionality of as wide range of devices as possible, there can still be minor issues on other devices. 
+
+The technical specification of the device are following~\cite[wiki:nexus5]:
+
+\begitems
+
+*{\bf Codename}: Hammerhead
+*{\bf Developer}: Google, LG Electronics
+*{\bf Manufacturer}: LG Electronics
+*{\bf Compatible networks}: 2G/3G/4G LTE
+*{\bf Dimensions}: 137.84 mm H; 69.17 mm W; 8.59 mm D
+*{\bf Weight}: 130 g
+*{\bf Operating system}: Android 'Marshmallow' 6.0.1
+*{\bf System on chip}: Qualcomm Snapdragon 800
+*{\bf CPU}: 2.26 GHz quad-core Krait 400
+*{\bf GPU}: Ardeno 330, 450 MHz
+*{\bf Memory}: 2 GB of LPDDR3-1600 RAM
+*{\bf Storage}: 16 GB (12.55 GB available)
+*{\bf Display}: 4.95 in (126 mm) Full HD 1920x1080 px (445 ppi) IPS LCD, with Corning Gorilla Glass 3
+*{\bf Connectivity}: Micro USB, SlimPort, NFC, Bluetooth 4.0, 2x2 MIMO Wi-Fi 802.11 a/b/g/n/ac (single stream)
+
+\enditems
+
+\midinsert \clabel[nexus5_photo]{LG Nexus 5}
+\picw=10cm \cinspic resources/images/Nexus5.jpg
+\caption/f LG Nexus 5
+\endinsert
+
+\secc OBD II devices
+
+One of the features of mobile application is the ability to gather driving data from \glref{ECU} of the car. For this purpose the application uses standardized solution with \glref{OBD} dongle equipped with ELM327 chip which is connected to car's diagnostic socket.
+
+\seccc MINI ELM327 bluetooth OBD2 V1.5 Bluetooth dongle
+
+This dongle (in figure \ref[dongle_photo]) is widely available and very cheap (\$10 in December 2015) device that can be used with the mobile application. It was used while testing the functionality in real vehicle (Ford Focus, manufactured in 2008). It can be purchased in global online stores such as Amazon\urlnote{https://amazon.com} or Ebay\urlnote{https://ebay.com} as well as in local online stores. Beside the reading features it allows to diagnose trouble codes and display their meaning. It can clear these codes and turn of the `Check Engine` light. These features are not implemented in current version of the mobile application. However, this device suffers from a big problem - it does not disconnect when engine is not running and therefore it may drain the vehicle's battery.
+
+\midinsert \clabel[dongle_photo]{MINI ELM327 bluetooth OBD2 V1.5 Bluetooth dongle}
+\picw=10cm \cinspic resources/images/elm327.jpg
+\caption/f MINI ELM327 bluetooth OBD2 V1.5 Bluetooth dongle
+\endinsert
+
+\seccc OBD PC Emulator
+ 
 
