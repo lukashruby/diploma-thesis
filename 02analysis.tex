@@ -100,23 +100,16 @@ Android Auto and Apple CarPlay are not the only available solutions of infotainm
 \label[2.buses]
 \secc In-vehicle real-time buses
 
-{\bf Controller Area Network Bus (CAN-BUS)} - Bosch originally developed the Controller Area Network (CAN) in 1985 for in-vehicle networks. In the past, automotive manufacturers connected electronic devices in vehicles using point-to-point wiring systems. As more and more electronics started to be used in vehicles, the situation led to very complex and confusional systems that were heavy and expensive. They then replaced dedicated wiring with in-vehicle networks, which reduced wiring cost, complexity, and weight. CAN is a high-integrity serial bus system for networking intelligent devices, developed as the standard in-vehicle network. Whole automotive industry quickly adopted CAN and it became the international standard in 1993 known as ISO 11898.  \cite[etschberger2001controller]
+{\bf Controller Area Network Bus (CAN-BUS)} - Bosch originally developed the Controller Area Network (CAN) in 1985 for in-vehicle networks. In the past, automotive manufacturers connected electronic devices in vehicles using point-to-point wiring systems. As more and more electronics started to be used in vehicles, the situation led to very complex and confusional systems that were heavy and expensive. They then replaced dedicated wiring with in-vehicle networks, which reduced wiring cost, complexity, and weight. CAN is a high-integrity serial bus system for networking intelligent devices, developed as the standard in-vehicle network. Whole automotive industry quickly adopted CAN and it became the international standard in 1993 known as ISO 11898~\cite[etschberger2001controller].  
 
 {\bf FlexRay} - The FlexRay communication bus is a deterministic, fault-tolerant, and high-speed bus system developed in conjunction with automobile manufacturers and leading suppliers. FlexRay delivers the error tolerance and time-determinism performance requirements for x-by-wire applications (i.e. drive-by-wire, steer-by-wire, brake-by-wire, etc.). This bus was developed to provide features that CAN cannot offer (e.g. synchronization or high performance)~\cite[ni2009flexray].
 
 \secc On-board Diagnostics (OBD)
 
-The first generation of On-Board Diagnostic requirements, called OBD I, was developed by the California Air Resources Board (ARB) and implemented in 1988. As technology and the desire to expand On-Board Diagnostic capability increased, a second-generation of On-Board Diagnostics requirements was developed. This second version of On-Board Diagnostic capabilities is called \glref{OBDII}. The Clean Air Act Amendments of 1990 mandated that, beginning with the 1996 model year, all light-duty vehicle and trucks made available for sale outside of the state of California must also be equipped with OBDII. In addition, EPA also requires that medium duty vehicles up to 14,000 pounds must also be equipped with OBD II systems beginning in the 2004 model year. In the future, EPA expects that all heavy-duty vehicles over 14,000 pounds will eventually be equipped with OBDII systems.
+The first generation of On-Board Diagnostic requirements, called \glref{OBD} I, was developed by the California Air Resources Board (ARB) and implemented in 1988. As technological possibilities to expand On-Board Diagnostic capability increased, a second-generation of On-Board Diagnostics requirements was developed. This second version  is called \glref{OBDII}. The Clean Air Act Amendments of 1990\urlnote{http://www.epa.gov/clean-air-act-overview/1990-clean-air-act-amendment-summary} stated that, beginning with the 1996 model year, all light-duty vehicle and trucks made available for sale outside of the state of California must also be equipped with OBDII. In addition, EPA also requires that medium duty vehicles up to 6.5 tons must also be equipped with OBDII systems beginning in the 2004 model year~\cite[epa_obd]. In the last years, OBD systems are required by EPA to be installed on light-duty vehicles and trucks, as well as heavy-duty engines.
 
-http://www3.epa.gov/obd/basic.htm \rfc{review}
+OBD plays an important role where vehicle inspection and maintenance programs are required. OBD serves as an early warning system that alerts to the potential need for vehicle repair through the {\em Check Engine} light on the dashboard of a vehicle~\cite[epa_obd].
 
-On-Board Diagnostics, or "OBD," is a computer-based system built into all 1996 and later light-duty vehicles and trucks, as required by the Clean Air Act Amendments of 1990. OBD systems are designed to monitor the performance of some of an engine's major components including those responsible for controlling emissions. 
-OBD is a valuable tool that assists in the service and repair of vehicles by providing a simple, quick, and effective way to pinpoint problems by retrieving vital automobile diagnostics from the OBD systems.
-OBD plays an important role where vehicle inspection and maintenance programs are required.
-OBD serves as an early warning system that alerts you to the potential need for vehicle repair through the "Check Engine" light on the dashboard of your vehicle.
-OBD systems are required by EPA to be installed on light-duty vehicles and trucks, as well as heavy-duty engines.
-
-(http://www3.epa.gov/obd/) \rfc{review}
 
 \label[2.othercomm]
 \secc Other types of communication
@@ -127,7 +120,7 @@ As the application supports to communication with a car's \glref{ECU}, it connec
 
 Bluetooth is wireless technology standard for communication over short distances. It has been used mainly to connect headsets to phones. Nowadays it is gaining more popularity in the Internet of Things.
 
-Support of Bluetooth technology is crucial for the final application. Bluetooth is used for connection to ELM327 Bluetooth Dongle which provides communication with \glref{OBD} interface. Dongles based on ELM327 usually supports USB, RM-232, WiFi or Bluetooth connections. In this case the Bluetooth connection was chosen because of simplicity of usage, commercial availability of the dongles, and low power consumption\urlnote{http://science.opposingviews.com/bluetooth-vs-wifi-power-consumption-17630.html}.
+Support of Bluetooth technology is crucial for the final application. Bluetooth is used for connection to ELM327 Bluetooth Dongle which provides communication with \glref{OBD} interface. Dongles based on ELM327 usually supports \glref{USB}, RM-232, WiFi or Bluetooth connections. In this case the Bluetooth connection was chosen because of simplicity of usage, commercial availability of the dongles, and low power consumption\urlnote{http://science.opposingviews.com/bluetooth-vs-wifi-power-consumption-17630.html}.
 
 \seccc Mobile data communication (3G, 4G)
 
@@ -193,6 +186,7 @@ Developers have full access to the same framework \glref{API}s used by the core 
 
 Android includes a set of core libraries that provides most of the functionality available in the core libraries of the Java programming language. Every Android  application runs in its own process, with its own instance of the Dalvik virtual machine. Dalvik has been written so that a device can run multiple \glref{VM}s efficiently. The Dalvik VM executes files in the Dalvik Executable (.dex) format, which is optimized for minimal memory footprint. The VM is register-based and runs classes compiled by a Java language compiler that has been transformed into the .dex format by the included dx tool. The Dalvik VM relies on the Linux kernel for underlying functionality such as threading and low-level memory management~\cite[developers2011android]. 
 
+\label[android5]
 \secc Brief history of Android operating system 
 
 In this subsection a brief history of Android platform~\cite[androidcom] is presented. Knowing the history of the operating system is important to understand further parts of this work. 
@@ -242,7 +236,7 @@ Jelly Bean firstly came with the application Google Now which is advanced predic
 The main aim for this version was to make Android faster, more efficient, and less resource intensive. The Nexus 5 smartphone was firstly released with this version.
 
 
-\seccc \label[android5] Android 5 Lollipop 
+\seccc Android 5 Lollipop 
 
 Fistly named just Android L, this version came with so called Material Design. Google wanted to unify user interfaces of 3rd party application and provide guidelines for developers. Android Wear and Android Auto concepts were introduced. 
 
