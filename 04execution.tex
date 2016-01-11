@@ -3,7 +3,7 @@
 \label[implementation]
 \chap Implementation
 
-In this chapter the main information about development of the project will be introduced. Firstly, used developer tools will be presented. The Android application and logging server structures will follow. At the end of the chapter will be a section about difficulties and problems and their solutions. \rfc{review}
+In this chapter the main information about development of the mobile application CarDashboard and logging server will be introduced. Firstly, used developer tools will be presented. The mobile application and logging server structures will follow. At the end of this chapter, an integration of mobile application and the logging server will be described.
 
 
 \sec{Development environments}
@@ -70,7 +70,7 @@ GitHub\urlnote{https://github.com/} is a web-based Git repository hosting servic
 \begitems
 	* Android application for smartphone\urlnote{https://github.com/eclubprague/CarDashboardPhone}
 	* Shared core for Android platform\urlnote{https://github.com/eclubprague/CarDashboardCore}
-	* Logging server\rfc{add logging server to git!}
+	* Logging server\urlnote{https://github.com/lukashruby/cardashboard-logging-server}
 	* OBD Bluetooth Emulation tool\urlnote{https://github.com/lukashruby/obd-mocked-bluetooth-dongle}
 	* Thesis \TeX~source\urlnote{https://github.com/lukashruby/diploma-thesis}
 \enditems
@@ -114,7 +114,7 @@ Mobile application is divided into two parts. The first part is platform depende
 \label[cdphone]
 \secc User interface for smartphones
 
-Design of the user interface was the most important part of chapter \ref[design] \rfc{add chapter} and it is a key problem of the whole project. As this application is aimed to be used in a car while driving, bad implementation of the concept can cause many difficulties for drivers. Therefore it was very important to be especially precious in the development and this phase took the majority of time.
+Design of the user interface was the most important part of chapter \ref[design] and it is a key problem of the whole project. As this application is aimed to be used in a car while driving, bad implementation of the concept can cause many difficulties for drivers. Therefore it was very important to be especially precious in the development and this phase took the majority of time.
 
 Standard mode of application consists of various {\bf Modules}. Mobile phone version displays only one module at a time (tablet version \cite[blaha] contains more modules at the screen). These modules are ordered in a tree structure -- a single module is displaying some information or contains more modules. 
 
@@ -184,7 +184,7 @@ Server was implemented as HTTP service in Java EE using Servlet API. It can be d
 
 Mobile application is logging all OBD data to the file stored in local storage. As these logs may be very data intensive, it is not reasonable to upload them live. Therefore when a wi-fi connection is available, user can initiate the upload of all files.  
 
+\sec Unit testing
 
-
-
+\rfc{add section about unit testing}
 
