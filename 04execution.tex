@@ -3,7 +3,7 @@
 \label[implementation]
 \chap Implementation
 
-In this chapter the main information about development of the project will be introduced. Firstly, used developer tools will be presented. The Android application and logging server structures will follow. At the end of the chapter will be a section about difficulties and problems and their solutions. 
+In this chapter the main information about development of the project will be introduced. Firstly, used developer tools will be presented. The Android application and logging server structures will follow. At the end of the chapter will be a section about difficulties and problems and their solutions. \rfc{review}
 
 
 \sec{Development environments}
@@ -27,13 +27,13 @@ With the new version of Android OS -- Android L -- Google is switching to OpenJD
 
 \secc{Java Platform, Enterprise Edition}
 
-Java Platform, Enterprise edition (Java EE) is the standardized platform in community-driven enterprise software which extends Java Standard Edition. Java EE is developed using the Java Community Process\urlnote{http://www.jcp.org/} with contributions from industry experts, commercial and open source organizations and many individual developers. Nowadays there are more than 20 compliant Java EE implementation~\cite[javaee].
+Java Platform, Enterprise edition (Java EE) is the standardized platform in community-driven enterprise software which extends Java Standard Edition. Java EE is developed using the Java Community Process\urlnote{http://www.jcp.org/} with contributions from industry experts, commercial, and open source organizations and many individual developers. Nowadays there are more than 20 compliant Java EE implementation~\cite[javaee].
 
 
 
 \sec Development tools
 
-Development tools allow developers to implement, test and debug their code. The whole development process is possible even without these tools, but it would take more time to gain the same results. During the development of the mobile application and other software tools, different development tools were used.
+Development tools allow developers to implement, test, and debug their code. The whole development process is possible even without these tools, but it would take more time to gain the same results. During the development of the mobile application and other software tools, different development tools were used.
 
 \secc Integrated development environment
 
@@ -81,7 +81,7 @@ Continous Integration (CI) is a software development practice where developers a
 
 \secc Build Automation System
 
-As mentioned in previous section, automated builds are important in \glref{CI} process. But well-prepared Build automation system can save a considerable amount of time. Automated builds are compiling source code, resolving dependencies,  packaging binary code, and running automated tests. All these task are executed directly from developer's computer or remotely. Most known Build automation systems are: GNU Make\urlnote{https://www.gnu.org/software/make/}, Apache Ant\urlnote{http://ant.apache.org/}, Apache Maven\urlnote{https://maven.apache.org/} and Graddle\urlnote{http://gradle.org/}.
+As mentioned in previous section, automated builds are important in \glref{CI} process. But well-prepared Build automation system can save a considerable amount of time. Automated builds are compiling source code, resolving dependencies,  packaging binary code, and running automated tests. All these task are executed directly from developer's computer or remotely. Most known Build automation systems are: GNU Make\urlnote{https://www.gnu.org/software/make/}, Apache Ant\urlnote{http://ant.apache.org/}, Apache Maven\urlnote{https://maven.apache.org/}, and Graddle\urlnote{http://gradle.org/}.
 
 \sec{Third party libraries}
 
@@ -109,7 +109,7 @@ As logging server receives files from mobile clients and saves the content to th
 
 \sec Mobile Application Implementation
 
-Mobile application is divided into two parts. The first part is platform dependent (smartphone in this case) and will be  described in detail in section~\ref[cdphone]. The second part, so-called {\bf Core}, is platform independent and can be ported to other devices which use Android OS (tablet, smart tv, etc.) In~\cite[blaha] this part is used in tablet version of this application. {\bf Core} was developed in cooperation with the author of \cite[blaha]. Details of the contribution is available in Core's Github repository\urlnote{https://github.com/eclubprague/CarDashboardCore}. From this part of project, only the important parts will be described in~\ref[core].
+Mobile application is divided into two parts. The first part is platform dependent (smartphone in this case) and will be  described in detail in section~\ref[cdphone]. The second part, so-called {\bf Core}, is platform independent, and can be ported to other devices which use Android OS (tablet, smart tv, etc.) In~\cite[blaha] this part is used in tablet version of this application. {\bf Core} was developed in cooperation with the author of \cite[blaha]. Details of the contribution is available in Core's Github repository\urlnote{https://github.com/eclubprague/CarDashboardCore}. From this part of project, only the important parts will be described in~\ref[core].
 
 \label[cdphone]
 \secc User interface for smartphones
@@ -123,12 +123,12 @@ Each part of the application will be described in dedicated subsections.
 
 \seccc ScreenSlideActivity \& ScreenSlidePageFragment
 
-Prevailing part of user interface is the implementation of vertical scrolling list of modules in {\tt ScreenSlideActivity}. This list is presented as infinite menu (after last item in list comes the first one in loop). Android provides support only for horizontal scrolling list, so this implementation was done from scratch. {\tt ScreenSlidePageFragment} is then the content of single Module. It consists of a Module name, a Module icon, a Module value and a Module units.
+Prevailing part of user interface is the implementation of vertical scrolling list of modules in {\tt ScreenSlideActivity}. This list is presented as infinite menu (after last item in list comes the first one in loop). Android provides support only for horizontal scrolling list, so this implementation was done from scratch. {\tt ScreenSlidePageFragment} is then the content of single Module. It consists of a Module name, a Module icon, a Module value, and a Module units.
 
 
 \seccc DnDActivity \& DnDFragment 
 
-DnD means in this case abbreviation for Drag and Drop. This feature is used in configuration part, where user can change order of modules, add new modules and delete modules with simple swiping gestures. This approach makes the configuration process easy and straightforward. 
+DnD means in this case abbreviation for Drag and Drop. This feature is used in configuration part, where user can change order of modules, add new modules, and delete modules with simple swiping gestures. This approach makes the configuration process easy and straightforward. 
 
 \label[core]
 \secc Shared Core Library
