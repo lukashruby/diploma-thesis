@@ -133,18 +133,20 @@ DnD means in this case abbreviation for Drag and Drop. This feature is used in c
 \label[core]
 \secc Shared Core Library
 
-\rfc{module adding - simplicity, updating, persistence, obdservice, logging}
+The core contains all the functionality, it handles data, logic and also a standardized part of presentation, which consists of predefined single module views. It includes also the communication settings with the car's ECU and a service for uploading log files to the server. This library is described in detail in~\cite[blaha],
 
 \secc Final application
+
+The final application screenshots are presented in the following set of figures: Figure \ref[module.speed] shows the typical single information display module (at this case with the current speed of car), figure \ref[module.folder] is a demonstration of a folder module. This module contains another set of modules (just like folder structure of computer's filesystem). Figures \ref[module.swipe], \ref[module.btdev], \ref[module.change], and \ref[module.remove] displays the interaction with the application.
 
 \midinsert
 \line{\hsize=.5\hsize \vtop{%
       \clabel[module.speed]{Module displays single information.}
-      \picw=5cm \cinspic resources/images/screenshots/speed.png
+      \picw=6cm \cinspic resources/images/screenshots/speed.png
       \caption/f Module displaying single information.
    \par}\vtop{%
       \clabel[module.folder]{Module contains another set of child modules - folder.}
-      \picw=5cm \cinspic resources/images/screenshots/folder.png
+      \picw=6cm \cinspic resources/images/screenshots/folder.png
       \caption/f Module contains another set of child modules - folder.
    \par}}
 \endinsert
@@ -152,11 +154,11 @@ DnD means in this case abbreviation for Drag and Drop. This feature is used in c
 \midinsert
 \line{\hsize=.5\hsize \vtop{%
       \clabel[module.swipe]{Swiping between different modules.}
-      \picw=5cm \cinspic resources/images/screenshots/swipe.png
+      \picw=6cm \cinspic resources/images/screenshots/swipe.png
       \caption/f Swiping between different modules.
    \par}\vtop{%
       \clabel[module.btdev]{Selection of Bluetooth device to connect to OBD dongle.}
-      \picw=5cm \cinspic resources/images/screenshots/btdev_selection.png
+      \picw=6cm \cinspic resources/images/screenshots/btdev_selection.png
       \caption/f Selection of Bluetooth device to connect to OBD dongle.
    \par}}
 \endinsert
@@ -164,11 +166,11 @@ DnD means in this case abbreviation for Drag and Drop. This feature is used in c
 \midinsert
 \line{\hsize=.5\hsize \vtop{%
       \clabel[module.change]{Changing position of module using Drag and drop.}
-      \picw=5cm \cinspic resources/images/screenshots/dnd_change_position.png
+      \picw=6cm \cinspic resources/images/screenshots/dnd_change_position.png
       \caption/f Changing position of module using Drag and drop.
    \par}\vtop{%
       \clabel[module.remove]{Removing module using simple swipe gesture.}
-      \picw=5cm \cinspic resources/images/screenshots/dnd_remove.png
+      \picw=6cm \cinspic resources/images/screenshots/dnd_remove.png
       \caption/f Removing module using simple swipe gesture.
    \par}}
 \endinsert
@@ -195,9 +197,6 @@ HttpServlet is an abstract class to be subclassed to create an HTTP servlet suit
 \label[4.comm]
 \secc Communication with server
 
-Mobile application is logging all OBD data to the file stored in local storage. As these logs may be very data intensive, it is not reasonable to upload them live. Therefore when a wi-fi connection is available, user can initiate the upload of all files.  
+Mobile application is logging all OBD data to the file stored in local storage. As these logs may be very data intensive, it is not reasonable to upload them live. Therefore when a wi-fi connection is available, user can initiate the upload of all files to the Java-based server running in a cloud. These communication is implemented using the standard multipart POST request.
 
-\sec Unit testing
-
-\rfc{add section about unit testing}
 

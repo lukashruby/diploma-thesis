@@ -55,7 +55,7 @@ Another part of the eye tracking solution was Smart Eye Pro software. This progr
 
 \secc Participants
 
-The usability tests are based on the results from 5 participants from age 24 to 45 (mean age was 28, standard deviation 9.62). One participant was female, other four were males. Kilometers drove per year by the participants were in range from 4000 to 30000 (mean of 14800, standard deviation 10849). Operating system used on smartphone was three times Android OS, one time iOS, and one time Windows Phone. Other information retained from participants are in section \ref[pre-test].
+The usability tests are based on the results from 5 participants from age 24 to 45 (mean age was 28, standard deviation 9.62). One participant was female, other four were males. Kilometers drove per year by the participants were in range from 4000 to 30000 (mean of 14800, standard deviation 10849). Operating system used on smartphone was three times Android OS, one time iOS, and one time Windows Phone. Other information retained from participants are in table \ref[participants_pretest].
 
 The number of participant was based on recommendation of Jakob Nielsen \cite[nielson5enough]. None of participant had previous experience with the tested applications. 
 
@@ -132,7 +132,7 @@ Each test had a fixed time limit. As was mentioned in the previous section, part
 
 This test was used to evaluate influence of a secondary task while performing a primary task. For these purposes the Lance Change Test (LCT) has received considerable attention. It appears to be a practical and effective measure of the costs associated with operating in-vehicle devices while performing a driving task. The procedure of the Lane Change Test was standardized as ISO 3888.
 
-For the execution of the LCT the car simulator introduced in section \ref[test_equipment] was used. The test track was a 4 km straight line road with a single lane change maneuver. Participants were required to keep a constant speed of 60 km per hour and they were asked to tell the current value of driving-relevant information displayed on the smartphone using the developed application. The interval between each request was 10 seconds. The maneuver was initiated by placing an unexpected object in the driving path. Size of the object was 2.20 x 2.20 x 2.20 m and it was placed 35 m in front of vehicle. There was a red arrow pointing to the left lane which suggested driver the direction to go around the object (change the driving lane).
+For the execution of the LCT the car simulator introduced in section \ref[test_equipment] was used. The test track was a 4 km straight line road with a single lane change maneuver. Participants were required to keep a constant speed of 60 km per hour and they were asked to tell the current value of a set of driving-relevant information displayed on the smartphone using the developed application every 20 seconds. The interval between each request was 10 seconds. The maneuver was initiated by placing an unexpected object in the driving path. Size of the object was 2.20 x 2.20 x 2.20 m and it was placed 35 m in front of vehicle. There was a red arrow pointing to the left lane which suggested driver the direction to go around the object (change the driving lane).
 
 
 
@@ -159,14 +159,14 @@ Participant 5 & Yes  & 	511.8 ms & 9.87 m \cr
 \caption/t {Results of LCT}
 \endinsert
 
-Table~\ref[lct_results] shows that in the object avoidance the tests were 100\% successful. However, the result with bigger group of participant could be different - for example in picture~\ref[lct_res] in Appendix~\ref[tests_results] is obvious that object avoidance was very tight. 
+Table~\ref[lct_results] shows that in the object avoidance the tests were 100\% successful. However, the result with bigger group of participant could be different - for example in picture~\ref[lct_res4] in Appendix~\ref[tests_results] is obvious that object avoidance was very tight. 
 
 Measured and calculated results can be compared with results from \cite[d2014perception]. A similar test was performed with measured mean time 0.78 seconds. This reaction time is comparable with reaction times of participants.
 
 \label[5.ab]
 \sec A/B test
 
-A/B testing (also known as split testing or bucket testing) is a testing approach of comparing two version of tested subjects again each others to determine which one performs better. This approach is known mainly from webpage testing, where the criterion is conversion rate. Method of A/B testing was adopted also in testing of CarDashboard mobile application. Small changes were done: Instead of webpages were compared mobile applications and instead of conversion rate the criterion was glance time. Glance time was measured using eye tracking cameras mentioned in section~\ref[eye-tracking-cameras].
+A/B testing (also known as split testing or bucket testing) is a testing approach of comparing two version of tested subjects again each others to determine which one performs better. This approach is known mainly from webpage testing, where the criterion is conversion rate. Method of A/B testing was adopted also in testing of CarDashboard mobile application. Small changes were done: Instead of webpages were compared mobile applications and instead of conversion rate the criterion was glance time. Glance time was measured using eye tracking cameras mentioned in section~\ref[test_equipment]. Same as in the previous test, participants were asked to tell the current values of a set of driving-relevant information displayed on the smartphone using the developed application with the frequency of 10 seconds. The requested information types changed after each iteration, so the participant must interact with the device after each request.
 
 A/B testing needs two subject. In this case, the first subject was the developed mobile application CarDashboard and the second subject was a mobile application called Torque\urlnote{http://torque-bhp.com/} which is the most downloaded application for OBD connection with more than 1 million free downloads\urlnote{https://play.google.com/store/apps/details?id=org.prowl.torquefree&hl=en} and more than 500 thousands paid downloads\urlnote{https://play.google.com/store/apps/details?id=org.prowl.torque&hl=en}. This application is available for Android-based tablets and mobile phones, thus was a perfect candidate as the usability tests were performed also for the tablet version of CarDashboard~\cite[blaha].
 

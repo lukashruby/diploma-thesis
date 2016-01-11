@@ -104,6 +104,8 @@ Android Auto and Apple CarPlay are not the only available solutions of infotainm
 
 {\bf FlexRay} - The FlexRay communication bus is a deterministic, fault-tolerant, and high-speed bus system developed in conjunction with automobile manufacturers and leading suppliers. FlexRay delivers the error tolerance and time-determinism performance requirements for x-by-wire applications (i.e. drive-by-wire, steer-by-wire, brake-by-wire, etc.). This bus was developed to provide features that CAN cannot offer (e.g. synchronization or high performance)~\cite[ni2009flexray].
 
+\par\maybebreak 3.5cm
+
 \secc On-board Diagnostics (OBD)
 
 The first generation of On-Board Diagnostic requirements, called \glref{OBD} I, was developed by the California Air Resources Board (ARB) and implemented in 1988. As technological possibilities to expand On-Board Diagnostic capability increased, a second-generation of On-Board Diagnostics requirements was developed. This second version  is called \glref{OBDII}. The Clean Air Act Amendments of 1990\urlnote{http://www.epa.gov/clean-air-act-overview/1990-clean-air-act-amendment-summary} stated that, beginning with the 1996 model year, all light-duty vehicle and trucks made available for sale outside of the state of California must also be equipped with OBDII. In addition, EPA also requires that medium duty vehicles up to 6.5 tons must also be equipped with OBDII systems beginning in the 2004 model year~\cite[epa_obd]. In the last years, OBD systems are required by EPA to be installed on light-duty vehicles and trucks, as well as heavy-duty engines.
@@ -195,6 +197,7 @@ In this subsection a brief history of Android platform~\cite[androidcom] is pres
 
 The very first version of Android was released in October 22nd, 2008 when the first smartphone - T-Mobile G1 launched in the United Stated. This version lacked functionality such as on-screen keyboard (T-Mobile G1 was equipped with hardware keyboard) or multi touch capability. On the other side, many functions that are important even in latest version were introduced: Gmail integration, Android Market or Pull-down notification window. 
 
+\par\maybebreak 3.5cm
 \seccc Android 1.1
 
 The purpose of this version was to show that update of the smartphone's operating system can be quick and painless. There was no need of flashing new firmware by special tools or delete all data. Everything went seamlessly over the internet.
@@ -329,10 +332,8 @@ One of the features of mobile application is the ability to gather driving data 
 This dongle (in figure \ref[dongle_photo]) is widely available and very cheap (\$10 in December 2015) device that can be used with the mobile application. It was used while testing the functionality in real vehicle (Ford Focus, manufactured in 2008). It can be purchased in global online stores such as Amazon\urlnote{https://amazon.com} or Ebay\urlnote{https://ebay.com} as well as in local online stores. Beside the reading features it allows to diagnose trouble codes and display their meaning. It can clear these codes and turn of the `Check Engine` light. These features are not implemented in current version of the mobile application. However, this device suffers from a big problem - it does not disconnect when engine is not running and therefore it may drain the vehicle's battery.
 
 \midinsert \clabel[dongle_photo]{MINI ELM327 bluetooth OBD2 V1.5 Bluetooth dongle}
-\picw=10cm \cinspic resources/images/elm327.jpg
+\picw=8cm \cinspic resources/images/elm327.jpg
 \caption/f MINI ELM327 bluetooth OBD2 V1.5 Bluetooth dongle
 \endinsert
-
-\seccc OBD PC Emulator
  
 
